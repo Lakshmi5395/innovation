@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="sling:OsgiConfig"
+	adobe.script =""
+	accountSignUpUrl = "https://apiinternal.vocusdr.com/icp/internal/accountsignup"
+	authChiperText = "%17%1A%A7%AF%F2%7B%FEG%83%7B%3D%F8R%ADS%84N%3Ab%F1%A7%C09%9D%89%BD%08Y%EF%9A%85%F5"
+	authPlainText = "82f538fff0b973f4b63966c51f8c2272"
+	proxyHost = ""
+	proxyPort = ""
+	isProxyEnabled = "{Boolean}false"
+	site.code="cision"/>

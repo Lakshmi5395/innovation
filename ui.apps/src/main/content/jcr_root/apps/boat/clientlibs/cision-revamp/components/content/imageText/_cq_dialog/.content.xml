@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Image Text"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="clientlibs-multifieldValidation">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <image
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Image Text"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                        margin="{Boolean}false">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <varientType
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="/libs/granite/ui/components/coral/foundation/form/radiogroup"
+                                        fieldLabel="Select variant type"
+                                        name="./varientType"
+                                        text="Select"
+                                        value="true"
+                                        vertical="{Boolean}true">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <varientDark
+                                                jcr:primaryType="nt:unstructured"
+                                                text="Variant Dark"
+                                                value="varientDark"/>
+                                            <varientLight
+                                                jcr:primaryType="nt:unstructured"
+                                                text="Variant Light"
+                                                value="varientLight"/>
+                                        </items>
+                                    </varientType>
+                                    <imagePosition
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                        fieldDescription="Image Position"
+                                        fieldLabel="Image Position"
+                                        name="./imagePosition">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <imagerightlayout
+                                                jcr:primaryType="nt:unstructured"
+                                                text="Image on Right"
+                                                value="imagerightlayout"/>
+                                            <imageleftlayout
+                                                jcr:primaryType="nt:unstructured"
+                                                text="Image on Left"
+                                                value="imageleftlayout"/>
+                                        </items>
+                                    </imagePosition>
+                                    <image
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                        allowUpload="false"
+                                        class="cq-droptarget"
+                                        fieldLabel="Image"
+                                        fileNameParameter="./fileNameImage"
+                                        fileReferenceParameter="./fileReferenceImage"
+                                        mimeTypes="[image]"
+                                        multiple="{Boolean}false"
+                                        name="./image"
+                                        title="Drop Image Here"
+                                        useHTML5="{Boolean}true"/>
+                                    <imagealt
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Alternate Text"
+                                        name="./imagealttext"/>
+                                    <title
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Title"
+                                        name="./title"/>
+                                    <description
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                        fieldLabel="Description"
+                                        name="./description"
+                                        removeSingleParagraphContainer="{Boolean}true"
+                                        useFixedInlineToolbar="{Boolean}true">
+                                        <rtePlugins
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceSuperType="/apps/cision-revamp/components/common/customrte/cq:dialog/content/items/column/items/text/rtePlugins"/>
+                                        <uiSettings
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceSuperType="/apps/cision-revamp/components/common/customrte/cq:dialog/content/items/column/items/text/uiSettings"/>
+                                    </description>
+                                    <linktitle
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Label"
+                                        name="./linktitle"/>
+                                    <link
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                        fieldLabel="Link"
+                                        name="./link"
+                                        rootPath="/content"/>
+                                    <gridTitle
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Grid column title"
+                                        name="./gridTitle"/>
+                                    <gridText
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Grid column text"
+                                        name="./gridText"/>
+                                </items>
+                            </columns>
+                        </items>
+                    </image>
+                    <multifieldGrid
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Multifield Grid"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <isMultiGridColumn
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                        fieldDescription="If not selected then multifield grid details will not show on page"
+                                        name="./isMultiGridColumn"
+                                        text="Select checkbox if it is multifield grid column"
+                                        type="checkbox"
+                                        value="true"/>
+                                    <multifieldGrid
+                                        granite:class="addNew"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                        aem-nested=""
+                                        class="full-width"
+                                        composite="{Boolean}true"
+                                        fieldDescription="Click 'Add' to add a new field"
+                                        fieldLabel="Multifield Grid details"
+                                        validation="multi-validate">
+                                        <granite:data
+                                            jcr:primaryType="nt:unstructured"
+                                            fieldlimit="4"/>
+                                        <field
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                                            name="./cards">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <column
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <gridTitle
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="Grid column title"
+                                                            name="./multiGridTitle"/>
+                                                        <gridText
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="Grid column text"
+                                                            name="./multiGridText"/>
+                                                    </items>
+                                                </column>
+                                            </items>
+                                        </field>
+                                    </multifieldGrid>
+                                </items>
+                            </columns>
+                        </items>
+                    </multifieldGrid>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

@@ -1,0 +1,45 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder"
+     data-emptytext="Author Bio"></div>
+<sly data-sly-test="${properties.title || properties.fileReferenceImage || properties.authorName || properties.authorRole || properties.description}">
+    <div class="author">
+        <div class="wrapper">
+            <div class="author-box">
+                <header class="header">
+                    <sly data-sly-test="${properties.title}">
+                        <div class="title">
+                            ${properties.title}
+                        </div>
+                    </sly>
+                </header>
+                <div class="main">
+                    <div class="about">
+                        <sly data-sly-test="${properties.fileReferenceImage}">
+                            <div class="author-picture">
+                                <img src="${properties.fileReferenceImage}" alt="${properties.imageAltText}">
+                            </div>
+                        </sly>
+                        <div class="author-info">
+                            <sly data-sly-test="${properties.authorName}">
+                                <div class="author-name">
+                                    ${properties.authorName}
+                                </div>
+                            </sly>
+                            <sly data-sly-test="${properties.authorRole}">
+                                <div class="author-role">
+                                    ${properties.authorRole @ context='html'}
+                                </div>
+                            </sly>
+                        </div>
+                    </div>
+                    <sly data-sly-test="${properties.description}">
+                        <div class="author-description">
+                            <p>
+                                ${properties.description @ context='html'}
+                            </p>
+                        </div>
+                    </sly>
+                </div>
+            </div>
+        </div>
+    </div>
+</sly>

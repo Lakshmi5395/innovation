@@ -1,0 +1,270 @@
+<div class="form-fields">
+  <div class="form-field half-width" style="${properties.firstNameFlag ? 'display:none !important' : '' @context='styleString'}">
+    <label for="firstname">
+      <input type="text" class="field-input" name="firstName" id="firstName"  required="required" />
+      <span class="field-label">${properties.firstName}</span>
+    </label>
+  </div>
+  <div class="form-field half-width" style="${properties.lastNameFlag ? 'display:none !important' : '' @context='styleString'}">
+    <label for="lastname">
+      <input type="text" class="field-input" name="lastName" id="lastName"  required="required" />
+      <span class="field-label">${properties.lastName}</span>
+    </label>
+  </div>
+  <div class="form-field half-width">
+    <label for="emailAddress">
+      <input type="email" class="field-input" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,15}$" name="emailAddress" id="emailAddress"  required="required" />
+      <span class="field-label">${properties.email}</span>
+    </label>
+  </div>
+  <div id="emailcheck" style="display:none">
+    <p style="color:red;">${properties.emailInvalidErrorMessage @i18n }</p>
+  </div>
+  <div class="form-field half-width" style="${properties.businessPhoneFlag ? 'display:none !important' : '' @context='styleString'}">
+    <label for="busPhone">
+      <input class="field-input" type="tel" minlength='7' pattern="^((\+)|([1-9]{1,4}[ \-]*)|(\([0-9]{2,3}\)[ \-]*)|([0-9]{2,4})[ \-]*)*?[0-9]{3,4}?[ \-]*[0-9]{3,4}?$" name="busPhone" id="busPhone" required="required"/>
+    </label>
+  </div>
+  <div class="form-field half-width" data-sly-test="${properties.isCheckBoxForJobTitle}">
+    <label for="jobtitle">
+      <select class="field-input" id="jobtitle" name="jobtitle"    required="required" >
+        <option value="" selected="selected">${properties.jobTitle @i18n }*</option>
+      </select>
+      <span class="field-label">${properties.jobTitle @i18n }</span>
+    </label>
+  </div>
+  <div class="form-field half-width" data-sly-test="${!properties.countryFlag}">
+    <label for="country">
+      <select class="field-input" id="country" name="country"    required="required">
+        <option value="" selected="selected">${properties.country @i18n}*</option>
+      </select>
+      <span class="field-label">${properties.country @i18n}</span>
+    </label>
+  </div>
+  <div class="form-field half-width"  style='${properties.isCheckBoxForProductList ? "display:block !important" : "display:none !important" @context="html"}'>
+    <label for="poi">
+      <input type="hidden" name="poidefaultval" value="${properties.defaultPoiDropdown @ context='html'}" id="poidefaultval">
+      <input type="hidden" name="poidefaultvalOption" value="${properties.isDefaultPoi}" id="poidefaultvalOption">
+      <select class="field-input" id="poi" name="poi"   data-sly-attribute.required="${properties.isCheckBoxForProductList ? 'true' : ''}" >
+        <option value="">${properties.productList @i18n}*</option>
+        <sly data-sly-test="${properties.isDefaultPoi}" data-sly-unwrap>
+          <div data-sly-test="${properties.defaultPoi}">
+            <option value="${properties.defaultPoi}" selected="selected">${properties.defaultPoi @i18n}</option>
+          </div>
+        </sly>
+      </select>
+      <span class="field-label">${properties.productList @i18n}</span>
+    </label>
+  </div>
+  <div class="form-field half-width" data-sly-test="${properties.isCheckBoxForJobRole}">
+    <label for="jobtitle">
+      <select class="field-input" id="jobrole" name="jobrole"    required="required" >
+        <option value="" selected="selected">${properties.jobRole @i18n }*</option>
+      </select>
+      <span class="field-label">${properties.jobRole @i18n }</span>
+    </label>
+  </div>
+  <div class="form-field half-width" style="${properties.companyFlag ? 'display:none !important' : '' @context='styleString'}">
+    <label for="company">
+      <input type="text" class="field-input" name="company" id="company"  required="required"/>
+      <span class="field-label">${properties.company}</span>
+    </label>
+  </div>
+  <div class="form-field half-width" data-sly-test="${properties.isCheckBoxForCompanyRevenue}">
+    <label for="companyRevenue1">
+      <select class="field-input" id="companyRevenue1" name="companyRevenue1"   required="required" >
+        <option value="" selected="selected">${properties.companyRevenue @i18n}*</option>
+      </select>
+      <span class="field-label">${properties.companyRevenue @i18n}</span>
+    </label>
+  </div>
+  <div class="form-field half-width" data-sly-test="${properties.cityFlag}">
+    <label for="city">
+      <input id="city" name="city" class="field-input" type="text"  required="" >
+      <span class="field-label">${properties.city}</span>
+    </label>
+  </div>
+
+  <div class="form-field half-width">
+    <label for="state">
+      <select class="field-input" id="state" name="state"    required="">
+        <option value="" selected="selected">${properties.state @i18n}</option>
+        <option value="Not Applicable">Not Applicable</option>
+      </select>
+      <span class="field-label">${properties.state @i18n}</span>
+    </label>
+  </div>
+  <div class="form-field half-width" data-sly-test="${properties.professorNameFlag}">
+    <label for="professorName">
+      <input id="professorName" name="professorName"  class="field-input" type="text" required="" >
+      <span class="field-label">${properties.professorName}</span>
+    </label>
+  </div>
+  <div class="form-field half-width" data-sly-test="${properties.websiteFlag}">
+    <label for="website">
+      <input id="website" name="website"  class="field-input" type="text" pattern="https?://.+" title="Include http://" required="" >
+      <span class="field-label">${properties.website}</span>
+    </label>
+  </div>
+  <div class="form-field half-width" data-sly-test="${properties.questionnaireFlag}">
+    <label for="partnershipopps">
+      <textarea class="field-input" id="partnershipopps" name="partnershipopps"  required=""></textarea>
+      <span class="field-label">${properties.questionnaire}</span>
+    </label>
+  </div>
+  <div class="form-field half-width" data-sly-test="${properties.isCheckBoxForCompanyType}">
+    <label for="companytype">
+      <select class="field-input" id="companytype" name="companytype"    required>
+        <option value="">${properties.companyType @i18n}*</option>
+      </select>
+      <span class="field-label">${properties.companyType @i18n}</span>
+    </label>
+  </div>
+  <div class="form-field half-width" data-sly-test="${properties.companyDescFlag}">
+    <label for="${properties.companyDescId}">
+      <textarea class="field-input" id="${properties.companyDescId}" name="${properties.companyDescId}"   required=""></textarea>
+      <span class="field-label">${properties.companyDescId}</span>
+    </label>
+  </div>
+
+  <sly data-sly-list.multifieldNodes="${resource.getChildren}">
+    <sly data-sly-test="${multifieldNodes.name =='multiFieldDropdown'}">
+      <sly data-sly-list.dropdown="${multifieldNodes.getChildren}">
+        <sly data-sly-test.half="${dropdown.isCheckBoxHalfWidth}"></sly>
+        <div class="form-field ${half ? 'half-width' :' '}">
+          <label for="${dropdown.dropName}">
+            <select class="field-input" id="${dropdown.dropName}" name="${dropdown.dropName}"  required="">
+              <option value="" selected="selected">${dropdown.dropTitle}</option>
+              <div class="" data-sly-list.multifieldValue="${dropdown.getChildren}">
+                <div data-sly-test="${multifieldValue.name =='multiFieldDropValue'}">
+                  <div data-sly-list.dropdownValue="${multifieldValue.getChildren}">
+                    <option value="${dropdownValue.dropValue}">${dropdownValue.dropdownName}</option>
+                  </div>
+                </div>
+              </div>
+            </select>
+            <span class="field-label">${dropdown.dropTitle}</span>
+          </label>
+        </div>
+      </sly>
+    </sly>
+  </sly>
+  <div class="form-field" data-sly-test="${properties.isCheckBoxForSendARelease}">
+    <div class="field-options">
+      <div class=" field-option">
+        <input type="checkbox" value="1" name="sendARelease1" id="sendARelease1" >
+        <label for="sendARelease1">
+               <span class="field-option-check">
+                  <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7281 1.79504L4.25076 9.27236L0.273438 5.29503L1.3341 4.23437L4.25076 7.15104L10.6674 0.734375L11.7281 1.79504Z" fill="currentColor"></path>
+                  </svg>
+               </span>
+          ${properties.sendARelease} <span class="optional">(optional)</span>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-field" data-sly-test="${properties.isCheckBoxForComment}">
+    <label for="comments">
+      <textarea class="field-input" id="comments" name="comments" rows="4" required ></textarea>
+      <span class="field-label">${properties.comment}</span>
+    </label>
+  </div>
+  <div class="form-field" data-sly-test="${properties.isCheckBoxForFreeDemo}">
+    <div class="field-options">
+      <div class=" field-option">
+        <input type="checkbox" class="custom-control-input" id="contentDemoRequest1" name="contentDemoRequest1">
+        <label for="contentDemoRequest1">
+               <span class="field-option-check">
+                  <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7281 1.79504L4.25076 9.27236L0.273438 5.29503L1.3341 4.23437L4.25076 7.15104L10.6674 0.734375L11.7281 1.79504Z" fill="currentColor"></path>
+                  </svg>
+               </span>
+          ${properties.freeDemo}
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-field type-options-list span-12" data-sly-test="${properties.isCheckBox}">
+    <div class="field-checkboxes-wrapper">
+      <span class="field-label">${properties.checkTitle}</span>
+      <div class="field-options" data-sly-list.multifieldNodes="${resource.getChildren}">
+        <sly data-sly-test="${multifieldNodes.name =='multiFieldItems'}">
+          <div class=" field-option" data-sly-repeat="${multifieldNodes.getChildren}">
+            <input type="checkbox"  id="${item.checkBoxId}" value= "1" name = "${item.checkBoxId}">
+            <label  for="${item.checkBoxId}">
+                           <span class="field-option-check">
+                              <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7281 1.79504L4.25076 9.27236L0.273438 5.29503L1.3341 4.23437L4.25076 7.15104L10.6674 0.734375L11.7281 1.79504Z" fill="currentColor"></path>
+                              </svg>
+                           </span>
+              <span class="field-option-text">${item.checkBoxLabel}</span>
+            </label>
+          </div>
+        </sly>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="form-agreement form-field" data-sly-test="${properties.agreementCheck}">
+  <div class="field-options">
+    <div class="field-option">
+      <input type="checkbox" name="agreement" id="contact-agreement">
+      <label for="contact-agreement">
+            <span class="field-option-check">
+               <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7281 1.79504L4.25076 9.27236L0.273438 5.29503L1.3341 4.23437L4.25076 7.15104L10.6674 0.734375L11.7281 1.79504Z" fill="currentColor"></path>
+               </svg>
+            </span>
+        <span class="field-option-text">${properties.agCheckbox}</span>
+      </label>
+    </div>
+  </div>
+</div>
+<div data-sly-test="${properties.disableGdpr}">
+  <p>${properties.additionalText @ context='html'}</p>
+</div>
+<div data-sly-test="${!properties.disableGdpr}">
+  <sly data-sly-include="gdprText.html" data-sly-unwrap/>
+</div>
+<sly data-sly-include="Recaptchaerror.html" data-sly-unwrap/>
+<footer class="form-footer">
+
+
+  <button type="submit" class="btn variant-1">
+    ${properties.submitCTA @i18n}
+    <svg width="9" height="auto" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M6.99136 1.09085H2.19674V0.5H8.00673V6.31H7.41589V1.50191L1.41779 7.5L1 7.08221L6.99136 1.09085Z" fill="currentColor"></path>
+      <path d="M6.99136 1.09085L7.16814 1.26762L7.59491 0.840847H6.99136V1.09085ZM2.19674 1.09085H1.94674V1.34085H2.19674V1.09085ZM2.19674 0.5V0.25H1.94674V0.5H2.19674ZM8.00673 0.5H8.25673V0.25H8.00673V0.5ZM8.00673 6.31V6.56H8.25673V6.31H8.00673ZM7.41589 6.31H7.16589V6.56H7.41589V6.31ZM7.41589 1.50191H7.66589V0.898353L7.23911 1.32513L7.41589 1.50191ZM1.41779 7.5L1.24102 7.67678L1.41779 7.85355L1.59457 7.67678L1.41779 7.5ZM1 7.08221L0.823223 6.90543L0.646447 7.08221L0.823223 7.25898L1 7.08221ZM6.99136 0.840847H2.19674V1.34085H6.99136V0.840847ZM2.44674 1.09085V0.5H1.94674V1.09085H2.44674ZM2.19674 0.75H8.00673V0.25H2.19674V0.75ZM7.75673 0.5V6.31H8.25673V0.5H7.75673ZM8.00673 6.06H7.41589V6.56H8.00673V6.06ZM7.66589 6.31V1.50191H7.16589V6.31H7.66589ZM7.23911 1.32513L1.24102 7.32322L1.59457 7.67678L7.59266 1.67868L7.23911 1.32513ZM1.59457 7.32322L1.17678 6.90543L0.823223 7.25898L1.24102 7.67678L1.59457 7.32322ZM1.17678 7.25898L7.16814 1.26762L6.81458 0.91407L0.823223 6.90543L1.17678 7.25898Z" fill="currentColor"></path>
+    </svg>
+  </button>
+</footer>
+<script>
+   // Show or hide marketo fields based on `data-zi-input-enriched` property
+   window._ziInputObserver = new MutationObserver(mutationRecords => {
+       mutationRecords.filter(mutation=>((mutation.target.nodeName=='INPUT' || mutation.target.nodeName=='SELECT') &&   mutation.target.dataset.ziInputEnriched=='false')).map(mutation=>mutation.target.parentElement.parentElement.style.display="block");
+   }
+   );
+   window._ziInputObserver.observe($('#eloquaForm')[0], {
+       attributes: true,
+       subtree: true,
+       attributeFilter: ['data-zi-input-enriched']
+   })
+</script>
+
+
+
+
+<sly data-sly-test.select="${properties.eloquaformtype =='popupForm'}" data-sly-unwrap>
+  <div class="form-area">
+    <div class="title" data-sly-test="${properties.eloquaformtitle}">
+      ${properties.eloquaformtitle}
+    </div>
+    <div class="form-wrapper">
+      <form id="eloquaForm" name="${properties.formname}" class="form js-form" method="post">
+        <sly data-sly-include="hiddenfields.html" data-sly-unwrap/>
+        <sly data-sly-include="/apps/cision-revamp/components/content/eloqua/popupForm.html" data-sly-unwrap/>
+      </form>
+    </div>
+  </div>
+</sly>

@@ -1,0 +1,72 @@
+<div class="cq-placeholder" data-emptytext="Meet The Speakers" data-sly-test="${wcmmode.edit || wcmmode.design}"> </div>
+
+<div class="speakers">
+    <sly data-sly-test="${properties.title}">
+        <h2 class="speakers-title">
+            ${properties.title}
+        </h2>
+    </sly>
+    <div class="speakers-slider swiper">
+        <div class="swiper-wrapper">
+            <sly data-sly-list.multifield="${resource.getChildren}">
+                <sly data-sly-test="${multifield.name == 'cards'}">
+                    <sly data-sly-list.cardItem="${multifield.getChildren}">
+                        <div class="card swiper-slide">
+                            <a role="button" class="js-modal-trigger" data-modal-id="speaker-${cardItemList.count}"></a>
+                            <sly data-sly-test="${cardItem.fileReferenceImage}">
+                                <div class="card-image">
+                                    <img src="${cardItem.fileReferenceImage}" alt="${cardItem.imageAlt}">
+                                </div>
+                            </sly>
+                            <sly data-sly-test="${cardItem.personName}">
+                                <div class="card-name">
+                                    ${cardItem.personName}
+                                </div>
+                            </sly>
+                            <sly data-sly-test="${cardItem.description}">
+                                <div class="card-text">
+                                    ${cardItem.description @ context='html'}
+                                </div>
+                            </sly>
+                        </div>
+                    </sly>
+                </sly>
+            </sly>
+        </div>
+    </div>
+</div>
+<div class="speaker-modals">
+    <sly data-sly-list.multifield="${resource.getChildren}">
+        <sly data-sly-test="${multifield.name == 'cards'}">
+            <sly data-sly-list.popUpItem="${multifield.getChildren}">
+                <div class="speaker-modal modal js-modal" data-id="speaker-${popUpItemList.count}">
+                    <div class="modal-backdrop js-close"></div>
+                    <div class="modal-wrapper">
+                        <div class="box">
+                            <button type="button" class="close-button js-close"><svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.92871 2.92902L17.0708 17.0712" stroke="currentColor" stroke-width="1.5"></path>
+                                <path d="M17.0723 2.92896L2.93013 17.0711" stroke="currentColor" stroke-width="1.5"></path></svg></button>
+                            <sly data-sly-test="${popUpItem.fileReferenceImage}">
+                                <div class="image">
+                                    <img src="${popUpItem.fileReferenceImage}" alt="${popUpItem.imageAlt}">
+                                </div>
+                            </sly>
+                            <div class="content">
+                                <sly data-sly-test="${popUpItem.personName}">
+                                    <div class="name">
+                                        ${popUpItem.personName}
+                                    </div>
+                                </sly>
+                                <sly data-sly-test="${popUpItem.popupDescription}">
+                                    <div class="text">
+                                        ${popUpItem.popupDescription @ context='html'}
+                                    </div>
+                                </sly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </sly>
+        </sly>
+    </sly>
+</div>

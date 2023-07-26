@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="sling:OsgiConfig"
+    resource.resolver.searchpath="[/apps,/libs,/apps/foundation/components/primary,/libs/foundation/components/primary]"
+    resource.resolver.manglenamespaces="{Boolean}true"
+    resource.resolver.allowDirect="{Boolean}true"
+    resource.resolver.required.providers="[org.apache.sling.jcr.resource.internal.helper.jcr.JcrResourceProviderFactory]"
+    resource.resolver.virtual="[/:/]"
+	resource.resolver.mapping="[/-/,/content/cision/us/en/&lt;/,/content/cision-us/us/en/&lt;/,/content/cision-ca2/ca/en/&lt;/,/content/cision-ca2/ca/fr/&lt;/fr/,/content/cision-uk2/uk/en/&lt;/,/content/cision-es/es/es/&lt;/,/content/cision-it/it/it/&lt;/,/content/cision-de2/de/de/&lt;/,/content/cision-fr2/fr/fr/&lt;/,/content/cision-no2/no/no/&lt;/,/content/cision-se2/se/sv/&lt;/,/content/cision-pt/pt/pt/&lt;/,/content/cision-fi/fi/fi/&lt;/,/content/cision-nl/nl/nl/&lt;/,/content/cision-nl/nl/en/&lt;/en/,/content/cision-asia/en/en/&lt;/,/content/cision-dk/dk/da/&lt;/]"
+	resource.resolver.map.location="/etc/map"
+    resource.resolver.default.vanity.redirect.status="302"/>

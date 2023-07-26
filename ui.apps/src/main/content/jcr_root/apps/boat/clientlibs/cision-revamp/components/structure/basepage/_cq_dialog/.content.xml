@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Page"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[cq.common.wcm,cq.siteadmin.admin.properties,clientlibs.revampBasePage]">
+    <content
+        granite:class="cq-dialog-content-page"
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                granite:rel="cq-siteadmin-admin-properties-tabs"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs">
+                <items
+                    jcr:primaryType="nt:unstructured"
+                    sling:hideChildren="[cloudservices,personalization,permissions]">
+                    <basic
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Basic"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured"
+                                       sling:hideChildren="[branding,htmlid,moretitles,onofftime,vanityurl]">
+                                    <accessibility
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Accessibility"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <accessibility-link
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Accessibility Link"
+                                                name="./accessibilityLink"/>
+                                            <accessibility-text
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Accessibility Text"
+                                                name="./accessibilityText"/>
+                                        </items>
+                                    </accessibility>
+                                    <skipnavigation
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Skip Navigation"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <skipnavigation-link
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Skip Navigation Link"
+                                                name="./skipnavigationLink"/>
+                                            <skipnavigation-text
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Skip Navigation Text"
+                                                name="./skipnavigationText"/>
+                                        </items>
+                                    </skipnavigation>
+                                </items>
+                            </column>
+                        </items>
+                    </basic>
+                    <advanced
+                        cq:showOnCreate="{Boolean}true"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Advanced"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <section1
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Settings"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <language
+                                                granite:class="language"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                emptyText="Select"
+                                                fieldLabel="Language"
+                                                name="./jcr:language"
+                                                renderReadOnly="{Boolean}true"
+                                                translateOptions="{Boolean}true">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cq-msm-lockable="jcr:language"/>
+                                                <datasource
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/common/datasources/languages"
+                                                    addNone="{Boolean}true"/>
+                                            </language>
+                                            <isLanguageRoot
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                fieldDescription="Must be checked if page is the root of a language copy."
+                                                name="./cq:isLanguageRoot"
+                                                renderReadOnly="{Boolean}true"
+                                                text="Language Root"
+                                                value="true">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cq-msm-lockable="cq:isLanguageRoot"/>
+                                            </isLanguageRoot>
+                                            <redirect
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                fieldLabel="Redirect"
+                                                name="./cq:redirectTarget"
+                                                rootPath="/content">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cq-msm-lockable="cq:redirectPath"/>
+                                            </redirect>
+                                            <designs
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="wcm/designer/gui/components/designfield"
+                                                fieldLabel="Design"
+                                                name="./cq:designPath"
+                                                renderReadOnly="{Boolean}true">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cq-msm-lockable="cq:designPath"/>
+                                            </designs>
+                                            <alias
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Alias"
+                                                name="./sling:alias"
+                                                renderReadOnly="{Boolean}true">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cq-msm-lockable="sling:alias"/>
+                                            </alias>
+                                            <priority
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Page Priority"
+                                                name="./cq:priority"
+                                                optionLoader="cq.exportTemplate"
+                                                value="">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cq-msm-lockable="cq:priority"/>
+                                            </priority>
+                                            <frequency
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Change Frequency"
+                                                name="./cq:frequency"
+                                                optionLoader="cq.exportTemplate"
+                                                value="">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cq-msm-lockable="cq:frequency"/>
+                                            </frequency>
+                                        </items>
+                                    </section1>
+                                    <configuration
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Configuration"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <cqConf
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/cloudconfig/components/admin/configpathbrowser"
+                                                emptyText="Select Configuration Path"
+                                                fieldLabel="Cloud Configuration">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cq-msm-lockable="cq:conf"/>
+                                            </cqConf>
+                                        </items>
+                                    </configuration>
+                                    <templates
+                                        cq:showOnCreate="{Boolean}false"
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Templates Settings"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <allowedtemplates
+                                                granite:class="foundation-layout-util-maximized-alt"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                fieldDescription="Click 'Add Field' to add a template or a list of templates to be allowed as child pages. Each value in the list must be an absolute path to a template or use '/.*' to allow all templates below this path."
+                                                fieldLabel="Allowed Templates"
+                                                renderReadOnly="{Boolean}true">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    name="./cq:allowedTemplates"
+                                                    renderReadOnly="{Boolean}true"/>
+                                            </allowedtemplates>
+                                        </items>
+                                    </templates>
+                                    <authenticationrequirement
+                                        cq:showOnCreate="{Boolean}false"
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Authentication Requirement"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <cugconfigwarning
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/siteadmin/admin/properties/cugconfigwarning"
+                                                warning="The Authentication Requirement cannot be edited because the page is using a deprecated configuration for the Closed User Group.&lt;br>Please refer to the &lt;a href=&quot;https://www.adobe.com/go/aem6_5_docs_cug_migration_en&quot; class=&quot;coral-Link&quot;>documentation&lt;/a>."/>
+                                            <enable
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/siteadmin/admin/properties/authrequirement"
+                                                fieldDescription="You might need to configure a Closed User Group in the Permission tab."
+                                                text="Enable"/>
+                                            <loginpath
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/siteadmin/admin/properties/loginpath"
+                                                fieldLabel="Login Page"
+                                                name="./cq:loginPath"
+                                                rootPath="/content">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cq-msm-lockable="cq:loginPath"/>
+                                            </loginpath>
+                                        </items>
+                                    </authenticationrequirement>
+                                    <export
+                                        cq:showOnCreate="{Boolean}false"
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Export"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <exConfig
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                fieldLabel="Export Configuration"
+                                                name="./cq:exportTemplate"
+                                                optionLoader="cq.exportTemplate"
+                                                renderReadOnly="{Boolean}true"
+                                                rootPath="/etc/contentsync/templates">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cq-msm-lockable="cq:exportTemplate"/>
+                                            </exConfig>
+                                        </items>
+                                    </export>
+                                </items>
+                            </column>
+                        </items>
+                    </advanced>
+                    <cision
+                        cq:showOnCreate="{Boolean}true"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Cision Configuration"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <config
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <enabletriblio
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                name="./enabletriblio"
+                                                text="Check to Enable Triblio Hero Area Configuration"
+                                                value="true"/>
+                                            <stickyFooterVisibility
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                name="./enablestickyFooter"
+                                                text="Check to enable sticky footer"
+                                                value="true"/>
+                                            <domain
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                description="Used for website root only."
+                                                fieldLabel="Enter Domain"
+                                                name="./meta/sitemap/domain"/>
+                                            <showSocialSharing
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                description="Enable to show social sharing on page"
+                                                name="./showSocialSharing"
+                                                text="show social sharing on page"
+                                                value="true"/>
+                                            <hidePage
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                description="Check to hide page in Navigation/Listing"
+                                                name="./hidePage"
+                                                text="Check to hide page in Navigation/Listing"
+                                                value="{Boolean}true"/>
+                                            <hidePageDelete
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
+                                                name="./hidePage@Delete"
+                                                text="Check to hide page in Navigation/Listing"
+                                                value="{Boolean}true"/>
+                                            <hidePageType
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
+                                                name="./hidePage@TypeHint"
+                                                text="Check to hide page in Navigation/Listing"
+                                                value="Boolean"/>
+                                            <configref
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                deleteHint="{Boolean}false"
+                                                emptyOption="{Boolean}true"
+                                                emptyText="Select Site Config Path"
+                                                fieldDescription="Site Config - Select Only for Parent Page"
+                                                fieldLabel="Site Config Path (Select Only for Parent Page)"
+                                                name="./sling:configRef"
+                                                ordered="{Boolean}true"
+                                                required="{Boolean}false">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <us_en_config
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="US-EN Config"
+                                                        value="/conf/cision-revamp/siteconfig/us/en"/>
+                                                </items>
+                                            </configref>
+                                            <webinarsPubDate
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+                                                displayedFormat="DD-MM-YYYY"
+                                                fieldLabel="Webinars Events Publication Date"
+                                                name="./webinarsPubDate"
+                                                renderReadOnly="{Boolean}true"
+                                                type="datetime"/>
+                                            <languageNav
+                                                cq:showOnCreate="{Boolean}false"
+                                                jcr:primaryType="nt:unstructured"
+                                                jcr:title="Language Navigation"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <langurls
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                        composite="{Boolean}true"
+                                                        cq-msm-lockable="otherLangPaths"
+                                                        fieldLabel="Other Language Urls"
+                                                        renderReadOnly="{Boolean}true">
+                                                        <field
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                                                            name="./otherLangPaths">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <langSelect
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                                    emptyOption="{Boolean}true"
+                                                                    emptyText="Select Language"
+                                                                    fieldDescription="Select Language"
+                                                                    fieldLabel="Select Language"
+                                                                    name="./langSelect"
+                                                                    ordered="{Boolean}true"
+                                                                    required="{Boolean}false">
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <en
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="English"
+                                                                            value="en"/>
+                                                                        <fr
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="French"
+                                                                            value="fr"/>
+                                                                        <de
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="German"
+                                                                            value="de"/>
+                                                                        <sv
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="Swedish"
+                                                                            value="sv"/>
+                                                                        <nl
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="Dutch"
+                                                                            value="nl"/>
+                                                                    </items>
+                                                                </langSelect>
+                                                                <langPagePath
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                                                    fieldDescription="Ex: /content/cision-ca2/ca/fr"
+                                                                    fieldLabel="Language Page Path"
+                                                                    name="./langPagePath"
+                                                                    rootPath="/content"/>
+                                                                <isOpenInNewWindowLang
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                                    name="./isOpenInNewWindowLang"
+                                                                    text="Open in New Window"
+                                                                    value="{Boolean}true"/>
+                                                            </items>
+                                                        </field>
+                                                    </langurls>
+                                                </items>
+                                            </languageNav>
+                                            <dateFormat
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                description="Enter Date Format "
+                                                fieldLabel="Enter Date Format "
+                                                name="./dateFormat"/>
+                                        </items>
+                                    </config>
+                                </items>
+                            </column>
+                        </items>
+                    </cision>
+                    <seoProperties
+                        cq:showOnCreate="{Boolean}true"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="SEO Properties"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <seotitle
+                                        cq:showOnCreate="{Boolean}true"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Title check"
+                                        name="./seotitle"
+                                        renderReadOnly="{Boolean}true"/>
+                                    <seodescription
+                                        cq:showOnCreate="{Boolean}true"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Description"
+                                        name="./seodescription"
+                                        renderReadOnly="{Boolean}true"/>
+                                    <canonical
+                                        cq:showOnCreate="{Boolean}true"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Canonical"
+                                        name="./canonical"
+                                        renderReadOnly="{Boolean}true"/>
+                                    <robots
+                                        cq:showOnCreate="{Boolean}true"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Robots"
+                                        name="./robots"
+                                        renderReadOnly="{Boolean}true"/>
+                                    <keyword
+                                        cq:showOnCreate="{Boolean}true"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Keyword"
+                                        name="./keyword"
+                                        renderReadOnly="{Boolean}true"/>
+                                    <next
+                                        cq:showOnCreate="{Boolean}true"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Next"
+                                        name="./next"
+                                        renderReadOnly="{Boolean}true"/>
+                                    <referrer
+                                        cq:showOnCreate="{Boolean}true"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Referrer"
+                                        name="./referrer"
+                                        renderReadOnly="{Boolean}true"/>
+                                    <authorableMetaTags
+                                        cq:showOnCreate="{Boolean}true"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                        fieldLabel="Additional Authorable Meta tags"
+                                        name="./authorableMetaTags"
+                                        renderReadOnly="{Boolean}true"/>
+                                    <onetrustScript
+                                        cq:showOnCreate="{Boolean}true"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                        fieldDescription="Enter Script for Onetrust"
+                                        fieldLabel="Onetrust Script"
+                                        name="./onetrustScript"
+                                        renderReadOnly="{Boolean}true"/>
+                                </items>
+                            </column>
+                        </items>
+                    </seoProperties>
+                    <favicon
+                        cq:showOnCreate="{Boolean}true"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Favicon"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <favicon
+                                        cq:showOnCreate="{Boolean}true"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                        fieldLabel="Favicon Image Path"
+                                        name="./fevicon"
+                                        rootPath="/content"
+                                        useHTML5="{Boolean}true"/>
+                                </items>
+                            </column>
+                        </items>
+                    </favicon>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

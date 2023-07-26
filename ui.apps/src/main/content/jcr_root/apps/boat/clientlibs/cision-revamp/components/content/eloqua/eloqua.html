@@ -1,0 +1,47 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder" data-emptytext="Configure Eloqua in EDIT Mode"></div>
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+    <sly data-sly-call="${clientlib.all @ categories='cision-revamp-eloqua'}" />
+</sly>
+<script src='https://www.google.com/recaptcha/api.js?render=6LcND_QUAAAAAP1F-ViHZtRv64_xwiGtTa9A4q8f' async defer></script>
+<sly data-sly-use.eloquaProp="${'com.cision.revamp.core.models.EloquaServiceModel'}" data-sly-unwrap></sly>
+
+<sly data-sly-test.flagCheck="${properties.countryFlags}">
+    <div style="display:none" id="dropdownFlag">${properties.countryFlags}</div>
+</sly>
+<sly data-sly-use.flagsProp="${'com.cision.revamp.core.models.CountryFlagModel'}" data-sly-unwrap></sly>
+<sly data-sly-test="${!flagCheck}">
+    <div style="display:none" id="configFlag">${flagsProp.flagsList}</div>
+</sly>
+<sly data-sly-test.select="${properties.eloquaformtype =='otherform'}" data-sly-unwrap>
+    <div class="form-area">
+
+        <div class="title" data-sly-test="${properties.eloquaformtitle}">
+            ${properties.eloquaformtitle}
+        </div>
+        <div class="form-wrapper">
+            <form id="eloquaForm" name="${properties.formname}" class="form js-form" method="post">
+                <p data-sly-test="${properties.formClearText}">
+                    <a class="reset-link univform_clearbtn" href="#" >${properties.formClearText @i18n}</a>
+                </p>
+                <sly data-sly-include="hiddenfields.html" data-sly-unwrap/>
+                <sly data-sly-include="/apps/cision-revamp/components/content/eloqua/generalForm.html" />
+            </form>
+        </div>
+    </div>
+</sly>
+<sly data-sly-test.select="${properties.eloquaformtype =='resourcePageForm'}" data-sly-unwrap>
+    <div class="form-wrapper">
+        <div class="form-title" data-sly-test="${properties.eloquaformtitle}">
+            ${properties.eloquaformtitle}
+        </div>
+        <form id="eloquaForm" name="${properties.formname}" class="form" method="post">
+            <sly data-sly-include="hiddenfields.html" data-sly-unwrap/>
+            <sly data-sly-include="/apps/cision-revamp/components/content/eloqua/resourcePageForm.html" data-sly-unwrap/>
+        </form>
+    </div>
+</sly>
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>

@@ -1,0 +1,10 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder" data-emptytext="Configure Rich text in EDIT Mode"></div>
+ <sly data-sly-test="${properties.text}">
+       <div class="${properties.isVariation1 ? 'rich-text' : 'padding-wrapper'}">
+          ${properties.text @context='html'}
+       </div>
+ </sly>
+<sly data-sly-test=${properties.regulartext} data-sly-unwrap>
+	${properties.regulartext @context='styleComment'}
+</sly>
+

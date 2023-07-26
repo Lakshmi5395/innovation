@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="sling:OsgiConfig"
+    getCareerAPIDomain="https://jobpostingapi.cision.com"
+	getEndpointURLs="[Postings::/v1/jobs/postings
+	,PostngById::/v1/jobs/posting?id={0}
+	,CategoriesList::/v1/Jobs/CategoriesList?Facets=country
+	,PostingsByTeam::/v1/jobs/postings?Team={0}
+	,login::/v1/Jobs/login]"
+	getUsername = "Test"
+	getPassword = "Check"
+	site.code="cision"
+   />

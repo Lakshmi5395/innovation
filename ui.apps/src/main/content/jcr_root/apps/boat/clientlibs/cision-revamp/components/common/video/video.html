@@ -1,0 +1,17 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder" data-emptytext="Configure Video in EDIT Mode"></div>
+<div class="video--component custom-js">
+<div class="video-player js-video-player">
+        <sly data-sly-test="${properties.vidtype == 'vidyoutube' && properties.iframeScript}">
+            ${properties.iframeScript @context='unsafe'}
+        </sly>
+ <sly data-sly-test="${properties.vidtype == 'vidyard' && properties.uuid}" data-sly-unwrap>
+    <iframe class='vidyard_iframe'  src='//play.vidyard.com/${properties.uuid}.html?' width='100%'  scrolling='no' frameborder='0' allowtransparency='true' allowfullscreen></iframe>
+</sly>
+
+<sly data-sly-test="${properties.vidtype == 'vidthumb' && properties.link}" data-sly-unwrap>
+             <video width="100%"  height="100%" controls="" preload="auto">
+                    <source src="${properties.link}" type="video/mp4"/>
+             </video>
+</sly>
+ </div>
+</div>

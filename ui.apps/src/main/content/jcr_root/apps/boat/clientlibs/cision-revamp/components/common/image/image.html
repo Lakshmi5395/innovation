@@ -1,0 +1,7 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder" data-emptytext="Browse Image"></div>
+<div class="image--component" data-sly-test="${properties.fileReferenceImage}">
+	<img src="${properties.fileReferenceImage}" title="${properties.imagetitle}" alt="${properties.imagealttext || true}" >
+</div>
+<div class="image--component" data-sly-test="${!properties.fileReferenceImage && properties.disableDefaultImage != 'true'}">
+	<img src="/content/dam/cision-revamp/cision-optimized/global-assets/logo-cision-dark-lg.jpg" title="${properties.imagetitle ? 'properties.imagetitle' : 'Cision'}" alt="${properties.imagealttext || true}" >
+</div>

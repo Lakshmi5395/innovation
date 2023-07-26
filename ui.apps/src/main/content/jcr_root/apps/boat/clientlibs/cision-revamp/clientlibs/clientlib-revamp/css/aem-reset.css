@@ -1,0 +1,108 @@
+.imageText{
+	position:relative;
+    z-index:1;
+}
+
+body .xf-content-height {
+    min-height: inherit;
+    margin: 0;
+}
+
+.d-none {
+    display: none;
+}
+
+.disclaimer {
+    font-family: proxima-nova, sans-serif;
+    font-weight: 400;
+    font-size: min( 0.875rem + 0.125 * ((100vw - 20rem) / 100) , 1rem);
+    line-height: normal;
+}
+
+.iti {
+    display: block !important;
+}
+
+.iti .iti__flag-container {
+    bottom:0;
+     z-index:3;
+}
+.iti .iti__selected-flag{
+   padding: 7px 6px 0 8px;
+}
+
+
+.iti input.field-input {
+
+    padding-left: 55px !important;
+    opacity:1!important;
+    box-shadow: 0 1px 0 0 rgba(3, 31, 65, 0.3)!important;
+}
+
+.iti input.field-input::placeholder {
+    color: rgba(3, 31, 65, 0.7) !important;
+
+}
+
+.iti input.field-input::-webkit-input-placeholder {
+    color: rgba(3, 31, 65, 0.7) !important;
+}
+
+.iti input.field-input::-ms-input-placeholder {
+    color: rgba(3, 31, 65, 0.7) !important;
+
+}
+
+.iti input.field-input::-ms-input-placeholder {
+    color: rgba(3, 31, 65, 0.7)!important;
+
+}
+
+.iti input.field-input::-moz-placeholder {
+    color: rgba(3, 31, 65, 0.7) !important;
+
+}
+
+.text__white{
+ color: white;
+}
+
+.padding-wrapper ul{
+    list-style-type: disc;
+    padding-left: min( 1rem + 0.375 * ((100vw - 20rem) / 100) , 1.375rem);
+}
+.padding-wrapper ol{
+  list-style-type: auto;
+  padding-left: min( 1rem + 0.375 * ((100vw - 20rem) / 100) , 1.375rem);
+}
+.padding-wrapper ul li, .padding-wrapper ol li{
+    font-family: proxima-nova, sans-serif;
+    font-weight: 200;
+    font-size: min( 0.875rem + 0.125 * ((100vw - 20rem) / 100) , 1rem);
+    line-height: 1.8;
+}
+.padding-wrapper ul li:not(:last-child), .padding-wrapper ol li:not(:last-child) {
+    margin-bottom: 8px;
+}
+.custom-dropdown-toggle{
+    position: relative;
+}
+.custom-dropdown-toggle:after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: white;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transition: background-color 250ms;
+}
+.custom-dropdown-wrapper{
+  display:none;
+}
+.custom-dropdown-wrapper .custom-dropdown-content
+    {border: 1px solid rgba(221, 221, 221, 0.867);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    padding: 10px 0;
+}

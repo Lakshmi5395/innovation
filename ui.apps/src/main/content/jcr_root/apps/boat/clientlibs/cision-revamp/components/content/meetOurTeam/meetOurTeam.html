@@ -1,0 +1,27 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder"
+     data-emptytext="Meet Our Team Component"></div>
+<section class="section--team-grid">
+    <sly data-sly-test="${properties.title}"><h2 class="section-title">${properties.title @context='styleComment'}</strong></h2></sly>
+    <div class="wrapper">
+        <div class="grid">
+            <sly data-sly-list.multifield="${resource.getChildren}">
+                <sly data-sly-test="${multifield.name == 'cards'}">
+                    <sly data-sly-list.cardItem="${multifield.getChildren}">
+                        <div class="card">
+                            <sly data-sly-test="${cardItem.fileReferenceImage}">
+                                <div class="card-image">
+                                    <img src="${cardItem.fileReferenceImage}" alt="${cardItem.imageAlt}" />
+                                </div>
+                            </sly>
+                            <sly data-sly-test="${cardItem.memberName}"><div class="card-name">${cardItem.memberName @context='styleComment'}</div></sly>
+                            <sly data-sly-test="${cardItem.role}"><div class="card-role">${cardItem.role}</div></sly>
+                        </div>
+                    </sly>
+                </sly>
+            </sly>
+        </div>
+    </div>
+    <sly data-sly-test="${properties.fileReferenceImageBg}"><div class="decoration">
+        <img src="${properties.fileReferenceImageBg}" alt="${properties.bgImageAlt}"/>
+    </div></sly>
+</section>

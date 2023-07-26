@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="sling:OsgiConfig"
+            rest.service.urls.string.array="[featuredContentServiceUrl::/bin/cision-revamp/featuredcontent\
+            ,recentBlogServiceUrl::/bin/cision-revamp/blogQueryService?key=recentpost&amp;noOfRecords=\
+            ,authorBlogServiceUrl::/bin/cision-revamp/blogQueryService?key=blogbyauthor&amp;authorname=\
+            ,categoryBlogServiceUrl::/bin/cision-revamp/blogQueryService?key=blogbycategory&amp;categoryname=\
+            ,tagBlogServiceUrl::/bin/cision-revamp/blogQueryService?key=blogbytag&amp;tagname=\
+            ,blogSearchServiceUrl::/bin/cision-revamp/fulltextSearchService?type=blog&amp;s=\
+            ,globalSearchServiceUrl::/bin/cision-revamp/fulltextSearchService?s=\
+            ,blogCategoryServiceURL::/bin/cision-revamp/blogListing?key=blogbycategory&amp;categoryname=\
+            ,blogAuthorServiceURL::/bin/cision-revamp/blogListing?key=blogbyauthor&amp;authorname=\
+            ,blogTagServiceURL::/bin/cision-revamp/blogListing?key=blogbytag&amp;tagname=\
+            ,allBlogServiceUrl::/bin/cision-revamp/blogQueryService?key=blogbyAllCategories\
+            ,allResourceServiceUrl::/bin/cision-revamp/resourcelisting?key=allResource\
+            ,featuredResourceServiceUrl::/bin/cision-revamp/resourcelisting?key=featuredResource\
+            ,categoryResourceServiceUrl::/bin/cision-revamp/resourcelisting?key=resourcebyCategory]" />
+

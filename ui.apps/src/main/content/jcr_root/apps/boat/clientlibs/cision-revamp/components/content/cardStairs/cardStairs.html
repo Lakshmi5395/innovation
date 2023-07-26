@@ -1,0 +1,37 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder" data-emptytext="Card Stairs component"></div>
+<section class="section--card-stairs">
+    <div class="wrapper">
+    	<sly data-sly-test="${properties.title}">
+            <header class="section-header">
+                <h2 class="title">${properties.title @context='styleComment'}</h2>
+            </header>
+    	</sly>
+        <div class="grid">
+            <sly data-sly-list.multifield="${resource.getChildren}">
+                <sly data-sly-test="${multifield.name == 'cards'}">
+                    <sly data-sly-list.cardItem="${multifield.getChildren}">
+                        <div class="card">
+                            <div class="card-image" data-sly-test="${cardItem.fileReferenceImage}">
+                                <span class="icon">
+                                    <svg width="30" height="28" viewBox="0 0 30 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15 0L18.3677 10.3647H29.2658L20.4491 16.7705L23.8168 27.1353L15 20.7295L6.18322 27.1353L9.55093 16.7705L0.734152 10.3647H11.6323L15 0Z"
+                                              fill="currentColor"/>
+                                    </svg>
+    							</span>
+                                <img src="${cardItem.fileReferenceImage}" alt="${cardItem.imageAlt}"/>
+                            </div>
+                            <div class="card-details">
+                                <sly data-sly-test="${cardItem.cardTitle}"><h3 class="title">${cardItem.cardTitle}</h3></sly>
+    							<sly data-sly-test="${cardItem.description}">
+                                    <div class="text-medium">
+                                        ${cardItem.description @ context='html'}
+                                    </div>
+                                </sly>
+                            </div>
+                        </div>
+                    </sly>
+                </sly>
+            </sly>
+        </div>
+    </div>
+</section>

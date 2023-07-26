@@ -1,0 +1,54 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder"
+     data-emptytext="Text Grid Image component"></div>
+<section class="section--text-grid-image">
+    <sly data-sly-test="${properties.header}">
+        <header class="header">
+            <div class="wrapper">
+                <h2 class="section-title">${properties.header @context='html'}</h2>
+            </div>
+        </header>
+    </sly>
+    <div class="main-area">
+        <sly data-sly-test="${properties.fileReferenceImageBg}">
+            <div class="decoration">
+                <img src="${properties.fileReferenceImageBg}" alt="${properties.bgImageAlt}"/>
+            </div>
+        </sly>
+        <div class="wrapper">
+            <sly data-sly-test="${properties.fileReferenceImage}">
+                <div class="image">
+                    <img src="${properties.fileReferenceImage}" alt="${properties.imageAlt}" />
+                </div>
+            </sly>
+            <div class="grid">
+                <div class="grid-row">
+                    <sly data-sly-list.multifield="${resource.getChildren}">
+                        <sly data-sly-test="${multifield.name == 'cards'}">
+                            <sly data-sly-list.cardItem="${multifield.getChildren}">
+                                    <div class="grid-col">
+                                        <sly data-sly-test="${cardItem.cardTitle}"><h3 class="grid-col-title">${cardItem.cardTitle}</h3></sly>
+										<sly data-sly-test="${cardItem.description}">
+                                            <div class="grid-col-text">
+                                                ${cardItem.description @ context='html'}
+                                            </div>
+                                        </sly>
+                                    </div>
+                                </sly>
+                            </sly>
+                        </sly>
+                    </sly>
+                </div>
+                <div class="grid-row">
+                        <div class="grid-col">
+                             <sly data-sly-test="${properties.gridTitle}"><h3 class="grid-col-title">${properties.gridTitle}</h3></sly>
+                              <sly data-sly-test="${properties.gridDescription}">
+                                <div class="grid-col-text">
+                                    ${properties.gridDescription @ context='html'}
+                                </div>
+                              </sly>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,19 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder" data-emptytext="Edit Text Image 4 variant component"></div>
+ <section class="section--text-image-4 ${properties.varientType == 'image-left' ? 'image-left' : 'image-right'}">
+                <div class="wrapper">
+                    <div class="image" data-sly-test="${properties.fileReferenceImage}">
+                    <img src="${properties.fileReferenceImage}" alt="${properties.imagealttext}" />        
+                    </div>
+                    <div class="content">
+                        <div class="padding-wrapper">
+                            <div class="overline" data-sly-test="${properties.overlineText}">${properties.overlineText}</div>
+                        </div>
+                        <h2 class="title" data-sly-test="${properties.titleText}">${properties.titleText}</h2>
+                        <div class="padding-wrapper">
+                            <div class="text-medium" data-sly-test="${properties.description}">
+                            <p>${properties.description @ context = 'html'}</p>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </section>

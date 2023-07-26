@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Video"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/tabs">
+        <items jcr:primaryType="nt:unstructured">
+            <videotype
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Select Video Preferences"
+                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                <items jcr:primaryType="nt:unstructured">
+                    <columns
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <videotype
+                                granite:class="cq-dialog-dropdown-showhide"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldDescription="Select Video Type"
+                                fieldLabel="Select Video Type"
+                                name="./vidtype">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <vidthumb
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Basic Video"
+                                        value="vidthumb"/>
+                                    <vidyard
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Video with an ID"
+                                        value="vidyard"/>
+                                    <vidyoutube
+                                        jcr:primaryType="nt:unstructured"
+                                        text="YouTube video"
+                                        value="vidyoutube"/>
+                                </items>
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    cq-dialog-dropdown-showhide-target=".showhidetargets"/>
+                            </videotype>
+                            <targetone
+                                granite:class="showhidetargets"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <videolink
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                        fieldLabel="Enter video link"
+                                        name="./link"/>
+                                </items>
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    showhidetargetvalue="vidthumb"/>
+                            </targetone>
+                            <targettwo
+                                granite:class="showhidetargets"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <uuid
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Add Unique Video Id"
+                                        name="./uuid"/>
+                                </items>
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    showhidetargetvalue="vidyard"/>
+                            </targettwo>
+                            <targetthree
+                                granite:class="showhidetargets"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <iframeScript
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                        fieldDescription="Enter Iframe script"
+                                        fieldLabel="Enter Script"
+                                        name="./iframeScript"/>
+                                </items>
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    showhidetargetvalue="vidyoutube"/>
+                            </targetthree>
+                        </items>
+                    </columns>
+                </items>
+            </videotype>
+        </items>
+    </content>
+</jcr:root>

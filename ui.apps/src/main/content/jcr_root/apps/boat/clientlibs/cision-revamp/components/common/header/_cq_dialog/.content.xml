@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Header"
+    extraClientlibs="[clientlib.header]"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <leftNav
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Left Navigation"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <multi
+                                granite:class="cq-dialog-checkbox-showhide"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                aem-nested=""
+                                class="full-width"
+                                composite="{Boolean}true"
+                                fieldLabel="List of Links"
+                                fieldName="List of Links">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                                    name="./navigation">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <pagetitle
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Page Title"
+                                                    name="./pagetitle"/>
+                                                <pagelink
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                                    fieldLabel="Page Link"
+                                                    name="./pagelink"
+                                                    rootPath="/content"/>
+                                                <ischildpage
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                    fieldDescription="Enable this checkbox if it is a List of Sub Navigation Links"
+                                                    name="./ischildpage"
+                                                    text="Select if it has sub navigation"
+                                                    value="true"/>
+                                                <isonlylink
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                    fieldDescription="Enable this checkbox if it is only Link"
+                                                    name="./isonlylink"
+                                                    text="Select if it is only link"
+                                                    value="true"/>
+                                                <ishide
+                                                        granite:class="navCheckbox"
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                        fieldDescription="If checked this will display the below field items - Dropdown Navigation Items "
+                                                        name="./ishide"
+                                                        text="Select if the navigation is of dropdown type"
+                                                        value="true">
+                                                </ishide>
+                                                <targetContainer
+                                                        granite:class="targetedMulti"
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                    <dropdowntitle
+                                                            granite:class="headernav2"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            fieldDescription="Add only when dropdown is not megamenu type and is normal/simple dropdown."
+                                                            fieldLabel="Dropdown Navigation Items"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                            composite="{Boolean}true"
+                                                            prefix="./">
+                                                        <field
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                                                                name="./dropdetails">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <column
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <droptitle
+                                                                                jcr:primaryType="nt:unstructured"
+                                                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                                fieldLabel="Enter Title"
+                                                                                name="./dropTitle"/>
+                                                                        <droplink
+                                                                                jcr:primaryType="nt:unstructured"
+                                                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                                                                fieldLabel="Page Link"
+                                                                                name="./dropLink"
+                                                                                rootPath="/content"/>
+                                                                    </items>
+                                                                </column>
+                                                            </items>
+                                                        </field>
+                                                    </dropdowntitle>
+                                                    </items>
+                                                </targetContainer>
+
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                            </multi>
+                        </items>
+                    </leftNav>
+                    <rightNav
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Right Navigation "
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <multi
+                                granite:class="full-width"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                aem-nested=""
+                                composite="{Boolean}true"
+                                fieldLabel="List of Links"
+                                fieldName="List of Links"
+                                name="./rightnavigation"
+                                prefix="./">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                                    name="./rightnavigation">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <title
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Enter Title"
+                                                    name="./title"/>
+                                                <hyperlink
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                                    fieldLabel="Enter path"
+                                                    name="./link"
+                                                    roothpath="/content"/>
+                                                <isOpenInNewTab
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                    name="./isOpenInNewTab"
+                                                    text="Open in New Window"
+                                                    value="{Boolean}true"/>
+                                                <isabutton
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                    fieldDescription="Enable this checkbox if it is a button"
+                                                    name="./isabutton"
+                                                    text="Select if it is a button"
+                                                    type="checkbox"
+                                                    value="true"/>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                            </multi>
+                            <enableGlobalNav
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                name="./enableGlobalNav"
+                                text="Enable Global Navigation"
+                                value="{Boolean}true"/>
+                        </items>
+                    </rightNav>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

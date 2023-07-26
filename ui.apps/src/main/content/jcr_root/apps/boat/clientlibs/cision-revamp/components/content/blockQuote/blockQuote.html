@@ -1,0 +1,85 @@
+<div class="cq-placeholder" data-emptytext="Blockquote Component" data-sly-test="${wcmmode.edit || wcmmode.design}"></div>
+
+<div data-sly-test="${properties.variantType == 'withAuthorData'}" >
+    <sly data-sly-use.testModel="com.cision.revamp.core.models.BlockquoteModel">
+       <div data-sly-test="${testModel.cardSize}">
+        <section class="section--testimonials-slider">
+            <div class="wrapper">
+                <div class="slider-wrapper">
+
+                    <div class="slider-controls js-slider-controls">
+                        <div class="arrows">
+                            <button type="button" class="arrow left js-arrow-prev"></button> <button type="button" class="arrow right js-arrow-next"></button>
+                        </div>
+                        <div class="indicator">
+                            <span class="current js-indicator-current">01</span> <span>/</span><span>${testModel.cardSize}</span>
+                        </div>
+                    </div><!-- Controls -->
+
+                    <div class="slider swiper js-slider">
+                        <div class="swiper-wrapper">
+                            <sly data-sly-test="${testModel.cards}" data-sly-list.cardItem="${testModel.cards}">
+                                <div class="swiper-slide">
+                                    <div class="card-wrapper">
+                                        <sly data-sly-test="${cardItem.fileReferenceImageBg}">
+                                            <div class="background">
+                                                <img src="${cardItem.fileReferenceImageBg}" alt="${cardItem.bgImageAltText}">
+                                            </div>
+                                        </sly>
+
+                                        <div class="card-info">
+                                            <sly data-sly-test="${cardItem.fileReferenceImage}">
+                                                <div class="image">
+                                                    <img src="${cardItem.fileReferenceImage}" alt="${cardItem.imagetAltText}">
+                                                </div>
+                                            </sly>
+                                            <sly data-sly-test="${cardItem.authorName}">
+                                                <div class="name">
+                                                    ${cardItem.authorName}
+                                                </div>
+                                            </sly>
+                                            <sly data-sly-test="${cardItem.designation}">
+                                                <div class="role">
+                                                    ${cardItem.designation  @ context='html'}
+                                                </div>
+                                            </sly>
+
+                                        </div>
+                                        <sly data-sly-test="${cardItem.quote}">
+                                            <div class="card-quote">
+                                                ${cardItem.quote  @ context='html'}
+                                            </div>
+                                        </sly>
+
+                                    </div>
+                                </div>
+                            </sly>
+                        </div>
+                    </div>
+
+                        <div class="decoration">
+                            <svg width="41" height="35" viewbox="0 0 41 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.6812 34.9889H0V21.8525C0 15.5022 1.49419 10.5631 4.48257 7.03514C7.51245 3.46569 11.829 1.12064 17.4322 0V6.47482C13.1572 7.71998 10.3141 10.0443 8.90288 13.4477C8.11428 15.2739 7.80299 16.9964 7.96901 18.6151H17.6812V34.9889Z" fill="#063369"></path>
+                                <path d="M40.8101 34.9889H23.1289V21.8525C23.1289 15.5022 24.6231 10.5631 27.6115 7.03514C30.6414 3.46569 34.9579 1.12064 40.5611 0V6.47482C36.2861 7.71998 33.443 10.0443 32.0318 13.4477C31.2432 15.2739 30.9319 16.9964 31.0979 18.6151H40.8101V34.9889Z" fill="#063369"></path></svg>
+                        </div>
+                </div>
+
+            </div>
+        </section>
+		</div>
+    </sly>
+</div>
+
+
+<sly data-sly-test="${properties.description}">
+    <blockquote>
+            <span class="decoration"><svg width="41" height="35" viewBox="0 0 41 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.6812 34.9889H0V21.8525C0 15.5022 1.49419 10.5631 4.48257 7.03514C7.51245 3.46569 11.829 1.12064 17.4322 0V6.47482C13.1572 7.71998 10.3141 10.0443 8.90288 13.4477C8.11428 15.2739 7.80299 16.9964 7.96901 18.6151H17.6812V34.9889Z" fill="#063369"></path>
+                <path d="M40.8101 34.9889H23.1289V21.8525C23.1289 15.5022 24.6231 10.5631 27.6115 7.03514C30.6414 3.46569 34.9579 1.12064 40.5611 0V6.47482C36.2861 7.71998 33.443 10.0443 32.0318 13.4477C31.2432 15.2739 30.9319 16.9964 31.0979 18.6151H40.8101V34.9889Z" fill="#063369">
+                </path></svg>
+            </span>
+        <sly data-sly-test="${properties.description}">
+            ${properties.description}
+        </sly>
+    </blockquote>
+</sly>

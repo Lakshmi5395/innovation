@@ -1,0 +1,13 @@
+<sly data-sly-use.linkHelper="${'com.cision.revamp.core.helper.LinkCheckerHelper' @ link=properties.link}">
+        <a href="${linkHelper.vanityPath}" class="navbar-brand" target="${properties.newtab ? '_blank' : '_self'}">
+          <amp-img class="" src="${properties.fileReference}" alt="${properties.altText || true}" title="${properties.altText}" layout="responsive" width="75.22105263157894" height="54">
+          	<div placeholder="">
+                <div class="mobirise-spinner">
+                    <em></em>
+                    <em></em>
+                    <em></em>
+                </div>
+                </div>
+			</amp-img>
+        </a>
+</sly>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Column Selector Configuration"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/tabs">
+        <items jcr:primaryType="nt:unstructured">
+            <homecolumndetail
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Column Selector"
+                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                <items jcr:primaryType="nt:unstructured">
+                    <columns
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <sections
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldDescription="Select the number of columns"
+                                fieldLabel="Select Columns"
+                                name="./sectionhome"
+                                value="1">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <four
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Full Width (100%) "
+                                        value="fullparsys"/>
+                                    <two
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Two Columns (60% - 40%)"
+                                        value="6040parsys"/>
+                                    <fourtySixty
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Two Columns (40% - 60%)"
+                                        value="4060parsys"/>
+                                    <six
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Two Columns (50% - 50%)"
+                                        value="halfparsys"/>
+                                    <three
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Two Columns (70% - 30%)"
+                                        value="7030parsys"/>
+                                    <five
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Two Columns (30% - 70%)"
+                                        value="3070parsys"/>
+                                    <twoSeven
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Two Columns (25% - 75%)"
+                                        value="2575parsys"/>
+                                    <threeColumn
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Three Columns (25% - 50% - 25%)"
+                                        value="255025parsys"/>
+                                </items>
+                            </sections>
+                        </items>
+                    </columns>
+                </items>
+            </homecolumndetail>
+        </items>
+    </content>
+</jcr:root>

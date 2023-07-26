@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="sling:OsgiConfig"
+    getLeverAPIDomain="https://api.sandbox.lever.co"
+	getApikey="tef7aHRuSTj47UDm7GKGOH8j0zBsprjbYLnES6rb7DLS3sYQ"
+   />

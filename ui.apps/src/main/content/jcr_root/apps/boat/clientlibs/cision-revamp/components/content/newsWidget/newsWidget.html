@@ -1,0 +1,26 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder" data-emptytext="Edit News widget Component"></div>
+<sly data-sly-use.news="com.cision.revamp.core.models.NewsWidgetModel" data-sly-unwrap/></sly>
+<aside class="news">
+   <div class="news__title-wrapper">
+      <div class="news__title" data-sly-test="${properties.headerText}">
+         ${properties.headerText @context='html'}
+      </div>
+   </div>
+   <div class="news__list-wrapper marquee marquee-pause-on-hover" data-marquee-direction="left, up">
+      <div class="marquee-content">
+      <div class="news__list">
+      <sly data-sly-list="${news.NewsModelList}">
+         <div class="news__item-wrapper">
+            <div class="news__item">
+               <a href="${item.path}" title="Read Article"></a>
+               <div class="item-title">${item.topicName}</div>
+               <div class="item-time">${item.formattedDate}</div>
+            </div>
+         </div>
+         <span class="divider"></span>
+         </sly>
+         </div>
+      </div>
+   </div>
+            </div>            
+</aside>

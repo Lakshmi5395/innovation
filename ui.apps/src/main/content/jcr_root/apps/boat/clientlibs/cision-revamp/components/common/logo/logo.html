@@ -1,0 +1,42 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder-logo" data-emptytext="Configure Logo in EDIT Mode"></div>
+
+<sly  data-sly-test="${properties.isInsightLP}" data-sly-use.linkHelper="${'com.cision.revamp.core.helper.LinkCheckerHelper' @ link=properties.link}">
+    <header class="main-header navbar-fixed-top">
+        <div class="container-fluid">
+            <section class="py-3">
+            </section>
+
+            <section class="nav-main hidden-sm hidden-xs  ">
+                <nav class="navbar navbar-expand-lg">
+                    <a href="${linkHelper.vanityPath}" class="navbar-brand" target="_blank">
+
+                        <picture>
+                            <source media="(min-width:1025px)" srcset="${properties.fileReference}">
+                            <img class="img-responsive" src="${properties.fileReference}" alt="${properties.altText || true}" title="${properties.altText}">
+                        </picture>
+                    </a>
+                </nav>
+            </section>
+        </div>
+    </header>
+</sly>
+
+<sly  data-sly-test="${!properties.isInsightLP}" data-sly-use.linkHelper="${'com.cision.revamp.core.helper.LinkCheckerHelper' @ link=properties.link}">
+    <sly data-sly-test="${properties.newtab}">
+        <a href="${linkHelper.vanityPath}" class="navbar-brand" target="_blank">
+            <picture>
+                <source media="(min-width:1025px)" srcset="${properties.fileReference}">
+                <img class="img-responsive" src="" alt="${properties.altText || true}" title="${properties.altText}">
+            </picture>
+        </a>
+    </sly>
+
+    <sly data-sly-test="${!properties.newtab}">
+        <a href="${linkHelper.vanityPath}" class="navbar-brand" target="_self">
+            <picture>
+                <source media="(min-width:1025px)" srcset="${properties.fileReference}">
+                <img class="img-responsive" src="" alt="${properties.altText || true}" title="${properties.altText}">
+            </picture>
+        </a>
+    </sly>
+</sly>

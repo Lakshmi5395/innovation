@@ -1,0 +1,67 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder" data-emptytext="Configure Career Listing Component"></div>
+
+<sly data-sly-use.jobModel = "${'com.cision.revamp.core.models.JobPostingsByTeamModel'}"/>
+<section class="section--resource-detail-content-2 border-left-radius">
+	<div class="content">
+		<div class="wrapper">
+			<h2 data-sly-test=${properties.title}>${properties.title}</h2>
+			<div class="padding-wrapper">
+				<div class="accordion js-accordion">
+					<sly data-sly-test="${jobModel.jobPostings}" data-sly-list.key="${jobModel.jobPostings.keySet.iterator}">
+						<div class="accordion-item js-accordion-item ${keyList.first ? 'active' : ''}" data-index="${keyList.index}">
+							<header class="accordion-item-header">
+								<button class="js-accordion-item-toggle">
+									<span class="icon"></span>
+									<span class="text">${key}</span>
+								</button>
+							</header>
+							<div class="accordion-item-content js-accordion-item-content">
+								<div class="accordion-item-content-wrapper js-accordion-item-content-wrapper career-category">
+									<sly data-sly-test="${jobModel.jobPostings}" data-sly-list.jobPostingsList="${jobModel.jobPostings[key]}">
+										<a href="${jobPostingsList.detailPageURL}" class="category-career" id="${jobPostingsList.country}">
+											<span class="career-position">${jobPostingsList.title}</span>
+											<span class="career-location">
+												<sly data-sly-test="${jobPostingsList.city != '' && jobPostingsList.state !='' && jobPostingsList.country !=''}">
+													<sly data-sly-test.isPresent="${jobPostingsList.workplaceType}">
+														${jobPostingsList.city}, ${jobPostingsList.state}, ${jobPostingsList.country} - ${jobPostingsList.workplaceType}
+													</sly>
+													<sly data-sly-test="${!isPresent}">
+														${jobPostingsList.city}, ${jobPostingsList.state}, ${jobPostingsList.country}
+													</sly>
+												</sly>
+												<sly data-sly-test="${jobPostingsList.city == '' && jobPostingsList.state !='' && jobPostingsList.country !=''}">
+													<sly data-sly-test.isPresent="${jobPostingsList.workplaceType}">
+														${jobPostingsList.state}, ${jobPostingsList.country} - ${jobPostingsList.workplaceType}
+													</sly>
+													<sly data-sly-test="${!isPresent}">
+														${jobPostingsList.state}, ${jobPostingsList.country}
+													</sly>
+												</sly>
+												<sly data-sly-test="${jobPostingsList.city != '' && jobPostingsList.state =='' && jobPostingsList.country !=''}">
+													<sly data-sly-test.isPresent="${jobPostingsList.workplaceType}">
+														${jobPostingsList.city}, ${jobPostingsList.country} - ${jobPostingsList.workplaceType}
+													</sly>
+													<sly data-sly-test="${!isPresent}">
+														${jobPostingsList.city}, ${jobPostingsList.country}
+													</sly>
+												</sly>
+												<sly data-sly-test="${jobPostingsList.city != '' && jobPostingsList.state !='' && jobPostingsList.country ==''}">
+													<sly data-sly-test.isPresent="${jobPostingsList.workplaceType}">
+														${jobPostingsList.city}, ${jobPostingsList.state} - ${jobPostingsList.workplaceType}
+													</sly>
+													<sly data-sly-test="${!isPresent}">
+														${jobPostingsList.city}, ${jobPostingsList.state}
+													</sly>
+												</sly>
+											</span>
+										</a>
+									</sly>
+								</div>
+							</div>
+						</div>
+					</sly>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

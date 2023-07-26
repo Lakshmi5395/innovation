@@ -1,0 +1,30 @@
+<sly data-sly-use.eloquaProp="${'com.cision.revamp.core.models.EloquaServiceModel'}" data-sly-unwrap></sly>
+<input data-sly-test="${properties.formname}" type="hidden" name="elqFormName" value="${properties.formname}" id="elqFormName">
+<input type="hidden" name="elqResourceCategory" value="${pageProperties['blogCategory']  @context='html'}" id="elqResourceCategory">
+<input type="hidden" name="gACampaign1" value="${pageProperties.jcr:title}" id="gACampaign1">		  
+<input type="hidden" name="elqSiteID" value="${eloquaProp.siteId}">
+<input type="hidden" name="actionURL" value="${eloquaProp.actionUrl}" id="actionURL">
+<input type="hidden" name="gAContent1" value="" id="gAContent1">
+<input type="hidden" name="gAMedium1" value="" id="gAMedium1">
+<input type="hidden" name="gASource1" value="" id="gASource1">
+<input type="hidden" name="gATerm1" value="" id="gATerm1"> 
+<input type="hidden" name="originalGACampaign1" value="" id="originalGACampaign1"> 
+<input type="hidden" name="originalGAContent1" value="" id="originalGAContent1">
+<input type="hidden" name="originalGAMedium1" value="" id="originalGAMedium1">
+<input type="hidden" name="originalGASource1" value="" id="originalGASource1">
+<input type="hidden" name="originalGATerm1" value="" id="originalGATerm1"> 
+<input type="hidden" name="sFDCLastCampaignID" id="sFDCLastCampaignID" value=""> 
+<input type="hidden" name="CLID" value="" id="CLID">
+<input type="hidden" name="clientID" value="" id="clientID">
+<input type="hidden" id="url" name="url" value="">
+<input type="hidden" id="site_refer" name="site_refer" value="">
+<input type="hidden" id="gclid" name="GCLID__c" value="">
+<input type="hidden" id="campaign_id" name="campaign_id" value="">
+<sly data-sly-use.linkHelper="${'com.cision.revamp.core.helper.LinkCheckerHelper' @ link= properties.eloquaformtype =='contentFormAsPopup'? currentPage.path : properties.returnUrl}">
+	<input type="hidden" name="retURL" value="${properties.returnurlnewtab == 'true' ? properties.returnUrl :linkHelper.vanityPath @ context='uri'}">
+</sly>
+<input type="hidden" name="leadSourceMostRecent1" value="">
+<input type="hidden" name="demoCampaignID" id="demoCampaignID" data-sly-test="${properties.democampaignId}" value="${properties.democampaignId}">
+<input type="hidden" name="campaignId" id="campaignId" value="${properties.campaignId}">
+<input type="hidden" id="externalurlset" value="${properties.returnurlnewtab}">
+<input type="hidden" name="recaptchaToken" id="recaptchaToken" value="">

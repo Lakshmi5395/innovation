@@ -1,0 +1,88 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder" data-emptytext="Configure Resource Detail Hero Component"></div>
+
+<section class="section--hero-resource-detail ${properties.variantType == 'withAuthorData' ? 'variant-2' : 'variant-1'}">
+	<div class="background">
+		<img src="${properties.resourceHeroBgImage ? properties.resourceHeroBgImage : '/content/dam/cision-revamp/hero-resource-detail.png'}" alt="${properties.resourceHeroBgImageAltText || true}">
+	</div>
+	<div class="top" data-sly-test.linkUrl="${properties.ctaLinkUrl ? properties.ctaLinkUrl : '/content/cision/us/en/resources'}">
+		<div class="wrapper" data-sly-use.linkHelper="${'com.cision.revamp.core.helper.LinkCheckerHelper' @ link=linkUrl}">
+			<a href="${linkHelper.vanityPath @context='uri'}" class="back-link" data-sly-attribute.target="${properties.openinnewtab ? '_blank' : '_self'}">
+				${properties.ctaLabel ? properties.ctaLabel : 'Back to all resources'}
+			</a>
+		</div>
+	</div>
+	<div class="main">
+		<div class="wrapper">
+			<div class="content">
+				<div class="meta" data-sly-use.tagResolver="${'com.cision.revamp.core.util.TagResolverModel' @ tagId=pageProperties.resourceType}">
+					<a data-sly-test="${pageProperties.resourceType}" data-sly-use.linkHelper="${'com.cision.revamp.core.helper.LinkCheckerHelper' @ link=properties.typeUrl}"
+					   href="${linkHelper.vanityPath @context='uri'}" data-sly-attribute.target="${properties.typeUrlInNewTab ? '_blank' : '_self'}" class="meta-category first">
+						${tagResolver.tagTitle}</a>
+					<a data-sly-test="${pageProperties.resourceCategory}" data-sly-use.linkHelper="${'com.cision.revamp.core.helper.LinkCheckerHelper' @ link=properties.categoryUrl}"
+					   href="${linkHelper.vanityPath @context='uri'}" data-sly-attribute.target="${properties.categoryUrlInNewTab ? '_blank' : '_self'}" class="meta-category second">
+						${pageProperties.resourceCategory}</a>
+				</div>
+				<h1 data-sly-test="${properties.resourceTitle}" class="post-title">
+					${properties.resourceTitle}
+				</h1>
+				<div data-sly-test="${properties.variantType == 'withAuthorData'}" class="additional-information">
+					<div class="author">
+						<div class="author-picture" data-sly-test="${properties.authorImage}">
+							<img src="${properties.authorImage}" alt="${properties.authorImageAltText || true}">
+						</div>
+						<div class="author-name" data-sly-test="${properties.authorName}" data-sly-use.linkHelper="${'com.cision.revamp.core.helper.LinkCheckerHelper' @ link=properties.authorUrl}">
+							<a href="${linkHelper.vanityPath @context='uri'}" data-sly-attribute.target="${properties.openInNewTab ? '_blank' : '_self'}">
+								${properties.authorName}
+							</a>
+						</div>
+					</div>
+					<div data-sly-test="${properties.readAsPdfCTALink}" data-sly-use.linkHelper="${'com.cision.revamp.core.helper.LinkCheckerHelper' @ link=properties.readAsPdfCTALink}">
+						<a href="${linkHelper.vanityPath @context='uri'}" class="btn variant-2" data-sly-attribute.target="${properties.newTab ? '_blank' : '_self'}">
+							${properties.readAsPdfCTALabel}
+							<svg width="9" height="auto" viewbox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M6.99136 1.09085H2.19674V0.5H8.00673V6.31H7.41589V1.50191L1.41779 7.5L1 7.08221L6.99136 1.09085Z" fill="currentColor"></path>
+							<path d="M6.99136 1.09085L7.16814 1.26762L7.59491 0.840847H6.99136V1.09085ZM2.19674 1.09085H1.94674V1.34085H2.19674V1.09085ZM2.19674 0.5V0.25H1.94674V0.5H2.19674ZM8.00673 0.5H8.25673V0.25H8.00673V0.5ZM8.00673 6.31V6.56H8.25673V6.31H8.00673ZM7.41589 6.31H7.16589V6.56H7.41589V6.31ZM7.41589 1.50191H7.66589V0.898353L7.23911 1.32513L7.41589 1.50191ZM1.41779 7.5L1.24102 7.67678L1.41779 7.85355L1.59457 7.67678L1.41779 7.5ZM1 7.08221L0.823223 6.90543L0.646447 7.08221L0.823223 7.25898L1 7.08221ZM6.99136 0.840847H2.19674V1.34085H6.99136V0.840847ZM2.44674 1.09085V0.5H1.94674V1.09085H2.44674ZM2.19674 0.75H8.00673V0.25H2.19674V0.75ZM7.75673 0.5V6.31H8.25673V0.5H7.75673ZM8.00673 6.06H7.41589V6.56H8.00673V6.06ZM7.66589 6.31V1.50191H7.16589V6.31H7.66589ZM7.23911 1.32513L1.24102 7.32322L1.59457 7.67678L7.59266 1.67868L7.23911 1.32513ZM1.59457 7.32322L1.17678 6.90543L0.823223 7.25898L1.24102 7.67678L1.59457 7.32322ZM1.17678 7.25898L7.16814 1.26762L6.81458 0.91407L0.823223 6.90543L1.17678 7.25898Z" fill="currentColor"></path>
+							</svg>
+						</a>
+					</div>
+				</div>
+				<div data-sly-test=${properties.shareLabel} class="social-sharing-wrapper">
+					<div class="social-sharing">
+						<div class="label">${properties.shareLabel}</div>
+						<sly data-sly-test="${resource.getChildren}" data-sly-list.multifieldNodes="${resource.getChildren}">
+							<sly data-sly-test="${multifieldNodes.name =='socialSharingItems'}">
+								<sly data-sly-test="${multifieldNodes.getChildren}" data-sly-list="${multifieldNodes.getChildren}">
+									<sly data-sly-use.linkHelper="${'com.cision.revamp.core.helper.LinkCheckerHelper' @ link=item.socialShareUrl}"></sly>
+									<sly data-sly-test="${item.socialShareIcon == 'linkedIn'}">
+										<a href="${linkHelper.vanityPath @context='uri'}" data-sly-attribute.target="${item.newtab ? '_blank' : '_self'}">
+											<svg width="20" height="19" viewbox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M4.03772 2.03956C4.03772 3.16621 3.13775 4.07911 2.02697 4.07911C0.916189 4.07911 0.0162157 3.16621 0.0162157 2.03956C0.0162157 0.913722 0.916189 0 2.02697 0C3.13775 0 4.03772 0.913722 4.03772 2.03956ZM4.05393 5.71076H0V18.7639H4.05393V5.71076ZM10.5256 5.71076H6.49765V18.7639H10.5264V11.9118C10.5264 8.10194 15.4147 7.79029 15.4147 11.9118V18.7639H19.4589V10.4988C19.4589 4.07014 12.225 4.30428 10.5256 7.46886V5.71076Z" fill="currentColor"></path>
+											</svg>
+										</a>
+									</sly>
+									<sly data-sly-test="${item.socialShareIcon == 'twitter'}">
+										<a href="${linkHelper.vanityPath @context='uri'}" data-sly-attribute.target="${item.newtab ? '_blank' : '_self'}">
+											<svg width="22" height="19" viewbox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M21.5427 2.22748C20.7358 2.60981 19.8802 2.8609 19.004 2.97245C19.9275 2.38082 20.6187 1.4497 20.9487 0.352614C20.0821 0.905111 19.1319 1.29231 18.1416 1.50176C17.4764 0.739338 16.5947 0.233694 15.6336 0.0634408C14.6724 -0.106813 13.6857 0.0678633 12.8268 0.560313C11.9679 1.05276 11.2849 1.83539 10.884 2.78654C10.4832 3.73768 10.3869 4.80405 10.6102 5.81985C8.85267 5.72549 7.13334 5.23624 5.5638 4.38388C3.99427 3.53152 2.60961 2.33509 1.49974 0.872279C1.10688 1.59511 0.900428 2.41681 0.901532 3.25323C0.901532 4.89487 1.68152 6.34518 2.86736 7.1943C2.16559 7.17064 1.47927 6.96762 0.865598 6.60218V6.66105C0.86581 7.75438 1.21899 8.814 1.86526 9.66023C2.51153 10.5065 3.41111 11.0872 4.41148 11.3041C3.76003 11.4932 3.07695 11.5211 2.41395 11.3856C2.696 12.3267 3.24573 13.1497 3.98618 13.7395C4.72662 14.3292 5.62071 14.6562 6.54324 14.6745C5.62636 15.4459 4.57655 16.0161 3.45381 16.3526C2.33107 16.6891 1.15744 16.7852 0 16.6354C2.02047 18.0274 4.37248 18.7663 6.7747 18.7639C14.9054 18.7639 19.3518 11.5486 19.3518 5.29113C19.3518 5.08734 19.3465 4.88128 19.338 4.67976C20.2035 4.0097 20.9504 3.17966 21.5438 2.22862L21.5427 2.22748Z" fill="currentColor"></path>
+											</svg>
+										</a>
+									</sly>
+									<sly data-sly-test="${item.socialShareIcon == 'facebook'}">
+										<a href="${linkHelper.vanityPath @context='uri'}" data-sly-attribute.target="${item.newtab ? '_blank' : '_self'}">
+											<svg width="9" height="19" viewbox="0 0 9 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M8.40388 9.36389H5.80662V18.7639H1.87154V9.36389H0V6.06035H1.87154V3.92258C1.87154 2.39384 2.60661 0 5.84164 0L8.7565 0.0120474V3.2187H6.64158C6.29467 3.2187 5.80688 3.38993 5.80688 4.11918V6.06342H8.74768L8.40388 9.36389Z" fill="currentColor"></path>
+											</svg>
+										</a>
+									</sly>
+								</sly>
+							</sly>
+						</sly>
+					</div>
+				</div>
+			</div>
+			<div class="image" data-sly-test="${properties.variantType == 'withAuthorData'}">
+				<img src="${properties.resourceHeroImage ?  properties.resourceHeroImage : '/content/dam/cision-revamp/cision-optimized/global-assets/logo-cision-dark-lg.jpg'}" alt="${properties.resourceHeroImageAltText || true}">
+			</div>
+		</div>
+	</div>
+</section>

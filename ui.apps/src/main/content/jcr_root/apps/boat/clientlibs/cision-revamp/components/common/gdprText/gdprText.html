@@ -1,0 +1,38 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder" data-emptytext="Configure GDPR Text in EDIT Mode"></div>
+<sly data-sly-use.domainURL="${'com.cision.revamp.core.models.UrlSplitModel'}"/>
+
+<div class="form-field d-none">
+    <div class="field-options">
+        <div class="field-option">
+            <input type="checkbox" value="" id="gDPROptIn1" name="gDPROptIn1"  class="gdprchk" required="required">
+            <label for="gDPROptIn1">
+                    <span class="field-option-check">
+                              <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7281 1.79504L4.25076 9.27236L0.273438 5.29503L1.3341 4.23437L4.25076 7.15104L10.6674 0.734375L11.7281 1.79504Z" fill="currentColor"></path>
+                              </svg>
+                           </span>
+                <span class="field-option-text text text-small "><span class="required">*</span>${properties.gdprstatement @ context="html"}</span>
+            </label>
+        </div>
+    </div>
+</div>
+<div class="form-field d-none">
+    <div class="field-options">
+        <div class="field-option">
+            <input  type="checkbox" id="optin" value="1"  name="optin" class="chk">
+            <label for="optin">
+                    <span class="field-option-check">
+                              <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7281 1.79504L4.25076 9.27236L0.273438 5.29503L1.3341 4.23437L4.25076 7.15104L10.6674 0.734375L11.7281 1.79504Z" fill="currentColor"></path>
+                              </svg>
+                           </span>
+                <span class="field-option-text text text-small">${properties.canadaTermText  @ context="html"}</span>
+            </label>
+        </div>
+    </div>
+</div>
+<div class="form-field ">
+    <div class="term-condition disclaimer" value="1" id="divTC">
+        <p>${properties.termConditionText  @ context="html"}</p>
+    </div>
+</div>

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Resource Detail Hero"
+          extraClientlibs="[clientlib.resourceDetailHero]"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                    granite:class="toggletab"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/tabs">
+                <items jcr:primaryType="nt:unstructured">
+                    <generalConfigs
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="General Configurations"
+                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <heroVariant
+                                    granite:class="showhide"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                    fieldDescription="Select Hero Variant"
+                                    fieldLabel="Select Hero Variant"
+                                    name="./variantType">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <withoutAuthor
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Variant Without Author Data and Image"
+                                            value="withoutAuthorData"/>
+                                    <withAuthor
+                                            jcr:primaryType="nt:unstructured"
+                                            text="Variant With Author Data and Image"
+                                            value="withAuthorData"/>
+                                </items>
+                            </heroVariant>
+                            <typeUrl
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                    fieldDescription="Select Link Path for redirection to Resource type page"
+                                    fieldLabel="Resource Type Link Url"
+                                    name="./typeUrl"
+                                    rootPath="/content"/>
+                            <typeUrlInNewTab
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                    fieldDescription="Choose to open in a new tab"
+                                    name="./typeUrlInNewTab"
+                                    text="Choose to open in a new tab"
+                                    value="true"/>
+                            <categoryUrl
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                    fieldDescription="Select Link Path for redirection to Resource category page"
+                                    fieldLabel="Category Link Url"
+                                    name="./categoryUrl"
+                                    rootPath="/content"/>
+                            <categoryUrlInNewTab
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                    fieldDescription="Choose to open in a new tab"
+                                    name="./categoryUrlInNewTab"
+                                    text="Choose to open in a new tab"
+                                    value="true"/>
+                            <resourceHeroBgImage
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                    allowUpload="{Boolean}false"
+                                    autoStart="{Boolean}false"
+                                    class="cq-droptarget"
+                                    fieldLabel="Resource Hero Background Image"
+                                    fieldDescription="If not authored there is a default image that comes on page"
+                                    fileNameParameter="./fileName"
+                                    fileReferenceParameter="./resourceHeroBgImage"
+                                    mimeTypes="[image]"
+                                    multiple="{Boolean}false"
+                                    name="./file"
+                                    rootPath="/content/dam/cision"
+                                    title="Upload Image Asset"
+                                    uploadUrl="${suffix.path}"
+                                    useHTML5="{Boolean}true"/>
+                            <resourceHeroBgImageAltText
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                    fieldLabel="Enter Alternate text for Resource Hero Background Image"
+                                    name="./resourceHeroBgImageAltText"/>
+                            <resourceTitle
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                    fieldDescription="Enter the title of the Resource."
+                                    fieldLabel="Resource Title"
+                                    name="./resourceTitle"/>
+                            <ctaLabel
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                    fieldLabel="CTA Label"
+                                    fieldDescription="Enter link label like Back to all resources."
+                                    emptyText="Back to all resources"
+                                    name="./ctaLabel"/>
+                            <ctaLinkUrl
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                    fieldDescription="Select Link Path for redirection to resource listing page"
+                                    fieldLabel="Select CTA Link Url"
+                                    name="./ctaLinkUrl"
+                                    rootPath="/content"/>
+                            <openinnewtab
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                    fieldDescription="Choose to open in a new tab"
+                                    name="./openinnewtab"
+                                    text="Choose to open in a new tab"
+                                    value="true"/>
+                            <resourceHeroImage
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                    allowUpload="{Boolean}false"
+                                    autoStart="{Boolean}false"
+                                    class="cq-droptarget"
+                                    fieldLabel="Resource Hero Image"
+                                    fieldDescription="If not authored there is a default image that comes on page"
+                                    fileNameParameter="./fileName"
+                                    fileReferenceParameter="./resourceHeroImage"
+                                    mimeTypes="[image]"
+                                    multiple="{Boolean}false"
+                                    name="./file"
+                                    rootPath="/content/dam/cision"
+                                    title="Upload Image Asset"
+                                    uploadUrl="${suffix.path}"
+                                    useHTML5="{Boolean}true"/>
+                            <resourceHeroImageAltText
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                    fieldLabel="Enter Alternate text for Resource Hero Image"
+                                    name="./resourceHeroImageAltText"/>
+                        </items>
+                    </generalConfigs>
+                    <authorConfigs
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Author Configurations"
+                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <authorName
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                    fieldLabel="Enter Author Name"
+                                    name="./authorName"/>
+                            <authorUrl
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                    fieldDescription="Select Link Path for redirection to Author Details"
+                                    fieldLabel="Select Author Link Url"
+                                    name="./authorUrl"
+                                    rootPath="/content"/>
+                            <openInNewTab
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                    fieldDescription="Choose to open in a new tab"
+                                    name="./openInNewTab"
+                                    text="Choose to open in a new tab"
+                                    value="true"/>
+                            <authorImage
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                    allowUpload="{Boolean}false"
+                                    autoStart="{Boolean}false"
+                                    class="cq-droptarget"
+                                    fieldLabel="Author Image"
+                                    fileNameParameter="./fileName"
+                                    fileReferenceParameter="./authorImage"
+                                    mimeTypes="[image]"
+                                    multiple="{Boolean}false"
+                                    name="./file"
+                                    rootPath="/content/dam/cision"
+                                    title="Upload Image Asset"
+                                    uploadUrl="${suffix.path}"
+                                    useHTML5="{Boolean}true"/>
+                            <authorImageAltText
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                    fieldLabel="Enter Alternate text for Author Image"
+                                    name="./authorImageAltText"/>
+                            <ctaLabel
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                    fieldLabel="CTA Label"
+                                    fieldDescription="Enter link label like Read as PDF."
+                                    emptyText="Read as PDF"
+                                    value="READ AS PDF"
+                                    name="./readAsPdfCTALabel"/>
+                            <ctaLinkUrl
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                    fieldDescription="Select Link Path for redirection to Read as PDF"
+                                    fieldLabel="Select CTA Link Url"
+                                    name="./readAsPdfCTALink"
+                                    rootPath="/content"/>
+                            <newTab
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                    fieldDescription="Choose to open in a new tab"
+                                    name="./newTab"
+                                    text="Choose to open in a new tab"
+                                    value="true"/>
+                        </items>
+                    </authorConfigs>
+                    <sharingConfigs
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Sharing Configurations"
+                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <shareLabel
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                    fieldLabel="Social Share Label"
+                                    fieldDescription="This textfield is mandatory to see the social share items on page"
+                                    emptyText="+ Share"
+                                    value="+ Share"
+                                    name="./shareLabel"/>
+                            <multi
+                                    granite:class="full-width"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                    composite="{Boolean}true"
+                                    fieldDescription="Click on Add Button to add a new Set of fields."
+                                    fieldLabel="Social Share Configurations"
+                                    prefix="./">
+                                <field
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                                        name="./socialSharingItems">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <socialShareIcon
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                        fieldLabel="Select Social Share Icon"
+                                                        name="./socialShareIcon">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <linkedIn
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="LinkedIn"
+                                                                value="linkedIn"/>
+                                                        <twitter
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="Twitter"
+                                                                value="twitter"/>
+                                                        <facebook
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="Facebook"
+                                                                value="facebook"/>
+                                                    </items>
+                                                </socialShareIcon>
+                                                <socialShareUrl
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                        fieldLabel="Social Share Url"
+                                                        name="./socialShareUrl"
+                                                        rootPath="/content"/>
+                                                <newtab
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                        fieldDescription="Choose to open in a new tab"
+                                                        name="./newtab"
+                                                        text="Choose to open in a new tab"
+                                                        value="true"/>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                            </multi>
+                        </items>
+                    </sharingConfigs>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

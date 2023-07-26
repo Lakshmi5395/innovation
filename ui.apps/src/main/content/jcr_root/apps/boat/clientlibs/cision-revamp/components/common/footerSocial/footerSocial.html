@@ -1,0 +1,10 @@
+
+<sly data-sly-list.multifield="${resource.getChildren}" >
+   <sly data-sly-test="${multifield.name =='multiitems'}">
+      <sly data-sly-list.navlist="${multifield.getChildren}">
+         <a href="${navlist.url}" title="${navlist.title}" target="_blank">
+            ${navlist.svgIcon @context='unsafe'}
+         </a>
+      </sly>
+   </sly>
+</sly>

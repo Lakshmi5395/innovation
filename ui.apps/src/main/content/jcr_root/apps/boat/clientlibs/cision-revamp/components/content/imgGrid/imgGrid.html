@@ -1,0 +1,21 @@
+<div class="cq-placeholder" data-emptytext="Image Grid Component" data-sly-test="${wcmmode.edit || wcmmode.design}">
+</div>
+
+<div class="image-grid cols-2">
+  <sly data-sly-list.multifield="${resource.getChildren}">
+    <sly data-sly-test="${multifield.name == 'logos'}">
+      <sly data-sly-list.logo="${multifield.getChildren}">
+        <figure class="image">
+          <sly data-sly-test="${logo.fileReferenceImage}">
+            <img src="${logo.fileReferenceImage}" alt="${logo.imagealt}">
+          </sly>
+          <figcaption>
+            <sly data-sly-test="${logo.caption}">
+              ${logo.caption}
+            </sly>
+          </figcaption>
+        </figure>
+      </sly>
+    </sly>
+  </sly>
+</div>

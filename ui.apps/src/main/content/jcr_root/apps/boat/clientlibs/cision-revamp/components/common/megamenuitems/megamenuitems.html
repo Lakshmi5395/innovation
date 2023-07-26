@@ -1,0 +1,28 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder" data-emptytext="Configure Mega Menu Items Component"></div>
+
+<sly data-sly-use.modelObj="com.cision.revamp.core.models.IsChildSubMenuModel">
+	<sly data-sly-test="${modelObj.ischildsubMenuList}" data-sly-list.menuItems="${modelObj.ischildsubMenuList}">
+		<div class="item-wrapper">
+			<span class="item vlist-item js-megamenu-item ${menuItemsList.first ? 'active' : ''}" tabindex="5" data-index="${menuItemsList.index}">${menuItems.title}</span>
+			<sly data-sly-test="${menuItems.navType == 'hasSubMenu'}">
+				<div class="item__context">
+					<div class="sub-items vlist">
+						<sly data-sly-test.parResource="${'secondLevel_par_{0}' @ format=[menuItemsList.count] }">
+							<sly data-sly-resource="${@ path=parResource, resourceType='cision-revamp/components/common/megamenusubitems'}"></sly>
+						</sly>
+					</div>
+				</div>
+			</sly>
+			<!--/* for sections like About Us where 1st and 3rd level items are present and 2nd level items are missing */-->
+			<sly data-sly-test="${menuItems.navType == 'hasSubPanel'}">
+				<div class="item__context">
+					<div class="details-panel item-details active">
+						<sly data-sly-test.parResource="${'thirdLevel_par_{0}' @ format=[menuItemsList.count] }">
+							<sly data-sly-resource="${@ path=parResource, resourceType='cision-revamp/components/common/megamenupanel'}"></sly>
+						</sly>
+					</div>
+				</div>
+			</sly>
+		</div>
+	</sly>
+</sly>

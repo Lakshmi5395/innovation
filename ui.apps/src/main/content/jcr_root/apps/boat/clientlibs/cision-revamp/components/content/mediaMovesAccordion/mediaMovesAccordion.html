@@ -1,0 +1,31 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder" data-emptytext="Configure Media Moves in EDIT Mode"></div>
+ <section class="section--content-links full-width">
+     <div class="content">
+       <div class="wrapper">
+         <div class="content-wrapper">
+           <header class="content-header"></header>
+           <div class="links-wrapper">
+             <div class="section--card-accordion bg-white-accordion">
+               <div class="accordion js-accordion" data-sly-list.multifieldNodes="${resource.getChildren}">
+                 <sly data-sly-test="${multifieldNodes.name =='accordionItems'}" data-sly-list="${multifieldNodes.getChildren}">
+                   <div class="accordion-item js-aci">
+                     <header class="accordion-item-header">
+                         <button type="button" class="accordion-item-toggle js-aci-toggle">
+                         <span class="icon"></span> 
+						 <span class="text"> ${item.title}</span> 
+						 </button>
+                     </header>
+                     <div class="accordion-item-content js-aci-content rich-text">
+                       <div class="accordion-item-content-wrapper js-aci-content-wrapper">                      
+                         <p> ${item.description @ context='html'}</p>
+                       </div>
+                     </div>
+                   </div>
+                 </sly>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </section>

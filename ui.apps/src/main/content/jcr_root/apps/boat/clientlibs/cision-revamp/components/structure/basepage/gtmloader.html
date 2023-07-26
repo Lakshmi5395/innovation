@@ -1,0 +1,9 @@
+<sly data-sly-use.analytics="${'com.cision.revamp.core.models.GoogleTMandAnalyticsModel'}" data-sly-unwrap>
+	<sly data-sly-use.domainURL="${'com.cision.revamp.core.models.UrlSplitModel'}" data-sly-unwrap></sly>
+	<noscript data-sly-test="${analytics.firstGtmId}">
+	<iframe src="https://www.googletagmanager.com/ns.html?id=${analytics.firstGtmId @ context='text'}" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+	</noscript>
+	<noscript data-sly-test="${analytics.secondGtmId}">
+	<iframe src="https://www.googletagmanager.com/ns.html?id=${analytics.secondGtmId @ context='text'}" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+	</noscript>
+</sly>

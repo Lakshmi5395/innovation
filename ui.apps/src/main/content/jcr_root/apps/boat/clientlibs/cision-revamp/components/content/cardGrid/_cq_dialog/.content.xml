@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Card Grid"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <grid
+                jcr:primaryType="nt:unstructured"
+                jcr:title="grid"
+                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                margin="{Boolean}false">
+                <items jcr:primaryType="nt:unstructured">
+                    <columns
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <header
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Header"
+                                name="./header"/>
+                            <card
+                                granite:class="addNew"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                aem-nested=""
+                                class="full-width"
+                                composite="{Boolean}true"
+                                fieldDescription="Click 'add' to add a new field"
+                                fieldLabel="Card Grid Details"
+                                validation="multi-validate">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                                    name="./cards">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <icon
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                                    allowUpload="false"
+                                                    class="image-show cq-droptarget"
+                                                    fieldLabel="Card Icon"
+                                                    fileNameParameter="./fileNameImage"
+                                                    fileReferenceParameter="./fileReferenceImage"
+                                                    mimeTypes="[image]"
+                                                    multiple="{Boolean}false"
+                                                    name="./icon"
+                                                    rel="image-show"
+                                                    title="Card Icon"
+                                                    useHTML5="{Boolean}true"/>
+                                                <iconAltText
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Card Icon Alternate Text"
+                                                    name="./iconAltText"/>
+                                                <cardTitle
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Card Title"
+                                                    name="./cardTitle"/>
+                                                <description
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                    fieldLabel="Card Description"
+                                                    name="./description"
+                                                    removeSingleParagraphContainer="{Boolean}true"
+                                                    useFixedInlineToolbar="{Boolean}true">
+                                                    <rtePlugins
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceSuperType="/apps/cision-revamp/components/common/customrte/cq:dialog/content/items/column/items/text/rtePlugins"/>
+                                                    <uiSettings
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceSuperType="/apps/cision-revamp/components/common/customrte/cq:dialog/content/items/column/items/text/uiSettings"/>
+                                                </description>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                            </card>
+                        </items>
+                    </columns>
+                </items>
+            </grid>
+        </items>
+    </content>
+</jcr:root>

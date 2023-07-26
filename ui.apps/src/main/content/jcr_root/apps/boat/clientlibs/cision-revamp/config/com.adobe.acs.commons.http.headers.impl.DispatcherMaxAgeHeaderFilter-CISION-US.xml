@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+		  jcr:primaryType="sling:OsgiConfig"
+		  filter.pattern ="[/content/cision-us/us/en/blogs.html
+		,/content/cision-us/us/en/resources/(.*)
+		,/content/cision-us/us/en/resources.html
+		,/content/cision-us/us/en/category/(.*)
+		,/content/cision-us/us/en/tag/(.*)
+		,/content/cision-us/us/en/author/(.*)
+		,/content/cision-us/us/en/about/news.html
+		,/content/cision-us/us/en/about/news/(.*)
+		,/content/cision-uk2/uk/en/resources/(.*)
+		,/content/cision-uk2/uk/en/resources.html
+		,/content/cision-uk2/uk/en/category/(.*)
+		,/content/cision-uk2/uk/en/tag/(.*)
+		,/content/cision-ca2/ca/en/careers.html
+		,/content/cision-ca2/ca/fr/carrieres.html
+		,/content/cision-uk2/uk/en/author/(.*)
+		,/content/cision-ca2/ca/en/resources.html
+		,/content/cision-ca2/ca/en/resources/(.*)
+		,/content/cision-ca2/ca/fr/ressources.html
+		,/content/cision-ca2/ca/fr/ressources/(.*)
+		,/content/cision/de2/de/ressourcen.html
+		,/content/cision/de2/de/ressourcen/(.*)
+		,/content/cision-se2/se/sv/artiklar-och-tips.html
+		,/content/cision-se2/se/sv/artiklar-och-tips/(.*)
+		,/content/cision-no2/no/no/resources.html
+		,/content/cision-no2/no/no/resources/(.*)
+		,/content/cision-fr2/fr/fr/ressources.html
+		,/content/cision-fr2/fr/fr/ressources/(.*)
+		,/content/cision-es/es/es/recursos.html
+		,/content/cision-es/es/es/recursos/(.*)
+		,/content/cision-it/it/it/risorse.html
+		,/content/cision-it/it/it/risorse/(.*)]"
+			  max.age = "900"/>

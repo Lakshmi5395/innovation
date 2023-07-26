@@ -1,0 +1,32 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder"
+     data-emptytext="Card Grid component"></div>
+<section class="section--card-grid">
+    <div class="wrapper">
+        <div class="box">
+            <sly data-sly-test="${properties.header}"><h2 class="section-title">${properties.header}</h2></sly>
+            <div class="grid">
+                <sly data-sly-list.multifield="${resource.getChildren}">
+                    <sly data-sly-test="${multifield.name == 'cards'}">
+                        <sly data-sly-list.cardItem="${multifield.getChildren}">
+                            <div class="card">
+                            	<sly data-sly-test="${cardItem.fileReferenceImage}">
+                                    <div class="card-icon">
+                                        <img src="${cardItem.fileReferenceImage}" alt="${cardItem.iconAltText}"/>
+                                    </div>
+                                </sly>
+                                <div class="card-content">
+                                    <sly data-sly-test="${cardItem.cardTitle}"><h3 class="title">${cardItem.cardTitle}</h3></sly>
+                                    <sly data-sly-test="${cardItem.description}">
+                                        <div class="text">
+                                            ${cardItem.description @ context='html'}
+                                        </div>
+                                    </sly>
+                                </div>
+                            </div>
+                        </sly>
+                    </sly>
+                </sly>
+            </div>
+        </div>
+    </div>
+</section>

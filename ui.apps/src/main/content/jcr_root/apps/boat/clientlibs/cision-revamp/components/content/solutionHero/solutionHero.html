@@ -1,0 +1,34 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder" data-emptytext="Solution Hero Component"></div>
+ 	<section class="section--hero-solution-detail">
+	<sly data-sly-test="${properties.fileReferenceImage}">
+			<div class="background">
+				<img src="${properties.fileReferenceImage}" alt="${properties.imageAltText}">
+			</div>
+		</sly>
+		<sly data-sly-test="${properties.fileReferencebgImage}">
+			<div class="decoration">
+				<img src="${properties.fileReferencebgImage}" alt="${properties.bgimageAlt}">
+			</div>
+		</sly> 
+		<sly data-sly-test="${properties.title && properties.subTitle && properties.description}">				
+			<div class="wrapper">
+				<div class="content">
+					<sly data-sly-test="${properties.title}">
+						<h1 class="page-title">
+							${properties.title}
+						</h1>
+					</sly>
+					<sly data-sly-test="${properties.subTitle}">
+						<div class="subtitle">
+							${properties.subTitle}
+						</div>
+					</sly>
+					<sly data-sly-test="${properties.description}">
+						<div class="excerpt">
+						${properties.description  @ context='html'}
+						</div>
+					</sly>
+				</div>
+			</div>
+		</sly>
+    </section>

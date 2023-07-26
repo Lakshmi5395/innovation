@@ -1,0 +1,43 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder" data-emptytext="Speak to an Expert Component in EDIT Mode"></div>
+<sly data-sly-test="${properties.boxedcta}">
+	<section class="section--contact-cta conversion-modal">
+		<div class="wrapper">
+			<div class="box">
+				<div class="intro" data-sly-test="${properties.ctaTitle || properties.ctaDescription }">
+					<h2 class="headline" data-sly-test="${properties.ctaTitle}">
+						${properties.ctaTitle}
+					</h2>
+					<div class="text text-small" data-sly-test="${properties.ctaDescription}">
+						<p>
+							${properties.ctaDescription @context='html'}
+						</p>
+					</div>
+				</div>
+				<sly data-sly-resource="${ 'content_par_eloqua' @ resourceType='/apps/cision-revamp/components/content/eloqua'}"></sly>
+			</div>
+		</div>
+	</section>
+</sly>
+
+<sly data-sly-test="${!properties.boxedcta}">
+	<section class="section--contact conversion-modal">
+		<div class="wrapper">
+			<div class="details" data-sly-test="${properties.ctaTitle || properties.ctaDescription }">
+				<h2 class="title" data-sly-test="${properties.ctaTitle}">
+					${properties.ctaTitle}
+				</h2>
+				<div class="text-medium" data-sly-test="${properties.ctaDescription}">
+					<p>
+						${properties.ctaDescription @context='html'}
+					</p>
+				</div>
+			</div>
+				<sly data-sly-resource="${ 'content_par_eloqua' @ resourceType='/apps/cision-revamp/components/content/eloqua'}"></sly>
+		</div>
+		<sly data-sly-test="${properties.fileReferenceImage}">
+			<div class="decoration">
+				<img src="${properties.fileReferenceImage}" alt="${properties.imageAltText}">
+			</div>
+		</sly>
+	</section>
+</sly>

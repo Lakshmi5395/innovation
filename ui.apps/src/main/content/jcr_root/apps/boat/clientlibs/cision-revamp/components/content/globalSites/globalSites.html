@@ -1,0 +1,12 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder" data-emptytext="Configure Global Sites in EDIT Mode"></div>
+<!-- global sites Modal starts-->
+
+				<div class = "dropdown right"  data-sly-list.globalSiteNodes ="${resource.getChildren}">
+					<ul data-sly-test="${globalSiteNodes.name =='siteList'}" data-sly-list.globalSite = "${globalSiteNodes.getChildren}">
+						<sly data-sly-use.linkChecker="${'com.cision.revamp.core.helper.LinkCheckerHelper' @ link=globalSite.pagelink}">
+							<li class=item><a href="${linkChecker.vanityPath}" data-sly-attribute.target="${globalSite.isOpenInNewWindow ? '_blank' : '_self'}">${globalSite.sitename}</a></li>
+						</sly>
+					</ul>
+				</div>
+
+<!-- global sites Modal End-->

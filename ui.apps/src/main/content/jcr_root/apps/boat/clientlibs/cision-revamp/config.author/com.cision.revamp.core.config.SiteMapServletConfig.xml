@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root 
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="sling:OsgiConfig"
+    externalizerDomain="[/content/cision-us/us/en http://localhost:4503,/content/cision-ca2/ca/en http://localhost:4503,/content/cision-ca2/ca/fr http://localhost:4503,/content/cision-it/it/it http://localhost:4503,/content/cision-es/es/es http://localhost:4503,/content/cision-asia/en/en http://localhost:4503,/content/cision-dk/dk/da http://localhost:4503]"
+    defaultEDomain="http://localhost:4503"
+    includeLastMod="{Boolean}true"
+    excludeProperty="[hideInNav]"
+    includeInherit="{Boolean}true"
+    extensionlessUrls="{Boolean}true"
+    removeSlash="{Boolean}false"
+    characterEncoding="UTF-8"
+    useVanity="{Boolean}true"/>

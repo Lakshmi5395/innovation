@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Panel"
+    title="Transport">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <uri
+            jcr:primaryType="cq:Widget"
+            defaultValue="cisioncf://api.cloudflare.com/client/v4/"
+            fieldDescription="protocol &quot;cisioncf://&quot; required"
+            fieldLabel="URI"
+            name="./transportUri"
+            readOnly="{Boolean}false"
+            value="cisioncf://api.cloudflare.com/client/v4"
+            xtype="textfield"/>
+        <user
+            jcr:primaryType="cq:Widget"
+            fieldDescription="Client Auth Email for the transport credentials"
+            fieldLabel="Client Email"
+            name="./transportUser"
+            xtype="textfield"/>
+        <accessToken
+            jcr:primaryType="cq:Widget"
+            fieldDescription="Client Auth Key for the transport credentials"
+            fieldLabel="Auth Key"
+            name="./authKey"
+            xtype="textfield"/>
+        <secret
+            jcr:primaryType="cq:Widget"
+            fieldDescription="Site zone Secret key for the transport credentials"
+            fieldLabel="Site Zone Secret Key"
+            name="./zoneKey"
+            xtype="textfield"/>
+        <cisionLinkPrefix
+            jcr:primaryType="cq:Widget"
+            fieldDescription="Domain that needs to be prefixed to content path eg:https://www.cision.com"
+            fieldLabel="Domain Link Prefix"
+            name="./cisionLinkPrefix"
+            xtype="textfield"/>
+        <validPathPrefix
+            jcr:primaryType="cq:Widget"
+            fieldDescription="Paths starting with these suffex will be processed."
+            fieldLabel="Valid path prefix"
+            name="./validPathPrefix"
+            xtype="multifield"/>
+    </items>
+</jcr:root>

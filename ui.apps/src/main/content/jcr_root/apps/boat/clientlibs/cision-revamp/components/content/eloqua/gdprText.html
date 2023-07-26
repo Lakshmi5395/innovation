@@ -1,0 +1,5 @@
+<sly data-sly-use.gdprTextModel="com.cision.revamp.core.models.GDPRTextModel">
+    <sly data-sly-test.gdprTextPath="${gdprTextModel.gdprPath}">
+        <article data-sly-resource="${@path=gdprTextPath,selectors='content', wcmmode='disabled'}" data-sly-unwrap></article>
+    </sly>
+</sly>

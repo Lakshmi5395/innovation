@@ -1,0 +1,94 @@
+<div class="cq-placeholder" data-emptytext="Configure Resource listing Hero in EDIT Mode" data-sly-test="${(wcmmode.edit || wcmmode.design)}"></div>
+<sly data-sly-use.runmode="${'com.cision.revamp.core.models.RunModeModel'}"></sly>
+<input id="resourceType" name="resourceType" type="hidden" value='${pageProperties.pageType}'>
+<input id="currentPagePath" type="hidden" value="${currentPage.getPath}"/>
+<input id="countfiltertext" name="countfiltertext" type="hidden" value='${properties.countfiltertext}'>
+<input id="isAuthor"  type="hidden" value='mode=${runmode.isAuthor}'/>
+<div data-sly-unwrap data-sly-use.resourceResp="${'com.cision.revamp.core.models.ResourcePageModel' @dateFormat = inheritedPageProperties.dateFormat}"></div>
+<section class="section--hero-resource-listing">
+    <div class="wrapper">
+        <sly data-sly-list.resourceListModel="${resourceResp.finalSerachResp.resourcePageListingModel}">
+            <sly data-sly-use.linkHelper="${'com.cision.revamp.core.helper.LinkCheckerHelper' @ link=resourceListModel.pagePath}">
+                <div class="post-left" data-sly-test="${resourceListModelList.first}">
+                    <div class="image">
+                        <sly data-sly-test= "${resourceListModel.bannerImg}">
+                            <img src="${resourceListModel.bannerImg ? resourceListModel.bannerImg : resourceListModel.thumbnailImg}"alt="${resourceListModel.title ? resourceListModel.title : '' @ context='text'}" title="${resourceListModel.title ? resourceListModel.title : '' @ context='text'}" >
+                        </sly>
+                        <sly data-sly-test= "${!resourceListModel.bannerImg}">
+                            <img src="${resourceListModel.thumbnailImg ? resourceListModel.thumbnailImg : '/content/dam/cision-revamp/cision-optimized/global-assets/logo-cision-dark-lg.jpg'}"alt="${resourceListModel.title ? resourceListModel.title : '' @ context='text'}" title="${resourceListModel.title ? resourceListModel.title : '' @ context='text'}" >
+                        </sly>
+                    </div>
+                    <div class="details">
+                        <a  class="category">${resourceListModel.resCategory}</a>
+                        <h2 class="title">
+                            <a href="${linkHelper.vanityPath}">${resourceListModel.title @ context='text'}</a>
+                        </h2>
+                        <div class="excerpt">
+                            ${resourceListModel.pageExcerpt @ context='html'}
+                        </div>
+                        <div class="cta">
+                            <a href="${linkHelper.vanityPath}" class="btn variant-2">${properties.learnMore ? properties.learnMore : 'Learn More'}<svg width="9" height="auto" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.99136 1.09085H2.19674V0.5H8.00673V6.31H7.41589V1.50191L1.41779 7.5L1 7.08221L6.99136 1.09085Z" fill="currentColor"></path>
+                                <path d="M6.99136 1.09085L7.16814 1.26762L7.59491 0.840847H6.99136V1.09085ZM2.19674 1.09085H1.94674V1.34085H2.19674V1.09085ZM2.19674 0.5V0.25H1.94674V0.5H2.19674ZM8.00673 0.5H8.25673V0.25H8.00673V0.5ZM8.00673 6.31V6.56H8.25673V6.31H8.00673ZM7.41589 6.31H7.16589V6.56H7.41589V6.31ZM7.41589 1.50191H7.66589V0.898353L7.23911 1.32513L7.41589 1.50191ZM1.41779 7.5L1.24102 7.67678L1.41779 7.85355L1.59457 7.67678L1.41779 7.5ZM1 7.08221L0.823223 6.90543L0.646447 7.08221L0.823223 7.25898L1 7.08221ZM6.99136 0.840847H2.19674V1.34085H6.99136V0.840847ZM2.44674 1.09085V0.5H1.94674V1.09085H2.44674ZM2.19674 0.75H8.00673V0.25H2.19674V0.75ZM7.75673 0.5V6.31H8.25673V0.5H7.75673ZM8.00673 6.06H7.41589V6.56H8.00673V6.06ZM7.66589 6.31V1.50191H7.16589V6.31H7.66589ZM7.23911 1.32513L1.24102 7.32322L1.59457 7.67678L7.59266 1.67868L7.23911 1.32513ZM1.59457 7.32322L1.17678 6.90543L0.823223 7.25898L1.24102 7.67678L1.59457 7.32322ZM1.17678 7.25898L7.16814 1.26762L6.81458 0.91407L0.823223 6.90543L1.17678 7.25898Z" fill="currentColor"></path></svg></a>
+                        </div>
+                    </div>
+                </div>
+            </sly>
+        </sly>
+        <div class="posts-grid" >
+            <div class="swiper js-slider">
+                <div class="swiper-wrapper">
+                    <sly data-sly-list.resourceListModel="${resourceResp.finalSerachResp.resourcePageListingModel}">
+                        <sly data-sly-use.linkHelper="${'com.cision.revamp.core.helper.LinkCheckerHelper' @ link=resourceListModel.pagePath}">
+                            <div class="swiper-slide post" data-sly-test="${!resourceListModelList.first}">
+                                <div class="image">
+                                    <a href="${linkHelper.vanityPath}"></a>
+                                        <img src="${resourceListModel.thumbnailImg ? resourceListModel.thumbnailImg : '/content/dam/cision-revamp/cision-optimized/global-assets/logo-cision-dark-lg.jpg'}"alt="${resourceListModel.title ? resourceListModel.title : '' @ context='text'}" title="${resourceListModel.title ? resourceListModel.title : '' @ context='text'}" >
+                                </div>
+                                <div class="details">
+                                    <a  class="category">${resourceListModel.resCategory}</a>
+                                    <h2 class="title">
+                                        <a href="${linkHelper.vanityPath}">${resourceListModel.title @ context='text'}</a>
+                                    </h2>
+                                </div>
+                            </div>
+                        </sly>
+                    </sly>
+                </div>
+            </div>
+        </div>
+        </sly>
+        </sly>
+    </div>
+</section>
+<sly data-sly-resource="${'parresources' @ resourceType='wcm/foundation/components/parsys'}" data-sly-unwrap></sly>
+<section class="section--resource-listing">
+    <div class="wrapper">
+        <div class="post-list js-posts-list">
+            <sly data-sly-list.resourceList="${resourceResp.finalSerachResp.resourcePageListingModel1}">
+                <sly data-sly-use.linkHelper="${'com.cision.revamp.core.helper.LinkCheckerHelper' @ link=resourceList.pagePath}">
+                    <div class="post">
+                        <div class="post-content">
+                        <div class="image">
+                            <a href="${linkHelper.vanityPath}"></a>
+                                <img src="${resourceList.thumbnailImg ? resourceList.thumbnailImg : '/content/dam/cision-revamp/cision-optimized/global-assets/logo-cision-dark-lg.jpg'}"alt="${resourceListModel.title ? resourceList.title : '' @ context='text'}" title="${resourceList.title ? resourceList.title : '' @ context='text'}" >
+                        </div>
+                        <div class="details">
+                            <a class="category">${resourceList.resCategory}</a>
+                            <h3 class="title">
+                                <a href="${linkHelper.vanityPath}">${resourceList.title @ context='text'}</a>
+                            </h3>
+                        </div>
+                    </div>
+                    <hr class="divider">
+                    </div>
+                </sly>
+            </sly>
+        </div>
+    </div>
+    <div class="load-more">
+        <a href="javascript:;" class="btn variant-1 custom-loadmore">${properties.loadMore ? properties.loadMore : 'Load More'}<svg width="9" height="auto" viewbox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.99136 1.09085H2.19674V0.5H8.00673V6.31H7.41589V1.50191L1.41779 7.5L1 7.08221L6.99136 1.09085Z" fill="currentColor"></path>
+            <path d="M6.99136 1.09085L7.16814 1.26762L7.59491 0.840847H6.99136V1.09085ZM2.19674 1.09085H1.94674V1.34085H2.19674V1.09085ZM2.19674 0.5V0.25H1.94674V0.5H2.19674ZM8.00673 0.5H8.25673V0.25H8.00673V0.5ZM8.00673 6.31V6.56H8.25673V6.31H8.00673ZM7.41589 6.31H7.16589V6.56H7.41589V6.31ZM7.41589 1.50191H7.66589V0.898353L7.23911 1.32513L7.41589 1.50191ZM1.41779 7.5L1.24102 7.67678L1.41779 7.85355L1.59457 7.67678L1.41779 7.5ZM1 7.08221L0.823223 6.90543L0.646447 7.08221L0.823223 7.25898L1 7.08221ZM6.99136 0.840847H2.19674V1.34085H6.99136V0.840847ZM2.44674 1.09085V0.5H1.94674V1.09085H2.44674ZM2.19674 0.75H8.00673V0.25H2.19674V0.75ZM7.75673 0.5V6.31H8.25673V0.5H7.75673ZM8.00673 6.06H7.41589V6.56H8.00673V6.06ZM7.66589 6.31V1.50191H7.16589V6.31H7.66589ZM7.23911 1.32513L1.24102 7.32322L1.59457 7.67678L7.59266 1.67868L7.23911 1.32513ZM1.59457 7.32322L1.17678 6.90543L0.823223 7.25898L1.24102 7.67678L1.59457 7.32322ZM1.17678 7.25898L7.16814 1.26762L6.81458 0.91407L0.823223 6.90543L1.17678 7.25898Z" fill="currentColor"></path></svg></a>
+    </div>
+</section>

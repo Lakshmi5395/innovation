@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Section Text Column Image"
+          sling:resourceType="cq/gui/components/authoring/dialog"
+          extraClientlibs="clientlibs-multifieldValidation">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/tabs">
+        <items jcr:primaryType="nt:unstructured">
+            <fixedColumns
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Add Column Info"
+                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                <items jcr:primaryType="nt:unstructured">
+                    <columns
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <sectionTitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                fieldLabel="Enter Section Title"
+                                name="./sectionTitle"
+                                useFixedInlineToolbar="{Boolean}true">
+                                <rtePlugins
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="/apps/cision-revamp/components/common/customrte/cq:dialog/content/items/column/items/text/rtePlugins"/>
+                                <uiSettings
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="/apps/cision-revamp/components/common/customrte/cq:dialog/content/items/column/items/text/uiSettings"/>
+                            </sectionTitle>
+                            <fields
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                aem-nested=""
+                                class="full-width"
+                                composite="{Boolean}true"
+                                fieldDescription="Click '+' to add a new field"
+                                fieldLabel="Columns"
+                                validation="multi-validate"
+                                name="./sectionItems">
+                                <granite:data
+                                        jcr:primaryType="nt:unstructured"
+                                        fieldlimit="3"/>
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="Add a column"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                                    name="./items">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <columnTitle
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Enter Colum Title"
+                                                    name="./columnTitle"/>
+                                                <columnDescription
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                    fieldLabel="Column Description"
+                                                    name="./columnDescription"
+                                                    useFixedInlineToolbar="{Boolean}true">
+                                                    <rtePlugins
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceSuperType="/apps/cision-revamp/components/common/customrte/cq:dialog/content/items/column/items/text/rtePlugins"/>
+                                                    <uiSettings
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceSuperType="/apps/cision-revamp/components/common/customrte/cq:dialog/content/items/column/items/text/uiSettings"/>
+                                                </columnDescription>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                            </fields>
+                            <backgroundImage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                allowUpload="false"
+                                class="image-show cq-droptarget"
+                                fieldLabel="Background Image"
+                                fileNameParameter="./fileNameImage"
+                                fileReferenceParameter="./fileReferenceBackgroundImage"
+                                mimeTypes="[image]"
+                                multiple="{Boolean}false"
+                                name="./file"
+                                rel="image-show"
+                                title="Drop Image"
+                                useHTML5="{Boolean}true"/>
+                            <backgroundImageAlt
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Background Image Alternate Text"
+                                name="./backgroundImageAlt"/>
+                            <genericImage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                allowUpload="false"
+                                class="image-show cq-droptarget"
+                                fieldLabel="Generic Image"
+                                fileNameParameter="./fileNameImage"
+                                fileReferenceParameter="./fileReferenceGenericImage"
+                                mimeTypes="[image]"
+                                multiple="{Boolean}false"
+                                name="./genericImage"
+                                rel="image-show"
+                                title="Drop Image"
+                                useHTML5="{Boolean}true"/>
+                            <genericImageAlt
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Generic Image Alternate Text"
+                                name="./genericImageAlt"/>
+                        </items>
+                    </columns>
+                </items>
+            </fixedColumns>
+        </items>
+    </content>
+</jcr:root>

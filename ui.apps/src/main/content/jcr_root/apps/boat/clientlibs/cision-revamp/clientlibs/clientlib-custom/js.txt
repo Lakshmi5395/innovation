@@ -1,0 +1,4 @@
+#base=js
+resourceLoadMore.js
+resourcePageSelector.js
+aem-reset.js

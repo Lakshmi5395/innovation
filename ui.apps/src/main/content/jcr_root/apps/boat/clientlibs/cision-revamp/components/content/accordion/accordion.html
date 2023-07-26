@@ -1,0 +1,27 @@
+<div class="cq-placeholder" data-emptytext="Accordion" data-sly-test="${wcmmode.edit || wcmmode.design}"> </div>
+<div class="accordion js-accordion">
+    <sly data-sly-list.multifield="${resource.getChildren}">
+        <sly data-sly-test="${multifield.name == 'logos'}">
+            <sly data-sly-list.logo="${multifield.getChildren}">
+                <div class="accordion-item js-accordion-item ${logoList.first ? 'active' : ''}" data-index="${logoList.count}">
+                    <sly data-sly-test="${logo.title}">
+                        <header class="accordion-item-header">
+                            <button class="js-accordion-item-toggle"><span class="icon"></span> <span class="text">${logo.title}</span></button>
+                        </header>
+                    </sly>
+                    <div class="accordion-item-content js-accordion-item-content">
+                        <sly data-sly-test="${logo.description}">
+                            <div class="accordion-item-content-wrapper js-accordion-item-content-wrapper">
+                                <p>${logo.description @ context='html'}</p>
+                            </div>
+                        </sly>
+                    </div>
+                </div>
+            </sly>
+        </sly>
+    </sly>
+</div>
+
+
+
+

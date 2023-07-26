@@ -1,0 +1,40 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder" data-emptytext="Request Pricing Component in EDIT Mode"></div>
+	  <section class="section--contact conversion-modal">
+		<div class="wrapper">
+			<div class="left-area">
+				<sly data-sly-test="${properties.contactDetails}">
+				<div class="cards-paragraph text-medium">
+					${properties.contactDetails @context='html'}
+				 </div>
+				</sly>
+				<div class="cards">
+					<sly data-sly-list.multifieldNodes="${resource.getChildren}">
+						<sly data-sly-test="${multifieldNodes.name =='cards'}">
+							<sly data-sly-test="${multifieldNodes.getChildren}" data-sly-list="${multifieldNodes.getChildren}">
+								<sly data-sly-use.linkChecker="${'com.cision.revamp.core.helper.LinkCheckerHelper' @ link=item.link}">
+									<sly data-sly-test="${item.number || item.title || item.cardDescription}">
+										<div class="card">
+											<sly data-sly-test="${item.number}">
+												<div class="number">${item.number}</div>
+											</sly>
+											<sly data-sly-test="${item.title}">
+												<div class="title"> ${item.title}</div>
+											</sly>
+											<sly data-sly-test="${item.cardDescription}">
+												<div class="text-medium">
+													 ${item.cardDescription @context='html'}
+												</div>
+											</sly>
+										</div>
+									</sly>
+								</sly>
+							</sly>
+						</sly>
+					</sly>
+				</div>
+			</div>
+			<sly data-sly-resource="${ 'content_par_eloqua' @ resourceType='/apps/cision-revamp/components/content/eloqua'}"></sly>
+		</div>
+		<div class="decoration">
+		</div>
+	  </section>

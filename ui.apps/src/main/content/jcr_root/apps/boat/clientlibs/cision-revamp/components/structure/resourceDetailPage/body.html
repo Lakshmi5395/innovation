@@ -1,0 +1,58 @@
+<!--/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright 2016 Adobe
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
+<sly data-sly-include="gtmloader.html" data-sly-unwrap/>
+<sly data-sly-include="header.html" data-sly-unwrap/>
+<sly data-sly-use.analytics="${'com.cision.revamp.core.models.GoogleTMandAnalyticsModel'}" data-sly-unwrap>
+    <input type="hidden" value="${analytics.gaId}" id="GA_ID">
+</sly>
+<main id="page" class="resource-page">
+
+    <sly data-sly-test="${properties.templateVariation == 'version1'}">
+        <div data-sly-resource="${@ path='resourcedetailhero', resourceType='cision-revamp/components/content/resourcedetailhero'}" data-sly-unwrap></div>
+        <section class="section--resource-detail-content-1">
+            <div class="wrapper">
+                <article class="main">
+                    <div data-sly-resource="${@ path='image', resourceType='cision-revamp/components/common/image'}" data-sly-unwrap></div>
+                    <div class="content-wrapper">
+                        <div data-sly-resource="${@ path='root', resourceType='wcm/foundation/components/responsivegrid'}" data-sly-unwrap></div>
+                    </div>
+                </article>
+                <aside class="sidebar">
+                    <div data-sly-resource="${@ path='eloqua', resourceType='cision-revamp/components/content/eloqua'}" data-sly-unwrap></div>
+                </aside>
+            </div>
+        </section>
+    </sly>
+
+    <sly data-sly-test="${properties.templateVariation == 'version2'}">
+        <div data-sly-resource="${@ path='resourcedetailhero', resourceType='cision-revamp/components/content/resourcedetailhero'}" data-sly-unwrap></div>
+        <section class="section--resource-detail-content-2">
+            <article class="content">
+                <div class="wrapper">
+                    <div data-sly-resource="${@ path='root', resourceType='wcm/foundation/components/responsivegrid'}" data-sly-unwrap></div>
+                </div>
+            </article>
+            <div data-sly-resource="${@ path='authorBio', resourceType='cision-revamp/components/content/authorBio'}" data-sly-unwrap></div>
+        </section>
+    </sly>
+
+    <sly data-sly-test="${pageProperties['resourceType']}"  data-sly-unwrap>
+        <div data-sly-resource="${@ path='relatedResources', resourceType='cision-revamp/components/content/relatedResources'}" data-sly-unwrap></div>
+    </sly>
+
+</main>
+<input data-sly-use.date="${'com.cision.revamp.core.models.DateFormatter' @ date=properties.publicationDate, format='MM-dd-yyyy'}" type="hidden" name="publicationDate" value="${date.value}">
+<input type="hidden" name="resourceCategory" value="${properties.resourceCategory}">

@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Eloqua Form"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/tabs">
+        <items jcr:primaryType="nt:unstructured">
+            <eloquaFormtype
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Select Eloqua Form Type"
+                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                <items jcr:primaryType="nt:unstructured">
+                    <columns
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <eloquaFormtype
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldLabel="Eloqua Form Type"
+                                name="./eloquaformtype"
+                                required="true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <otherform
+                                        jcr:primaryType="nt:unstructured"
+                                        text="General Form"
+                                        value="otherform"/>
+                                    <resourcePageForm
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Resource Page Form"
+                                        value="resourcePageForm"/>
+                                </items>
+                            </eloquaFormtype>
+                            <formname
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Enter Eloqua Form Name"
+                                name="./formname"/>
+                            <eloquaformtitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Eloqua Form Title"
+                                name="./eloquaformtitle"/>
+                            <formClearText
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Enter Form Clear Text"
+                                name="./formClearText"/>
+                            <countryFlag
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldDescription="Select CountryFlag (if not Selected, then default country flag will be loaded with respect to site) "
+                                fieldLabel="CountryFlag"
+                                name="./countryFlags">
+                                <datasource
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="/apps/revamp/dropdowns"/>
+                            </countryFlag>
+                            <newtab
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="If it is external link select"
+                                name="./returnurlnewtab"
+                                text="If return Url is External Link, Enable checkbox"
+                                value="true"/>
+                            <returnUrl
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                fieldDescription="please provide relative path ''/content/...&quot;"
+                                fieldLabel="Enter return Url"
+                                name="./returnUrl"
+                                required="true"
+                                rootPath="/content"/>
+                            <campaignId
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Enter Campaign Id"
+                                name="./campaignId"/>
+                            <democampaignId
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Enter Demo Campaign Id"
+                                name="./democampaignId"/>
+                            <recaptchaerrorId
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Enter RecaptchaError Message"
+                                name="./recaptchaerrorId"/>
+                        </items>
+                    </columns>
+                </items>
+            </eloquaFormtype>
+            <otherform
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Form Field Configuration"
+                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                <items jcr:primaryType="nt:unstructured">
+                    <columns
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <firstName
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="First Name Label"
+                                name="./firstName"
+                                value="First Name:"/>
+                            <firstNameFlag
+                                granite:id="additionalchk"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Enable this checkbox for additional checkbox field"
+                                name="./firstNameFlag"
+                                text="Select checkbox to hide the First name field"
+                                value="true"/>
+                            <lastName
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Last Name Label"
+                                name="./lastName"
+                                value="Last Name:"/>
+                            <lastNameFlag
+                                granite:id="additionalchk"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Enable this checkbox for additional checkbox field"
+                                name="./lastNameFlag"
+                                text="Select checkbox to hide the Last name field"
+                                value="true"/>
+                            <emailId
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Email Id Label"
+                                name="./email"
+                                value="Email Id:"/>
+                            <emailInvalidError
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Invalid Email Id  Error Message"
+                                name="./emailInvalidErrorMessage"
+                                value="Please enter a valid Email"/>
+                            <businessPhone
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Business Phone Label"
+                                name="./businessPhone"
+                                value="Phone Number:"/>
+                            <businessPhoneFlag
+                                granite:id="additionalchk"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Enable this checkbox for additional checkbox field"
+                                name="./businessPhoneFlag"
+                                text="Select checkbox to hide the Business Phone field"
+                                value="true"/>
+                            <professorNameFlag
+                                granite:id="additionalchk"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Enable this checkbox for Professor name field"
+                                name="./professorNameFlag"
+                                text="Select checkbox to add the Professor Name field"
+                                value="true"/>
+                            <professorname
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Professor Name Label"
+                                name="./professorName"
+                                value="Professor Name:"/>
+                            <company
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Company Label"
+                                name="./company"
+                                value="Company:"/>
+                            <companyFlag
+                                granite:id="additionalchk"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Enable this checkbox for company field"
+                                name="./companyFlag"
+                                text="Select checkbox to hide the Company field"
+                                value="true"/>
+                            <companyDesc
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel=" Company /Organization Description Label"
+                                name="./companyDesc"
+                                value=" Company / Organization  Description:"/>
+                            <companyDescFlag
+                                granite:id="additionalchk"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Enable this checkbox for company/Organization description field"
+                                name="./companyDescFlag"
+                                text="Select checkbox to add the Company /organization Description field"
+                                value="true"/>
+                            <companyDescId
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Eloqua Id for description field"
+                                name="./companyDescId"
+                                value="companydescription"/>
+                            <website
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Website Label"
+                                name="./website"
+                                value="Website:"/>
+                            <websiteFlag
+                                granite:id="additionalchk"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Enable this checkbox for Website field"
+                                name="./websiteFlag"
+                                text="Select checkbox to add the website field"
+                                value="true"/>
+                            <city
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="City Label"
+                                name="./city"
+                                value="City:"/>
+                            <cityFlag
+                                granite:id="additionalchk"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Enable this checkbox for City field"
+                                name="./cityFlag"
+                                text="Select checkbox to add the City field"
+                                value="true"/>
+                            <questionnaire
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Questionnaire Label"
+                                name="./questionnaire"
+                                value="What partnership opportunities are you contemplating with Cision?: &#xa;"/>
+                            <questionnaireFlag
+                                granite:id="additionalchk"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Enable this checkbox for questionnaire field"
+                                name="./questionnaireFlag"
+                                text="Select checkbox to add the questionnaire field"
+                                value="true"/>
+                            <country
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Country Label"
+                                name="./country"
+                                value="Country:"/>
+                            <countryFlag
+                                granite:id="additionalchk"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Enable this checkbox for country field"
+                                name="./countryFlag"
+                                text="Select checkbox to hide the Country field"
+                                value="true"/>
+                            <state
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="State Label"
+                                name="./state"
+                                value="State:"/>
+                            <isCheckBoxForJobRole
+                                granite:id="additionalchk"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Enable this checkbox for job role field"
+                                name="./isCheckBoxForJobRole"
+                                text="Select checkbox to add job Role"
+                                value="true"/>
+                            <jobRole
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Job Role Label"
+                                name="./jobRole"
+                                value="Job Role:"/>
+                            <isCheckBoxForJobTitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Enable this checkbox for job title field"
+                                name="./isCheckBoxForJobTitle"
+                                text="Select checkbox to add job title"
+                                value="true"/>
+                            <jobTitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Job Title Label"
+                                name="./jobTitle"
+                                value="Job Title:"/>
+                            <productList
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Main Product of Interest Label"
+                                name="./productList"
+                                value="Main Product of Interest:"/>
+                            <isCheckBoxForProductList
+                                granite:id="additionalchk"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Enable this checkbox for Product List field"
+                                name="./isCheckBoxForProductList"
+                                text="Select checkbox to add product list field"
+                                value="true"/>
+                            <defaultPoiDropdown
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldDescription="Select the existing  Default POI value "
+                                fieldLabel="Select the existing  Default POI value "
+                                name="./defaultPoiDropdown">
+                                <datasource
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="/apps/cision-revamp/dropdowns"/>
+                            </defaultPoiDropdown>
+                            <isdefaultPoi
+                                granite:id="additionalchk"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Enable this checkbox for adding customized Default Product List value"
+                                name="./isDefaultPoi"
+                                text="Select checkbox to add customized  Default product list field"
+                                value="true"/>
+                            <defaultPoi
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Enter the Default Poi Value"
+                                name="./defaultPoi"
+                                value="Comms Clould"/>
+                            <multiDropdown
+                                granite:class="addNew"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                aem-nested=""
+                                class="full-width"
+                                composite="{Boolean}true"
+                                fieldDescription="Click '+' to add new dropdown field "
+                                fieldLabel="Dropdown">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                                    name="./multiFieldDropdown">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <isCheckBoxHalfWidth
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                    name="./isCheckBoxHalfWidth"
+                                                    text="Select checkbox to get half width for multi dropdown field"
+                                                    value="true"/>
+                                                <dropTitle
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Dropdown Title"
+                                                    name="./dropTitle"/>
+                                                <dropName
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Dropdown Name"
+                                                    name="./dropName"/>
+                                                <dropText
+                                                    granite:class="addNew"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                    aem-nested=""
+                                                    class="full-width"
+                                                    composite="{Boolean}true"
+                                                    fieldDescription="Click '+' to add a new field"
+                                                    fieldLabel="Dropdown Values">
+                                                    <field
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                                                        name="./multiFieldDropValue">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <column
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <dropdownName
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                        fieldLabel="Dropdown Item Title"
+                                                                        name="./dropdownName"/>
+                                                                    <dropValue
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                        fieldLabel="Dropdown Item Value"
+                                                                        name="./dropValue"/>
+                                                                </items>
+                                                            </column>
+                                                        </items>
+                                                    </field>
+                                                </dropText>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                            </multiDropdown>
+                            <isCheckBoxForComment
+                                granite:id="additionalchk"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Enable this checkbox for Commeny field"
+                                name="./isCheckBoxForComment"
+                                text="Select checkbox to add comment field"
+                                value="true"/>
+                            <comment
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Comment label"
+                                name="./comment"
+                                value="Comments :"/>
+                            <isCheckBoxForCompanyType
+                                granite:id="additionalchk"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Enable this checkbox for company type field"
+                                name="./isCheckBoxForCompanyType"
+                                text="Select checkbox to add type of company field"
+                                value="true"/>
+                            <companyType
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Type Of Company Label"
+                                name="./companyType"
+                                value="Type Of Company:"/>
+                            <isCheckBoxForCompanyRevenue
+                                granite:id="additionalchk"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Enable this checkbox for Company Revenue field"
+                                name="./isCheckBoxForCompanyRevenue"
+                                text="Select checkbox to add company revenue field"
+                                value="true"/>
+                            <companyRevenue
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Company Revenue1 Label"
+                                name="./companyRevenue"
+                                value="Company Revenue:"/>
+                            <isCheckBoxForFreeDemo
+                                granite:id="additionalchk"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Enable this checkbox for free demo field"
+                                name="./isCheckBoxForFreeDemo"
+                                text="Select checkbox to add free demo field"
+                                value="true"/>
+                            <freeDemo
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Enter Text for free demo"
+                                name="./freeDemo"
+                                value="YES, I would like a FREE demo. Please contact me."/>
+                            <isCheckBoxForSendARelease
+                                granite:id="additionalchk"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Enable this checkbox for Send A Release field"
+                                name="./isCheckBoxForSendARelease"
+                                text="Select checkbox to add Send A Release field"
+                                value="true"/>
+                            <sendARelease
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Enter Text for send a Release"
+                                name="./sendARelease"
+                                value="I am ready to send my release within 48 hours."/>
+                            <checkTitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Check box Title"
+                                name="./checkTitle"/>
+                            <isCheckBox
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                    fieldDescription="Enable this checkbox to add multiple check boxes on page"
+                                    name="./isCheckBox"
+                                    text="Select checkbox to add multiple check boxes on page"
+                                    value="true"/>
+                            <fields
+                                granite:class="addNew"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                aem-nested=""
+                                class="full-width"
+                                composite="{Boolean}true"
+                                fieldDescription="Click '+' to add a new field"
+                                fieldLabel="CheckBox">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                                    name="./multiFieldItems">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <checkBoxId
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Enter the Chex Box Id."
+                                                    fieldLabel="Check Box Id"
+                                                    name="./checkBoxId"
+                                                    text=""/>
+                                                <checkBoxLabel
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Enter the Chex Box Text."
+                                                    fieldLabel="Check Box Text "
+                                                    name="./checkBoxLabel"
+                                                    text=""/>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                            </fields>
+                            <agreementCheck
+                                granite:id="additionalchk"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Enable this checkbox for Agreement Check box field"
+                                name="./agreementCheck"
+                                text="Select checkbox to add the agreement field"
+                                value="true"/>
+                            <agreement
+                                granite:id="additionalcontainer"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <agCheckbox
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Enter Text for Agreement "
+                                        name="./agCheckbox"/>
+                                    <agCheckBoxId
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Enter ID for Checkbox"
+                                        name="./agCheckBoxId"/>
+                                </items>
+                            </agreement>
+                            <disableGdpr
+                                granite:id="additionalchk"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                fieldDescription="Enable this checkbox to disable gdpr"
+                                name="./disableGdpr"
+                                text="Select checkbox to disable gdpr"
+                                value="true"/>
+                            <additionalText
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                fieldLabel="Enter Additional Statement"
+                                name="./additionalText"
+                                useFixedInlineToolbar="{Boolean}true">
+                                <rtePlugins
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="/apps/cision-revamp/components/common/customrte/cq:dialog/content/items/column/items/text/rtePlugins"
+                                    sling:resourceType="granite/ui/components/coral/foundation/include"/>
+                                <uiSettings
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceSuperType="/apps/cision-revamp/components/common/customrte/cq:dialog/content/items/column/items/text/uiSettings"
+                                    sling:resourceType="granite/ui/components/coral/foundation/include"/>
+                            </additionalText>
+                            <submitCTA
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="CTA Label"
+                                name="./submitCTA"
+                                value="REGISTER NOW"/>
+                        </items>
+                    </columns>
+                </items>
+                <emailValidError.html/>
+            </otherform>
+        </items>
+    </content>
+</jcr:root>

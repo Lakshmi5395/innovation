@@ -1,0 +1,16 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder" data-emptytext="Configure Mega Menu Sub Items Component"></div>
+
+<sly data-sly-use.modelObj="com.cision.revamp.core.models.MegaMenuSubItemsModel">
+	<sly data-sly-test="${modelObj.megaMenuSubItemsList}" data-sly-list.menuSubItems="${modelObj.megaMenuSubItemsList}">
+		<div class="sub-item-wrapper">
+			<span class="sub-item vlist-item js-megamenu-sub-item ${menuSubItemsList.first ? 'active' : ''}" data-index="${modelObj.dataIndex}-${menuSubItemsList.index}" tabindex="6">${menuSubItems.subNavTitle}</span>
+			<sly data-sly-test="${menuSubItems.hasPanelMenu}">
+				<div class="details-panel sub-details js-megamenu-details-panel ${menuSubItemsList.first ? 'active' : ''}" data-index="${modelObj.dataIndex}-${menuSubItemsList.index}">
+				<sly data-sly-test.parResource="${'thirdLevel_par_{0}' @ format=[menuSubItemsList.count] }">
+					<sly data-sly-resource="${@ path=parResource, resourceType='cision-revamp/components/common/megamenupanel'}"></sly>
+				</sly>
+				</div>
+			</sly>
+		</div>
+	</sly>
+</sly>

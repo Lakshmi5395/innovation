@@ -1,0 +1,47 @@
+<div data-sly-test="${wcmmode.edit || wcmmode.design}" class="cq-placeholder" data-emptytext="Edit Case Study Detail Element Component"></div>
+<section class="section--text-grid">
+    <div class="wrapper">
+        <div class="grid">
+            <div class="left-area">
+                <div class="intro">
+                    <div class="overline" data-sly-test="${properties.introOverline}">${properties.introOverline}</div>
+                    <h2 class="title" data-sly-test="${properties.introTitle}">${properties.introTitle}</h2>
+                    <div class="text-medium" data-sly-test="${properties.introDesc}">
+                        <p>${properties.introDesc @ context = 'html'}</p>
+                    </div>
+                </div>
+                <div class="text-area">
+                    <div class="overline">${properties.headlineOverline}</div>
+                    <h3 class="title">${properties.headlineTitle }</h3>
+                    <div class="text-medium">
+                       <p>${properties.headlineDesc @ context = 'html'}</p>
+                       </div>
+                </div>
+            </div>
+            <div class="right-area">
+                <sly data-sly-list.multifield="${resource.getChildren}">
+                    <sly data-sly-test="${multifield.name == 'items'}">
+                        <sly data-sly-list.item="${multifield.getChildren}">
+                            <div class="text-image-group">
+                                <div class="text-area">
+                                    <div class="overline" data-sly-test="${item.rightIntroOverline}">
+                                        ${item.rightIntroOverline}
+                                    </div>
+                                    <h3 class="title" data-sly-test="${item.rightIntroTitle}">
+                                        ${item.rightIntroTitle}
+                                    </h3>
+                                    <div class="text-medium" data-sly-test="${item.rightIntroTitle}">
+                                        ${item.rightIntroDesc @ context = 'html'}
+                                    </div>
+                                </div>
+                                <div class="image" data-sly-test="${item.fileReferenceGenericImage}">
+                                    <img src="${item.fileReferenceGenericImage}" alt="${item.genericImageAlt}" />
+                                </div>
+                            </div>
+                        </sly>
+                    </sly>
+                </sly>
+            </div>
+        </div>
+    </div>
+</section>

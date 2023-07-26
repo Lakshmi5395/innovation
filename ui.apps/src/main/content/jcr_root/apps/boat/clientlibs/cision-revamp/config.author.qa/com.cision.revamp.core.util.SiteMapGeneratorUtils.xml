@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+	xmlns:jcr="http://www.jcp.org/jcr/1.0"
+	jcr:primaryType="sling:OsgiConfig"
+	websiteRootPath="[US:/content/cision/us/en]"
+	destinationPath="[US:/content/cision/us/en]"
+	siteMapName="[US:sitemap]"
+	excludePathName="[US:/content/cision/us/en/tag|/content/cision/us/en/author|/content/cision/us/en/category|/content/cision/us/en/contact-us/thank-you]"
+	siteDomain="https://uat-author.prnewswire.com"
+	externalizerDomain="[US https://uat.cision.com]"
+	newsSitemapName="[US:press-releases]"
+/>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+		  jcr:primaryType="sling:OsgiConfig"
+		  asap.search.domain="https://eraqa.prnewswire.com"
+		  site.code="cision"
+		  asap.search.endpoint.urls.array="[keywordSearch::/api/v1.0/release/search,login::/api/v1.0/auth/login,quickSearch::/api/v1.0/search,urlSearch::/api/v1.0/release/url/{0},eraStaticService::/api/v1.0/queue/static/,transIdSearch::/api/v1.0/release/translation/{0},staticSearch::/api/v1.0/static/search]"
+		  asap.xclient.header="testuser"
+		  asap.client.name="testuser"
+		  asap.client.pwd="12345678"
+		  asap.auth.header.prefix="Bearer"
+		  asap.cache.time.in.hours="{Long}30"/>

@@ -1,0 +1,27 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder" data-emptytext="Edit Hero Banner Component"></div>
+<section class="section--content-links section--top-hero">
+  <header class="section-header">
+    <sly data-sly-test="${properties.fileReferenceImage}">
+      <div class="background">
+        <img src="${properties.fileReferenceImage}" alt="${properties.imageAltText}">
+      </div>
+    </sly>
+    <sly data-sly-test="${properties.title || properties.subTitle || properties.description}">
+      <div class="wrapper">
+        <sly data-sly-test="${properties.title}">
+          <h1 class="headline"> ${properties.title @ context='html'} </h1>
+        </sly>
+        <sly data-sly-test="${properties.subTitle ||properties.description}">
+          <div class="intro">
+            <sly data-sly-test="${properties.subTitle}">
+              <h2> ${properties.subTitle} </h2>
+            </sly>
+            <sly data-sly-test="${properties.description}">
+              <div class="text-medium"> ${properties.description @ context='html'} </div>
+            </sly>
+          </div>
+        </sly>
+      </div>
+    </sly>
+  </header>
+</section>

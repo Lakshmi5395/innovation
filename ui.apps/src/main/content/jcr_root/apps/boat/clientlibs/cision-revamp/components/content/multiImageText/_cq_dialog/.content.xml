@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Multi Image Text"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <right
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Right"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                        margin="{Boolean}false">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <title
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Title"
+                                        name="./title"/>
+                                    <description
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                        fieldLabel="Description"
+                                        name="./description"
+                                        removeSingleParagraphContainer="{Boolean}true"
+                                        useFixedInlineToolbar="{Boolean}true">
+                                        <rtePlugins
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceSuperType="/apps/cision-revamp/components/common/customrte/cq:dialog/content/items/column/items/text/rtePlugins"/>
+                                        <uiSettings
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceSuperType="/apps/cision-revamp/components/common/customrte/cq:dialog/content/items/column/items/text/uiSettings"/>
+                                    </description>
+                                    <linktitle
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Label"
+                                        name="./linktitle"/>
+                                    <link
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                        fieldLabel="Link"
+                                        name="./link"
+                                        rootPath="/content"/>
+                                </items>
+                            </columns>
+                        </items>
+                    </right>
+                    <left
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Left"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <image
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                        allowUpload="false"
+                                        class="image-show cq-droptarget"
+                                        fieldLabel="Image"
+                                        fileNameParameter="./fileNameImage"
+                                        fileReferenceParameter="./fileReferenceImage"
+                                        mimeTypes="[image]"
+                                        multiple="{Boolean}false"
+                                        name="./image"
+                                        rel="image-show"
+                                        showhide-target=".showhide-target-fileupload"
+                                        title="Drop Image"
+                                        useHTML5="{Boolean}true"/>
+                                    <imagealt
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Alternate Text for Image"
+                                        name="./imagealt"/>
+                                    <bgImage
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                        allowUpload="false"
+                                        class="image-show cq-droptarget"
+                                        fieldLabel="Background Image"
+                                        fileNameParameter="./fileNameImageBg"
+                                        fileReferenceParameter="./fileReferenceImageBg"
+                                        mimeTypes="[image]"
+                                        multiple="{Boolean}false"
+                                        name="./bgImageLeft"
+                                        rel="image-show"
+                                        title="Drop Image"
+                                        useHTML5="{Boolean}true"/>
+                                    <bgImagetAlt
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Background Image Alternate Text"
+                                        name="./bgImageAltText"/>
+                                    <description
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                        fieldLabel="Description"
+                                        name="./imagedescription"
+                                        removeSingleParagraphContainer="{Boolean}true"
+                                        useFixedInlineToolbar="{Boolean}true">
+                                        <rtePlugins
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceSuperType="/apps/cision-revamp/components/common/customrte/cq:dialog/content/items/column/items/text/rtePlugins"/>
+                                        <uiSettings
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceSuperType="/apps/cision-revamp/components/common/customrte/cq:dialog/content/items/column/items/text/uiSettings"/>
+                                    </description>
+                                    <linktitle
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Label"
+                                        name="./imagelinktitle"/>
+                                    <link
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                        fieldLabel="Link"
+                                        name="./imagelink"
+                                        rootPath="/content"/>
+                                </items>
+                            </columns>
+                        </items>
+                    </left>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

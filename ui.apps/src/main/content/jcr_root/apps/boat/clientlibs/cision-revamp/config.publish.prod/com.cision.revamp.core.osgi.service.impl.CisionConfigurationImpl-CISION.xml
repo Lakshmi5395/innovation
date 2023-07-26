@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="sling:OsgiConfig"
+	adobe.script =""
+	accountSignUpUrl = "https://register-api.prweb.com/icp/internal/accountsignup"
+	authChiperText = "_U%11%AD%2Br%99V%99%18%075%DD%A9+%8C%2F%91%19%1Akd%BB%7E%19%13%D3rco%2F%98"
+	authPlainText = "e8fb0f2416ee0ab7da64bf8a6198da8f"
+	proxyHost = ""
+	proxyPort = ""
+	isProxyEnabled = "{Boolean}false"
+	site.code="cision"
+	 />

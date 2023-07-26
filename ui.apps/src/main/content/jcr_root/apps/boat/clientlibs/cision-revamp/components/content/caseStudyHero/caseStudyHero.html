@@ -1,0 +1,25 @@
+<section class="section--hero-case-study">
+   <div class="wrapper">
+      <header class="section-header" data-sly-test="${properties.title}">
+         <h1 class="title">${properties.title}</h1>
+      </header>
+      <div class="main-area">
+         <div class="text">
+            <div class="overline" data-sly-test="${properties.overline}">${properties.overline}</div>
+            ${properties.description @context='html'}
+         </div>
+         <div class="card">
+            <div class="card-image" data-sly-test="${properties.fileReferenceImage}">
+               <img src="${properties.fileReferenceImage}" alt="${properties.imagealt || true}">
+            </div>
+            <hr>
+            <div class="card-text" data-sly-test="${properties.cardDescription}">
+			${properties.cardDescription @context='html'}
+			</div>
+         </div>
+      </div>
+   </div>
+   <div class="background" data-sly-test="${properties.bgImage}">
+		<img src="${properties.bgImage}" alt="${properties.cardimageAltText || true}">
+   </div>
+</section>

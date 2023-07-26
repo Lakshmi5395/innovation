@@ -1,0 +1,36 @@
+<sly data-sly-test="${wcmmode.disabled}" data-sly-unwrap>
+<sly data-sly-use.analytics="${'com.cision.revamp.core.models.GoogleTMandAnalyticsModel'}" data-sly-unwrap></sly>
+<sly data-sly-use.domainURL="${'com.cision.revamp.core.models.UrlSplitModel'}" data-sly-unwrap></sly>
+	<script data-sly-test="${analytics.firstGtmId}">
+	  (function(w, d, s, l, i) {
+	      w[l] = w[l] || [];
+	      w[l].push({
+	          'gtm.start': new Date().getTime(),
+	          event: 'gtm.js'
+	      });
+	      var f = d.getElementsByTagName(s)[0],
+	          j = d.createElement(s),
+	          dl = l != 'dataLayer' ? '&l=' + l : '';
+	      j.async = true;
+	      j.src =
+	          'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+	      f.parentNode.insertBefore(j, f);
+	  })(window, document, 'script', 'dataLayer', '${analytics.firstGtmId @ context='text'}');
+	</script>	
+	<script data-sly-test="${analytics.secondGtmId}">
+	  (function(w, d, s, l, i) {
+	      w[l] = w[l] || [];
+	      w[l].push({
+	          'gtm.start': new Date().getTime(),
+	          event: 'gtm.js'
+	      });
+	      var f = d.getElementsByTagName(s)[0],
+	          j = d.createElement(s),
+	          dl = l != 'dataLayer' ? '&l=' + l : '';
+	      j.async = true;
+	      j.src =
+	          'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+	      f.parentNode.insertBefore(j, f);
+	  })(window, document, 'script', 'dataLayer', '${analytics.secondGtmId @ context='text'}');
+	</script>
+</sly>

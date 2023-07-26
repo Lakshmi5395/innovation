@@ -1,0 +1,298 @@
+<sly data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder" data-emptytext="Configure Lever Job Form Component in EDIT Mode"></sly>
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+   <sly data-sly-call="${clientlib.js @ categories='clientlib.career'}" />
+</sly>
+<sly data-sly-use.lever="com.cision.revamp.core.models.LeverFormModel"/>
+<section class="section--top-hero">
+   <div class="top" data-sly-test="${properties.linkName}">
+      <div class="wrapper">
+         <sly data-sly-use.linkHelper="${'com.cision.revamp.core.helper.LinkCheckerHelper' @ link=properties.link}">
+            <a href="${linkHelper.vanityPath}" class="back-link">${properties.linkName}</a>
+         </sly>
+      </div>
+   </div>
+   <header class="section-header">
+      <div class="background">
+         <img src="${properties.careersBgImage ? properties.careersBgImage : '/content/dam/cision-revamp/hero-resource-detail.png'}" alt="${properties.careersBgImageAltText || true}">
+      </div>
+      <div class="wrapper">
+         <div class="overline">${properties.pageHeader  || 'APPLY FOR JOB' @i18n,context = 'html'}</div>
+         <div class="flex">
+            <div class="content">
+               <h1 class="title">
+                  ${lever.leverFormResponse.getData.getText @i18n}
+               </h1>
+               <div class="text-medium">
+                  <p>${lever.careerDetailBean.city @i18n}  ${lever.careerDetailBean.state ? ',' : ''}${lever.careerDetailBean.state  @i18n}${lever.careerDetailBean.country ? ',' : ''}${lever.careerDetailBean.country @i18n} / ${lever.careerDetailBean.department @i18n} - ${lever.careerDetailBean.team @i18n} / ${lever.careerDetailBean.commitment @i18n}</p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </header>
+</section>
+<section class="section--content-links career-details">
+   <div class="content">
+      <div class="wrapper">
+         <div class="content-wrapper">
+            <div class="form-wrapper">
+               <input type="hidden" name="recaptchaErrorMsg" id="recaptchaErrorMsg" value="${properties.recaptchaErrorMsg}" />
+               <script src='https://www.google.com/recaptcha/api.js?render=6LcND_QUAAAAAP1F-ViHZtRv64_xwiGtTa9A4q8f' async defer></script>
+               <form class="form js-form" id="leverjobform" name="leverjobform" method="post" action="">
+                  <h2 class="title">${properties.subTitle || 'Submit your application' @ i18n,context = 'html'}</h2>
+                  <p class="text-medium">${properties.formDesc || 'We’ll reach out with dates and times with 24 hours.' @ i18n,context = 'html'}</p>
+                  <div class="form-fields">
+                     <input type="hidden" name="recaptchaToken" id="recaptchaToken" value="" />
+                     <input type="hidden" name="postingId" id="postingId" value="${lever.careerDetailBean.postingId}" />
+                     <sly data-sly-test=${lever.personalInfoList} data-sly-list="${lever.personalInfoList}">
+                        <sly data-sly-test = "${item.type == 'text'}">
+                           <div class="form-field half-width">
+                              <label for="${item.name}">
+                                 <input
+                                         type="text"
+                                         name="${item.name}"
+                                         id="${item.name}"
+                                         pattern="${item.pattern}"
+                                         class="field-input"
+                                         data-sly-attribute.required=${item.required}
+                                         oninvalid="setCustomValidity('${item.oninvalid @ context = 'attribute'}')"
+                                         oninput="setCustomValidity('');checkValidity();setCustomValidity(validity.valid ? '' :'${item.oninput @ context = 'attribute'}');">
+                                 <span class="field-label">${item.text @i18n}</span>
+                              </label>
+                           </div>
+                        </sly>
+                        <sly data-sly-test = "${item.type == 'file'}">
+                           <div class="custom-file form-field half-width">
+                              <label for="${item.name}">
+                                 <input type="file" class="field-input" name="${item.name}" id="${item.name}"
+                                        accept=".doc,.docx,.jpg,.png,.pdf,.txt"
+                                        data-sly-attribute.required=${item.required}
+                                        oninvalid="setCustomValidity('${item.oninvalid @ context = 'attribute'}')"
+                                        oninput="setCustomValidity('')">
+                                 <span class="field-label">${item.text @i18n}</span>
+                                 <span class="custom-file-label" for="${item.name}"></span>
+                              </label>
+                           </div>
+                        </sly>
+                        <sly data-sly-test = "${item.type == 'textarea'}">
+                           <div class="form-field half-width">
+                              <label for="${item.name}">
+                              <textarea  row="3" name="${item.name}" id="${item.name}"  class="field-input"
+                                         data-sly-attribute.required=${item.required}
+                                         oninvalid="setCustomValidity('${item.oninvalid @ context = 'attribute'}')"
+                                         oninput="setCustomValidity('')"></textarea>
+                                 <span class="field-label">${item.text @i18n}</span>
+                              </label>
+                           </div>
+                        </sly>
+                        <sly data-sly-test = "${item.type == 'multiple-choice'}">
+                           <div class="form-field type-options-list span-12">
+                              <div class="field-checkboxes-wrapper">
+                                 <span class="field-label">
+                                    <sly data-sly-test="${item.required}"><sup>*</sup></sly>
+                                    ${item.text @i18n}
+                                 </span>
+                                 <div class="field-options field-option-inline">
+                                    <sly data-sly-test=${item.options} data-sly-list.option="${item.options}">
+                                       <div class="field-option">
+                                          <input type="radio" id="${option.optionId}" name="${item.text}" value="${option.text}"  data-sly-attribute.required=${item.required}>
+                                          <label  for="${option.optionId}">
+                                             <span class="field-option-check">
+                                                <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                   <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7281 1.79504L4.25076 9.27236L0.273438 5.29503L1.3341 4.23437L4.25076 7.15104L10.6674 0.734375L11.7281 1.79504Z" fill="currentColor"></path>
+                                                </svg>
+                                             </span>
+                                             <span class="field-option-text">${option.text}</span>
+                                          </label>
+                                       </div>
+                                    </sly>
+                                 </div>
+                              </div>
+                           </div>
+                        </sly>
+                        <sly data-sly-test = "${item.type == 'dropdown'}">
+                           <div class="form-field half-width">
+                              <label for="${item.name}">
+                                 <select class="field-input" name = "${item.text}" id="${item.name}" class="field-input" data-sly-attribute.required=${item.required}
+                                         oninvalid="setCustomValidity('${item.oninvalid @ context = 'attribute'}')"
+                                         oninput="setCustomValidity('')">
+                                    <option value>${item.text @i18n}${item.required ? '*' : ''}</option>
+                                    <option value="${item.prompt}">${item.prompt}</option>
+                                    <sly data-sly-test=${item.options} data-sly-list.option="${item.options}">
+                                       <option value="${option.text}" id="${option.optionId}">${option.text}</option>
+                                    </sly>
+                                 </select>
+                                 <span class="field-label">${item.text @i18n}</span>
+                              </label>
+                           </div>
+                        </sly>
+                        <sly data-sly-test = "${item.type == 'multiple-select'}">
+                           <div class="form-field type-options-list span-12">
+                              <div class="field-checkboxes-wrapper">
+                                 <span class="field-label">
+                                    <sly data-sly-test="${item.required}"><sup>*</sup></sly>
+                                    ${item.text @i18n}
+                                 </span>
+                                 <sly data-sly-test=${item.options} data-sly-list.option="${item.options}">
+                                    <div class="field-options">
+                                       <div class="field-option">
+                                          <input type="checkbox" id="${option.optionId}" name="${item.text}" value="${option.text}" data-sly-attribute.required=${item.required}>
+                                          <label  for="${option.optionId}">
+                                             <span class="field-option-check">
+                                                <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                   <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7281 1.79504L4.25076 9.27236L0.273438 5.29503L1.3341 4.23437L4.25076 7.15104L10.6674 0.734375L11.7281 1.79504Z" fill="currentColor"></path>
+                                                </svg>
+                                             </span>
+                                             <span class="field-option-text">${option.text}</span>
+                                          </label>
+                                       </div>
+                                    </div>
+                                 </sly>
+                              </div>
+                           </div>
+                        </sly>
+                     </sly>
+                     <sly data-sly-test=${lever.customQuestionsList} data-sly-list="${lever.customQuestionsList}">
+                        <sly data-sly-test = "${item.type == 'text'}">
+                           <div class="form-field half-width">
+                              <label for="${item.text}">
+                                 <input type="text" pattern="${item.pattern}" name="${item.text}" id="${item.text}"
+                                        class="field-input"
+                                        data-sly-attribute.required=${item.required}
+                                        oninvalid="setCustomValidity('${item.oninvalid @ context = 'attribute'}')"
+                                        oninput="setCustomValidity('');checkValidity();setCustomValidity(validity.valid ? '' :'${item.oninput @ context = 'attribute'}');">
+                                 <span class="field-label">${item.text @i18n}</span>
+                              </label>
+                           </div>
+                        </sly>
+                        <sly data-sly-test = "${item.type == 'file'}">
+                           <div class="form-field half-width">
+                              <label for="${item.text}">
+                                 <input type="file" class="custom-file-input" name="${item.text}" id="${item.name}"
+                                        accept=".doc,.docx,.jpg,.png,.pdf,.txt"
+                                        data-sly-attribute.required=${item.required}
+                                        oninvalid="setCustomValidity('${item.oninvalid @ context = 'attribute'}')"
+                                        oninput="setCustomValidity('')">
+                                 <span class="field-label"> ${item.text @i18n}"</span>
+                                 <span class="custom-file-label" for="${item.name}"></span>
+                              </label>
+                           </div>
+                        </sly>
+                        <sly data-sly-test = "${item.type == 'textarea'}">
+                           <div class="form-field half-width">
+                              <label for="${item.text}">
+                              <textarea class="field-input" row="3" name="${item.text}" id="${item.text}"
+                                        data-sly-attribute.required=${item.required}
+                                        oninvalid="setCustomValidity('${item.oninvalid @ context = 'attribute'}')"
+                                        oninput="setCustomValidity('')"></textarea>
+                                 <span class="field-label">${item.text @i18n}</span>
+                              </label>
+                           </div>
+                        </sly>
+                        <sly data-sly-test = "${item.type == 'multiple-choice'}">
+                           <div class="form-field type-options-list span-12">
+                              <div class="field-checkboxes-wrapper">
+                                 <span class="field-label">
+                                    <sly data-sly-test="${item.required}"><sup>*</sup></sly>
+                                    ${item.text @i18n}
+                                 </span>
+                                 <div class="field-options field-option-inline">
+                                    <sly data-sly-test=${item.options} data-sly-list.option="${item.options}">
+                                       <div class="field-option">
+                                          <input type="radio" id="${option.optionId}" name="${item.text}" value="${option.text}"  data-sly-attribute.required=${item.required}>
+                                          <label  for="${option.optionId}">
+                                             <span class="field-option-check">
+                                                <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                   <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7281 1.79504L4.25076 9.27236L0.273438 5.29503L1.3341 4.23437L4.25076 7.15104L10.6674 0.734375L11.7281 1.79504Z" fill="currentColor"></path>
+                                                </svg>
+                                             </span>
+                                             <span class="field-option-text">${option.text}</span>
+                                          </label>
+                                       </div>
+                                    </sly>
+                                 </div>
+                              </div>
+                           </div>
+                        </sly>
+                        <sly data-sly-test = "${item.type == 'dropdown'}">
+                           <div class="form-field half-width">
+                              <label for="${item.text}">
+                                 <select class="field-input" name = "${item.text}" title="" id="${item.text}" class="field-input" data-sly-attribute.required=${item.required}
+                                         oninvalid="setCustomValidity('${item.oninvalid @ context = 'attribute'}')"
+                                         oninput="setCustomValidity('')">
+                                    <option value>${item.text @i18n}${item.required ? '*' : ''}</option>
+                                    <sly data-sly-test=${item.prompt}>
+                                       <option value="${item.prompt}">${item.prompt}</option>
+                                    </sly>
+                                    <sly data-sly-test=${item.options} data-sly-list.option="${item.options}">
+                                       <option value="${option.text}" id="${option.optionId}">${option.text}</option>
+                                    </sly>
+                                 </select>
+                                 <span class="field-label">${item.text @i18n}</span>
+                              </label>
+                           </div>
+                        </sly>
+                        <sly data-sly-test = "${item.type == 'multiple-select'}">
+                           <div class="form-field type-options-list span-12">
+                              <div class="field-checkboxes-wrapper">
+                                 <span class="field-label">
+                                    <sly data-sly-test="${item.required}"><sup>*</sup></sly>
+                                    ${item.text @i18n}
+                                 </span>
+                                 <sly data-sly-test=${item.options} data-sly-list.option="${item.options}">
+                                    <div class="field-options">
+                                       <div class="field-option">
+                                          <input type="checkbox" id="${option.optionId}" name="${item.text}" value="${option.text}" data-sly-attribute.required=${item.required}>
+                                          <label  for="${option.optionId}">
+                                             <span class="field-option-check">
+                                                <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                   <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7281 1.79504L4.25076 9.27236L0.273438 5.29503L1.3341 4.23437L4.25076 7.15104L10.6674 0.734375L11.7281 1.79504Z" fill="currentColor"></path>
+                                                </svg>
+                                             </span>
+                                             <span class="field-option-text">${option.text}</span>
+                                          </label>
+                                       </div>
+                                    </div>
+                                 </sly>
+                              </div>
+                           </div>
+                        </sly>
+                     </sly>
+                  </div>
+                  <p>${properties.text @ context = 'html'}</p>
+                  <sly data-sly-test = "${properties.optinText}">
+                     <div class="form-fields">
+                        <div class="form-field type-options-list span-12">
+                           <div class="field-checkboxes-wrapper">
+                              <div class="field-options">
+                                 <div class="field-option">
+                                    <input type="checkbox" name="checkbox-field" id="contact-checkbox-1" value="1" required="required">
+                                    <label for="contact-checkbox-1">
+                                       <span class="field-option-check">
+                                          <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7281 1.79504L4.25076 9.27236L0.273438 5.29503L1.3341 4.23437L4.25076 7.15104L10.6674 0.734375L11.7281 1.79504Z" fill="currentColor"></path>
+                                          </svg>
+                                       </span>
+                                       <span class="field-option-text">${properties.optinText}</span>
+                                    </label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </sly>
+                  <div class="mb-4" id="leverErrorText" data-customerror="${properties.leverErrorMsg}" style="display:none; color:red"></div>
+                  <footer class="form-footer">
+                     <button data-thankyouPage="${lever.thankyouPage}"  data-loading-text="<i class='fa fa-spinner fa-pulse fa-fw'></i> Submitting" class="btn variant-2-dark submit-button" id="submit" name="submit" type="submit" >
+                        ${properties.btnText || 'SUBMIT APPLICATION' @i18n ,context = 'html'}
+                        <svg width="9" height="auto" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path fill-rule="evenodd" clip-rule="evenodd" d="M6.99136 1.09085H2.19674V0.5H8.00673V6.31H7.41589V1.50191L1.41779 7.5L1 7.08221L6.99136 1.09085Z" fill="currentColor"/>
+                           <path d="M6.99136 1.09085L7.16814 1.26762L7.59491 0.840847H6.99136V1.09085ZM2.19674 1.09085H1.94674V1.34085H2.19674V1.09085ZM2.19674 0.5V0.25H1.94674V0.5H2.19674ZM8.00673 0.5H8.25673V0.25H8.00673V0.5ZM8.00673 6.31V6.56H8.25673V6.31H8.00673ZM7.41589 6.31H7.16589V6.56H7.41589V6.31ZM7.41589 1.50191H7.66589V0.898353L7.23911 1.32513L7.41589 1.50191ZM1.41779 7.5L1.24102 7.67678L1.41779 7.85355L1.59457 7.67678L1.41779 7.5ZM1 7.08221L0.823223 6.90543L0.646447 7.08221L0.823223 7.25898L1 7.08221ZM6.99136 0.840847H2.19674V1.34085H6.99136V0.840847ZM2.44674 1.09085V0.5H1.94674V1.09085H2.44674ZM2.19674 0.75H8.00673V0.25H2.19674V0.75ZM7.75673 0.5V6.31H8.25673V0.5H7.75673ZM8.00673 6.06H7.41589V6.56H8.00673V6.06ZM7.66589 6.31V1.50191H7.16589V6.31H7.66589ZM7.23911 1.32513L1.24102 7.32322L1.59457 7.67678L7.59266 1.67868L7.23911 1.32513ZM1.59457 7.32322L1.17678 6.90543L0.823223 7.25898L1.24102 7.67678L1.59457 7.32322ZM1.17678 7.25898L7.16814 1.26762L6.81458 0.91407L0.823223 6.90543L1.17678 7.25898Z" fill="currentColor"/>
+                        </svg>
+                     </button>
+                  </footer>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>

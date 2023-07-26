@@ -1,0 +1,32 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder" data-emptytext="Edit Section Text Column Image Component"></div>
+<section class="section--text-columns">
+  <div class="background" data-sly-test="${properties.fileReferenceBackgroundImage}">
+    <img src=" ${properties.fileReferenceBackgroundImage}" alt="${properties.backgroundImageAlt}">
+  </div>
+  <div class="wrapper">
+    <header class="header">
+      <h2 class="section-title" data-sly-test="${properties.sectionTitle}">${properties.sectionTitle @ context='html'}</h2>
+    </header>
+    <div class="grid">
+      <div class="grid-row">
+        <sly data-sly-list.multifield="${resource.getChildren}">
+          <sly data-sly-test="${multifield.name == 'items'}">
+            <sly data-sly-list="${multifield.getChildren}">
+              <div class="grid-col">
+                <sly data-sly-test="${item.columnTitle}">
+                  <h3 class="grid-col-title">${item.columnTitle}</h3>
+                </sly>
+                <div class="grid-col-text">
+                  <sly data-sly-test="${item.columnDescription}"> ${item.columnDescription  @ context='html'} </sly>
+                </div>
+              </div>
+            </sly>
+          </sly>
+        </sly>
+      </div>
+    </div>
+    <div class="image" data-sly-test="${properties.fileReferenceGenericImage}">
+      <img src=" ${properties.fileReferenceGenericImage}" alt="${properties.genericImageAlt}">
+    </div>
+    </div>
+</section>

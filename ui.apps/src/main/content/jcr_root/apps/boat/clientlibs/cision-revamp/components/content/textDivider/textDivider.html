@@ -1,0 +1,14 @@
+<div class="cq-placeholder" data-emptytext="Text Divider Component" data-sly-test="${wcmmode.edit || wcmmode.design}">
+</div>
+<div class="section--text-divider ${properties.varientType == 'varientLight' ? 'variant-light' : 'variant-dark'}">
+    <div class="wrapper">
+        <sly data-sly-test="${properties.regulartext}">
+            <div class="text">
+                ${properties.regulartext @context='styleComment'}
+            </div>
+        </sly>
+    </div>
+</div>
+
+
+

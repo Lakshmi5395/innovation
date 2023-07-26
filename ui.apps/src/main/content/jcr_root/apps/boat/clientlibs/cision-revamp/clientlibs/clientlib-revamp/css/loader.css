@@ -1,0 +1,96 @@
+#loader-screen,
+#loader-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#loader-screen {
+  z-index: 500;
+  background: #063369;
+}
+
+#loader-backdrop {
+  z-index: 499;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #031F41AA;
+  backdrop-filter: blur(5px);
+}
+
+#loader-backdrop svg {
+  max-width: calc(100% - 30px);
+}
+
+/** Hide */
+#loader-screen.hide,
+#loader-backdrop.hide {
+  pointer-events: none;
+}
+
+#loader-screen.hide {
+  animation: loader_screen_animation 2.5s cubic-bezier(0.5, 0, 0, 1) forwards;
+}
+
+#loader-backdrop.hide {
+  opacity: 0;
+  transition: opacity 1s;
+  transition-delay: 500ms;
+
+  /*animation: loader_animation 2s cubic-bezier(0.5, 0, 0, 1) forwards;*/
+  /*animation-delay: 0.3s;*/
+}
+
+@keyframes loader_animation {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  100% {
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes loader_screen_animation {
+  0% {
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 50%,
+      0 50%,
+      0 50%,
+      100% 50%,
+      100% 100%,
+      0 100%
+    );
+  }
+
+  25% {
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 35%,
+      0 40%,
+      0 60%,
+      100% 65%,
+      100% 100%,
+      0 100%
+    );
+  }
+
+  100% {
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% -50%,
+      0 -50%,
+      0 150%,
+      100% 150%,
+      100% 100%,
+      0 100%
+    );
+  }
+}

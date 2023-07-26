@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Panel"
+    title="Cloudflare">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <deleteEndPoint
+            jcr:primaryType="cq:Widget"
+            defaultValue="/ccu/v3/delete/url/"
+            fieldDescription="Cache Delete Endpoint"
+            fieldLabel="Cache Delete Endpoint"
+            name="./deleteEndPoint"
+            xtype="textfield"/>
+        <enabledDelay
+            jcr:primaryType="cq:Widget"
+            fieldLabel="Enabled Post Delay"
+            inputValue="true"
+            name="./enabledDelay"
+            xtype="checkbox"/>
+        <delayTime
+            jcr:primaryType="cq:Widget"
+            defaultValue="200"
+            fieldDescription="The time delay in milliseconds after each http post Call."
+            fieldLabel="Post Delay Time"
+            name="./delayTime"
+            type="select"
+            xtype="selection">
+            <options jcr:primaryType="cq:WidgetCollection">
+                <mill200
+                    jcr:primaryType="nt:unstructured"
+                    text="200"
+                    value="200"/>
+                <mill400
+                    jcr:primaryType="nt:unstructured"
+                    text="400"
+                    value="400"/>
+                <mill500
+                    jcr:primaryType="nt:unstructured"
+                    text="500"
+                    value="500"/>
+                <mill700
+                    jcr:primaryType="nt:unstructured"
+                    text="700"
+                    value="700"/>
+                <mill1000
+                    jcr:primaryType="nt:unstructured"
+                    text="1000"
+                    value="1000"/>
+            </options>
+        </delayTime>
+    </items>
+</jcr:root>

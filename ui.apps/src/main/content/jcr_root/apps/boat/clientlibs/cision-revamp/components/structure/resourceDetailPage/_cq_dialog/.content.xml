@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Page"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[cq.common.wcm,cq.siteadmin.admin.properties,clientlibs.basePage]">
+    <content
+        granite:class="cq-dialog-content-page"
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                granite:rel="cq-siteadmin-admin-properties-tabs"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs">
+                <items jcr:primaryType="nt:unstructured">
+                    <resourceProperties
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Resource Properties"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <templateVariation
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="/libs/granite/ui/components/coral/foundation/form/radiogroup"
+                                                description="Select variation with eloqua form or without eloqua form"
+                                                fieldLabel="Select Template Variation"
+                                                name="./templateVariation"
+                                                text="Select Template Variation"
+                                                value="true">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <version1
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Resource Detail page with Eloqua form"
+                                                        value="version1"/>
+                                                    <version2
+                                                        jcr:primaryType="nt:unstructured"
+                                                        checked="{Boolean}true"
+                                                        text="Resource Detail page without Eloqua form"
+                                                        value="version2"/>
+                                                </items>
+                                            </templateVariation>
+                                            <isSuperFeaturedResource
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                description="Enable to show resource as Super Feature"
+                                                name="./superFeature"
+                                                text="Show Resource Page as Super Feature"
+                                                uncheckedValue="false"
+                                                value="true"/>
+                                            <isFeaturedResource
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                description="Enable to show resource as Featured"
+                                                name="./featured"
+                                                text="Feature in primary category"
+                                                uncheckedValue="false"
+                                                value="true"/>
+                                            <pageExcerpt
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                fieldLabel="Page Excerpt"
+                                                name="./pageExcerpt"/>
+                                            <thumbnailImg
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                                fieldLabel="Thumbnail Image Path"
+                                                name="./thumbnailImg"
+                                                rootPath="/content/dam/"
+                                                useHTML5="{Boolean}true"
+                                                value="/content/dam/cision-revamp/cision-optimized/global-assets/logo-cision-dark-lg.jpg"/>
+                                            <bannerImg
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                                fieldLabel="Banner Image Path"
+                                                name="./bannerImg"
+                                                rootPath="/content/dam/"
+                                                useHTML5="{Boolean}true"/>
+                                            <publicationdate
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+                                                displayedFormat="DD-MM-YYYY"
+                                                fieldLabel="Select Publication Date"
+                                                name="./publicationDate"
+                                                required="true"
+                                                type="datetime"/>
+                                            <type
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/coral/common/form/tagfield"
+                                                fieldLabel="Primary Type"
+                                                forceSelection="{Boolean}true"
+                                                id="resource_typetag_select"
+                                                name="./resourceType"
+                                                required="{Boolean}true"
+                                                rootPath="/etc/tags/cision-revamp/Resources/ResourceType"/>
+                                            <secondaryType
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/coral/common/form/tagfield"
+                                                fieldLabel="Secondary Type"
+                                                id="Resource_typetag_select"
+                                                multiple="{Boolean}true"
+                                                name="./secondaryResourceType"
+                                                rootPath="/etc/tags/cision-revamp/Resources/ResourceType"/>
+                                            <resourceCategory
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="Primary Category"
+                                                name="./resourceCategory"
+                                                required="{Boolean}true">
+                                                <datasource
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="/apps/cision-revamp/resourceCategoriesDropDown"/>
+                                            </resourceCategory>
+                                            <secondaryCategory
+                                                jcr:primaryType="nt:unstructured"
+                                                jcr:title="Secondary Category"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <catType
+                                                        cq:showOnCreate="{Boolean}true"
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                        composite="{Boolean}false"
+                                                        fieldLabel="Secondary Resource categories">
+                                                        <field
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                            fieldDescription="Select Resource Categories"
+                                                            fieldLabel="Secondary Category"
+                                                            name="./secondaryResourceCategory">
+                                                            <datasource
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="/apps/cision-revamp/resourceCategoriesDropDown"/>
+                                                        </field>
+                                                    </catType>
+                                                </items>
+                                            </secondaryCategory>
+                                        </items>
+                                    </column>
+                                </items>
+                            </column>
+                        </items>
+                    </resourceProperties>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

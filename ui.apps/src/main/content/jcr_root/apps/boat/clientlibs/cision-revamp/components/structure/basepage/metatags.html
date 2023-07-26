@@ -1,0 +1,183 @@
+<!-- meta Tags -->
+<sly data-sly-use.newsDetailModel="${'com.cision.revamp.core.models.NewsDetailModel'}"></sly>
+<sly data-sly-use.seoDescription="${'com.cision.revamp.core.util.GetSeoDescription' }"> </sly>
+<sly data-sly-test="${pageProperties['pageExcerpt']}">
+   <sly data-sly-use.pgExcerpt="${'com.cision.revamp.core.models.CleanHtmlTagModel' @ excerpts=pageProperties['pageExcerpt']}" data-sly-unwrap></sly>
+</sly>
+<sly data-sly-use.domainURL="${'com.cision.revamp.core.models.UrlSplitModel' }"> </sly>
+<sly data-sly-test="${pageProperties.seotitle && currentPage.name !='news-detail'}">
+   <title>${pageProperties.seotitle}</title>
+</sly>
+<sly data-sly-test="${!pageProperties.seotitle && currentPage.name != 'news-detail'}">
+   <sly data-sly-test="${currentPage.title}">
+      <title>${currentPage.title}</title>
+   </sly>
+</sly>
+<sly data-sly-test="${currentPage.name == 'news-detail'&& newsDetailModel.title}">
+   <title>${newsDetailModel.title}</title>
+</sly>
+
+<sly  data-sly-test="${!currentPage.title && domainURL.languageValue != 'fr'}">
+   <title> Cision - Global Cloud-Based Communications and PR Solutions Leader</title>
+</sly>
+<sly  data-sly-test="${!currentPage.title && domainURL.languageValue == 'fr'}">
+   <title>Chef, solutions de relations publiques et communications infonuagiques mondiales</title>
+</sly>
+</sly>
+<sly data-sly-test="${pageProperties.seodescription  @context='html'}">
+   <meta name="description" content="${seoDescription.trimmedSeoDescription  @context='html'}"/>
+</sly>
+<sly data-sly-test="${!pageProperties.seodescription}">
+   <sly data-sly-test="${pgExcerpt.modifiedExcerpt @context='html'}">
+      <meta  name="description" content="${pgExcerpt.modifiedExcerpt @ context='html'}"/>
+   </sly>
+   <sly data-sly-test="${!pgExcerpt.modifiedExcerpt && currentPage.name !='news-detail'}">
+      <meta  name="description" content="${currentPage.title @ context='html'}" />
+   </sly>
+   <sly data-sly-test="${currentPage.name =='news-detail'}">
+      <meta  name="description" content="${newsDetailModel.title @ context='html'}" />
+   </sly>
+   <sly data-sly-test="${!currentPage.title}">
+      <meta  name="description" content="" />
+   </sly>
+</sly>
+<sly data-sly-use.analytics="${'com.cision.revamp.core.models.GoogleTMandAnalyticsModel'}" data-sly-unwrap></sly>
+<sly data-sly-test="${pageProperties.keyword}">
+   <meta name="keywords" content="${pageProperties.keyword @ context='html'}" />
+</sly>
+<sly data-sly-test="${!pageProperties.keyword &&  domainURL.languageValue != 'fr'}">
+   <meta name="keywords" content="Global Cloud-Based Communications, PR Software, Marketing, Media Relations Software and Services, Content Marketing, Media Monitoring, Media List Building, Distribution, Analysis" />
+</sly>
+<sly data-sly-test="${!pageProperties.keyword &&  domainURL.languageValue == 'fr'}">
+   <meta name="keywords" content="Communications infonuagiques mondiales, Logiciel de relations publiques, Marketing, Suite de logiciels et de services en relations avec les médias, Marketing de contenu, Veille médiatique, Création de listes médias, Distribution, Analyse" />
+</sly>
+<meta name="referrer" content="${pageProperties.referrer || 'no-referrer-when-downgrade'}" />
+<base href="${analytics.domain @ context='uri'}">
+<!-- OG Tags -->
+<sly data-sly-test="${currentPage.name !='news-detail'}">
+   <meta property="og:url" content="${analytics.domain @ context='uri'}${analytics.newPath @ context='uri'}"/>
+</sly>
+<sly data-sly-test="${currentPage.name == 'news-detail'}">
+   <sly data-sly-use.linkHelper="${'com.cision.revamp.core.helper.LinkCheckerHelper' @ link=newsDetailModel.path}">
+      <meta property="og:url" content="${analytics.domain @ context='uri'}${linkHelper.vanityPath @ context='uri'}" />
+   </sly>
+</sly>
+<sly data-sly-test="${currentPage.title =='Home' || currentPage.name =='Home' || currentPage.title =='home' || currentPage.name =='home' }">
+   <meta property="og:type" content="website" />
+</sly>
+<sly data-sly-test="${currentPage.title !='Home' && currentPage.name != 'Home' || currentPage.title != 'home' && currentPage.name != 'home' }">
+   <meta property="og:type" content="article" />
+   <meta property="article:publisher" content="https://www.facebook.com/CisionGlobal" />
+</sly>
+<meta property="og:locale" content="en_US" />
+<sly data-sly-test="${pageProperties.seotitle}">
+   <meta property="og:title" content="${pageProperties.seotitle}" />
+</sly>
+<sly data-sly-test="${!pageProperties.seotitle}">
+   <sly data-sly-test="${pageProperties.pageTitle}">
+      <meta property="og:title" content="${pageProperties.pageTitle}" />
+   </sly>
+   <sly  data-sly-test="${!pageProperties.pageTitle &&  domainURL.languageValue != 'fr' }">
+      <meta property="og:title" content="Cision - Global Cloud-Based Communications and PR Solutions Leader" />
+   </sly>
+   <sly  data-sly-test="${!pageProperties.pageTitle && domainURL.languageValue == 'fr' }">
+      <meta property="og:title" content="Chef, solutions de relations publiques et communications infonuagiques mondiales" />
+   </sly>
+</sly>
+<sly data-sly-test="${pageProperties.seodescription || pgExcerpt.modifiedExcerpt  @context='html'}">
+   <meta property="og:description" content="${seoDescription.trimmedSeoDescription @ context='html'}" />
+</sly>
+<sly data-sly-test="${!pageProperties.seodescription}">
+   <sly data-sly-test="${pgExcerpt.modifiedExcerpt @context='html'}">
+      <meta property="og:description" content="${pgExcerpt.modifiedExcerpt @ context='html'}"/>
+   </sly>
+   <sly data-sly-test="${!pgExcerpt.modifiedExcerpt && currentPage.name !='news-detail'}">
+      <meta property="og:description" content="${currentPage.title @ context='html'}" />
+   </sly>
+   <sly data-sly-test="${currentPage.name =='news-detail'}">
+      <meta  name="description" content="${newsDetailModel.title @ context='html'}" />
+   </sly>
+   <sly data-sly-test="${!currentPage.title}">
+      <meta property="og:description" content="" />
+   </sly>
+</sly>
+<meta property="og:site_name" content="Cision" />
+<sly data-sly-test="${analytics.domain && pageProperties['thumbnailImg']}"  data-sly-unwrap>
+   <sly data-sly-use.imgPathWithDomain="${'com.cision.revamp.core.models.AddDomainToUrl' @ domain=analytics.domain , path=pageProperties['thumbnailImg']}" data-sly-unwrap></sly>
+   <meta property="og:image" content="${imgPathWithDomain.pathWithDomain @ context='uri'}" />
+</sly>
+<sly data-sly-test="${inheritedPageProperties.authorableMetaTags != null}">
+   ${inheritedPageProperties.authorableMetaTags @ context='html'}
+</sly>
+<!-- Twitter tags -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="${pageProperties.seotitle || currentPage.title || currentPage.name  @ context='html'}" />
+<meta name="twitter:site" content="@cision" />
+<meta name="twitter:creator" content="@cision" />
+<sly data-sly-test="${pageProperties.seodescription || pgExcerpt.modifiedExcerpt  @context='html'}">
+   <meta name="twitter:description" content="${seoDescription.trimmedSeoDescription || pgExcerpt.modifiedExcerpt  @context='html'}" />
+</sly>
+<sly data-sly-test="${!pageProperties.seodescription}">
+   <sly  data-sly-test="${currentPage.description}">
+      <meta name="twitter:description" content="${seoDescription.trimmedSeoDescription || pgExcerpt.modifiedExcerpt  @context='html'}" />
+   </sly>
+   <sly  data-sly-test="${!currentPage.description && domainURL.languageValue != 'fr'}">
+      <meta name="twitter:description" content="Cision covers all aspects of your communication needs, helping you reach, target and engage your audience." />
+   </sly>
+   <sly  data-sly-test="${!currentPage.description && domainURL.languageValue == 'fr'}">
+      <meta  name="twitter:description" content="Cision couvre tous les aspects de vos besoin en matière de communication et vous aide �   cibler, rejoindre et captiver votre auditoire." />
+   </sly>
+</sly>
+<sly data-sly-test="${imgPathWithDomain && imgPathWithDomain.pathWithDomain}">
+   <meta name="twitter:image" content="${imgPathWithDomain.pathWithDomain @ context='uri'}"/>
+</sly>
+<!-- robots tag -->
+<sly data-sly-use.ampPage="${'com.cision.revamp.core.amp.CisionAMPPage'}">
+   <sly data-sly-use.linkHelper="${'com.cision.revamp.core.helper.LinkCheckerHelper' @ link=ampPage.linkHrefValue}">
+      <link data-sly-test="${ampPage.ampEnabled}" rel="${ampPage.linkRelValue}" href="${analytics.domain @ context='uri'}${linkHelper.vanityPath}">
+      <sly data-sly-test="${pageProperties.robots && analytics.canonical}">
+         <sly data-sly-test="${pageProperties.robots != 'noindex, follow' && pageProperties.robots !='noindex, nofollow'}">
+            <sly data-sly-test="${pageProperties.canonical && analytics.canonical}">
+               <link rel="canonical" href="${pageProperties.canonical @ context='html'}" />
+            </sly>
+            <sly data-sly-test="${!pageProperties.canonical && analytics.canonical}">
+               <link rel="canonical" href="${analytics.domain @ context='uri'}${analytics.newPath @ context='uri'}" />
+            </sly>
+         </sly>
+         <meta name="robots" content="${pageProperties.robots @ context='html'}"/>
+      </sly>
+      <sly data-sly-test="${!pageProperties.robots && analytics.canonical}">
+         <meta name="robots" content="index, follow" />
+         <sly data-sly-test="${pageProperties.canonical && analytics.canonical}">
+            <link rel="canonical" href="${pageProperties.canonical @ context='html'}" />
+         </sly>
+         <sly data-sly-test="${!pageProperties.canonical && analytics.canonical}">
+            <sly data-sly-test="${currentPage.title == 'Apply' || currentPage.title == 'Postuler'}">
+               <sly data-sly-use.jobDetail="${'com.cision.revamp.core.models.CareerDetailModel'}" />
+               <sly  data-sly-test="${domainURL.languageValue == 'fr'}">
+                  <link rel="canonical" href="${analytics.domain @ context='uri'}/carrieres/${jobDetail.careerDetailbean.pageUrl  @ context='uri'}postuler" />
+               </sly>
+               <sly  data-sly-test="${domainURL.languageValue != 'fr'}">
+                  <link rel="canonical" href="${analytics.domain @ context='uri'}/careers/${jobDetail.careerDetailbean.pageUrl  @ context='uri'}apply" />
+               </sly>
+            </sly>
+            <sly data-sly-test="${currentPage.title != 'Apply' && currentPage.title != 'Postuler'}">
+               <sly data-sly-test="${currentPage.name != 'news-detail'}">
+                  <link rel="canonical" href="${analytics.domain @ context='uri'}${analytics.newPath @ context='uri'}" />
+               </sly>
+               <sly data-sly-test="${currentPage.name == 'news-detail'}">
+                  <sly data-sly-use.linkHelper="${'com.cision.revamp.core.helper.LinkCheckerHelper' @ link=newsDetailModel.path}">
+                     <link rel="canonical" href="${analytics.domain @ context='uri'}${linkHelper.vanityPath @ context='uri'}" />
+                  </sly>
+               </sly>
+            </sly>
+         </sly>
+      </sly>
+      <sly data-sly-test="${!analytics.canonical}">
+         <meta name="robots" content="noindex, follow" />
+      </sly>
+      <sly data-sly-test="${pageProperties.next}">
+         <link rel="next" href="${pageProperties.next @ context='html'}" />
+      </sly>
+   </sly>
+</sly>

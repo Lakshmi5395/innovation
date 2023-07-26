@@ -1,0 +1,44 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder" data-emptytext="Configure Career Listing Component"></div>
+
+<template data-sly-template.jobsSection="${@ modelObj}">
+
+<section class="section--resource-detail-content-2 border-left-radius jobsListing">
+	<div class="content">
+		<div class="wrapper">
+			<h2 data-sly-test=${properties.jobListingtitle}>${properties.jobListingtitle}</h2>
+			<div class="padding-wrapper">
+				<div class="accordion js-accordion">
+					<sly data-sly-test="${modelObj.jobPostings}" data-sly-list.key="${modelObj.jobPostings.keySet.iterator}">
+						<div class="accordion-item js-accordion-item ${keyList.first ? 'active' : ''}" data-index="${keyList.index}">
+							<header class="accordion-item-header">
+								<button class="js-accordion-item-toggle">
+									<span class="icon"></span>
+									<span class="text">${key}</span>
+								</button>
+							</header>
+							<div class="accordion-item-content js-accordion-item-content">
+								<div class="accordion-item-content-wrapper js-accordion-item-content-wrapper career-category">
+									<sly data-sly-test="${modelObj.jobPostings}" data-sly-list.jobPostingsList="${modelObj.jobPostings[key]}">
+										<a href="${jobPostingsList.detailPageURL}" class="category-career" id="${jobPostingsList.country}">
+											<span class="career-position">${jobPostingsList.title}</span>
+											<span class="career-location">
+												<sly data-sly-test.isPresent="${jobPostingsList.workplaceType}">
+													${[jobPostingsList.location,jobPostingsList.workplaceType] @ join = ' - '}
+												</sly>
+												<sly data-sly-test="${!isPresent}">
+													${jobPostingsList.location}
+												</sly>
+											</span>
+										</a>
+									</sly>
+								</div>
+							</div>
+						</div>
+					</sly>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+</template>

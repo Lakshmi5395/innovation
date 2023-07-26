@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="sling:OsgiConfig"
+	getEraEnpoint = "https://era.prnewswire.com"
+	getSourceCOmpany = "Cision|Cision Ltd."
+	getEraProxyEnabled = "false"
+	getCisionFeedClientUser = "prnewswire.com"
+	getCisionNewsByURL = "/api/v1.0/release/url"
+	getLanguage = "en"
+	getTags = "www.prnewswire.com"
+   />

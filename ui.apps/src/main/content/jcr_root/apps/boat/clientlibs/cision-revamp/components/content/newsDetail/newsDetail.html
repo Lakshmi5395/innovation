@@ -1,0 +1,72 @@
+<sly data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder" data-emptytext="Edit News Detail Component"></sly>
+<sly data-sly-use.newsDetailModel="${'com.cision.revamp.core.models.NewsDetailModel'}"></sly>
+<sly data-sly-test.pagenotfound="${newsDetailModel.newsReleaseBody == 'PageNotFound' }" data-sly-unwrap>
+   </br>
+   </br>
+   </br>
+   </br>
+   </br>
+   </br>
+   <sly data-sly-resource="/content/cision-us/us/en/404/jcr:content/content_par" data-sly-unwrap></sly>
+</sly>
+<section class="section--top-hero" data-sly-test="${newsDetailModel.title}">
+   <header class="section-header text-center">
+      <div class="wrapper">
+         <div class="flex">
+            <div class="content">
+               <h1 class="title">
+                  ${newsDetailModel.title}
+               </h1>
+            </div>
+         </div>
+      </div>
+   </header>
+</section>
+<section class="section--content-links full-width">
+   <div class="content">
+      <div class="wrapper">
+         <div class="content-wrapper">
+            <header class="content-header">
+            </header>
+            <div class="links-wrapper">
+               <article class="content rich-text">
+                  <sly data-sly-test="${!pagenotfound}"> ${newsDetailModel.firstParagraph @context='html'}		  ${newsDetailModel.secondParagraph @context='html'}
+                  </sly>
+                  <sly  data-sly-test="${newsDetailModel.eraMultimediaList}">
+                     <div class="inlineGallery-component">
+                        <div class="inline-gallery-carousel" id="inline-gallery-carousel" >
+                           <sly data-sly-list.multimedia="${newsDetailModel.eraMultimediaList}">
+                              <sly data-sly-test="${multimedia.type =='video' || multimedia.type =='audio' }" data-sly-unwrap>
+                                 <sly data-sly-test.videoType="${multimedia.type == 'video' ? 'Video Open' : 'audio Open'}"></sly>
+                                 <div class="gallery-item mp4Video" data-thumb-src="${ multimedia.thumbnailUrl @context='uri' }"
+                                      data-src="${multimedia.sourceUrl @context='uri'}" data-poster="${ multimedia.thumbnailUrl @context='uri' }"
+                                      data-responsive-src="${ multimedia.thumbnailUrl @context='uri' }" data-title="${multimedia.caption @context='html' }"  data-alt="${multimedia.caption @context='html' }">
+                                 </div>
+                              </sly>
+                              <sly data-sly-test="${multimedia.type =='pdf' }" data-sly-unwrap>
+                                 <div class="gallery-item" data-thumb-src="${multimedia.sourceUrl @context='uri' }"
+                                      data-src="${multimedia.sourceUrl @context='uri' }" data-poster="" data-responsive-src="${multimedia.thumbnailUrl @context='uri' }"
+                                      data-title="${multimedia.caption @context='html'}" data-alt="${multimedia.caption @context='html' }">
+                                 </div>
+                              </sly>
+                              <sly data-sly-test="${multimedia.type =='photo'}" data-sly-unwrap>
+                                 <div class="gallery-item" data-thumb-src="${multimedia.publishUrl || multimedia.sourceUrl @context='uri' }"
+                                      data-src="${multimedia.publishUrl || multimedia.sourceUrl @context='uri' }" data-poster="" data-responsive-src="${multimedia.sourceUrl @context='uri' }"
+                                      data-title="${multimedia.caption @context='html' }" data-alt="${multimedia.caption @context='html' }">
+                                 </div>
+                              </sly>
+                        </div>
+                     </div>
+                  </sly>
+                  </sly>
+                  ${newsDetailModel.otherParagraph @context='html'}
+               </article>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<sly data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}">
+   <sly data-sly-call="${clientlib.css @ categories='clientlib-newsdetail'}" data-sly-unwrap/>
+   <sly data-sly-call="${clientlib.js @ categories='clientlib-newsdetail'}" data-sly-unwrap/>
+</sly>

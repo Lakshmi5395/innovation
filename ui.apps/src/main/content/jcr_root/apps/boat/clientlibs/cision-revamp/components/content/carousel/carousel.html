@@ -1,0 +1,44 @@
+<div data-sly-test="${(wcmmode.edit || wcmmode.design)}" class="cq-placeholder"
+     data-emptytext="Edit Carousel Component"></div>
+<section class="section--logos-carousel">
+    <div class="wrapper">
+        <sly data-sly-test="${properties.headline}">
+            <h2 class="headline">
+                                ${properties.headline}</h2>
+        </sly>
+        <div class="slider-wrapper">
+            <div class="marquee" data-marquee-current-direction="left" data-marquee-current-axis="x">
+                <div class="marquee-content"
+                     style="animation-timing-function: linear; animation-delay: 1s; animation-iteration-count: infinite; animation-name: marquee_left; animation-duration: 40s;">
+                    <div class="logos-wrapper">
+                        <sly data-sly-list.multifield="${resource.getChildren}">
+                            <sly data-sly-test="${multifield.name == 'logos'}">
+                                <sly data-sly-list.logo="${multifield.getChildren}">
+                                    <sly data-sly-test="${logo.ctalink || logo.fileReferenceImage}">
+                                        <div class="logo"><a href="${logo.ctalink}"></a> <img
+                                                src="${logo.fileReferenceImage}" alt="${logo.imagealt}"></div>
+                                    </sly>
+                                </sly>
+                            </sly>
+                        </sly>
+                    </div>
+                </div>
+                <div class="marquee-content"
+                     style="animation-timing-function: linear; animation-delay: 1s; animation-iteration-count: infinite; animation-name: marquee_left; animation-duration: 40s;">
+                    <div class="logos-wrapper">
+                        <sly data-sly-list.multifield="${resource.getChildren}">
+                            <sly data-sly-test="${multifield.name == 'logos'}">
+                                <sly data-sly-list.logo="${multifield.getChildren}">
+                                    <sly data-sly-test="${logo.ctalink || logo.fileReferenceImage}">
+                                        <div class="logo"><a href="${logo.ctalink}"></a> <img
+                                                src="${logo.fileReferenceImage}" alt="${logo.imagealt}"></div>
+                                    </sly>
+                                </sly>
+                            </sly>
+                        </sly>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

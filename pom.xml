@@ -23,7 +23,6 @@
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <description>BOAT Sites Project</description>
-
     <modules>
         <module>all</module>
         <module>core</module>
@@ -36,7 +35,6 @@
         <module>dispatcher</module>
         <module>ui.tests</module>
     </modules>
-
     <properties>
         <aem.host>localhost</aem.host>
         <aem.port>4502</aem.port>
